@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Cute+Font&family=Gamja+Flower&family=Gowun+Dodum&family=Noto+Serif+KR:wght@400;500;600&family=Single+Day&family=Stylish&display=swap');
+
+.body_container{
+  margin-left: 15%;
+  margin-bottom: 200px;
+  display: flex;
+}
+
+.body_container_left{
+  width: auto;
+  height: 80px;
+
+  flex:3;
+  border:solid 5px red;
+}
+
+.body_container_center{
+
+}
+
+.body_container_right{
+  flex:3;
+  border:solid 5px blue;
+}
+
+
+/* ------------------------왼쪽 네비바 ---------------------------------*/
+.left_nav {
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px;
+  width: 11%;
+  background: rgba(0,0,0, 0.07);
+  box-shadow: 10px 10px 10px 0 rgba(0,0,0, 0.2);
+  height: 25%;
+  
+  position: fixed;
+  border-radius: 8px;
+  margin-left: 35px;
+
+}
+
+.left_nav_text {
+  
+  padding:15px;
+  display: block;
+  
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.left_nav_text:hover {
+  transform: scale(1.1);
+  
+}
+
+.home{
+  color:rgb(44, 44, 44);
+  font-family: 'Gamja Flower', cursive;
+  font-size: 25px;
+}
+
+.cd1 {
+  margin-left: 120px;
+}
+
+div.minimalistBlack {
+  border: 3px solid #000000;
+  width: 100%;
+  text-align: center;
+  border-collapse: collapse;
+}
+.divTable.minimalistBlack .divTableCell, .divTable.minimalistBlack .divTableHead {
+  border: 1px solid #000000;
+  padding: 5px 0px;
+}
+.divTable.minimalistBlack .divTableBody .divTableCell {
+  font-size: 13px;
+}
+.divTable.minimalistBlack .divTableHeading {
+  background: #CFCFCF;
+  background: -moz-linear-gradient(top, #dbdbdb 0%, #d3d3d3 66%, #CFCFCF 100%);
+  background: -webkit-linear-gradient(top, #dbdbdb 0%, #d3d3d3 66%, #CFCFCF 100%);
+  background: linear-gradient(to bottom, #dbdbdb 0%, #d3d3d3 66%, #CFCFCF 100%);
+  border-bottom: 3px solid #000000;
+}
+.divTable.minimalistBlack .divTableHeading .divTableHead {
+  font-size: 15px;
+  font-weight: bold;
+  color: #000000;
+  text-align: center;
+}
+.minimalistBlack .tableFootStyle {
+  font-size: 14px;
+  font-weight: bold;
+  color: #000000;
+  border-top: 3px solid #000000;
+}
+.minimalistBlack .tableFootStyle {
+  font-size: 14px;
+}
+/* DivTable.com */
+.divTable{ display: table; }
+.divTableRow { display: table-row; }
+.divTableHeading { display: table-header-group;}
+.divTableCell, .divTableHead { display: table-cell;}
+.divTableHeading { display: table-header-group;}
+.divTableFoot { display: table-footer-group;}
+.divTableBody { display: table-row-group;}
+
+
+.body_container_center_shop_contanier{
+  display: flex;
+}
+.body_container_center_shop_contanier_img{
+  
+  height: 300px;
+}
+.body_container_center_shop_contanier_img img{
+  width: 300px;
+  height: 300px;
+  border:1px solid gold;
+  margin-left: 50px;
+}
+.body_container_center_shop_contanier_info{
+  margin-left: 50px;
+  height: 300px;
+  font-family: 'Gamja Flower', cursive;
+  font-size: 30px;
+}
+.body_container_center_shop_contanier_info div{
+  margin: 10px auto;
+  letter-spacing: 5px;
+
+
+
+}
+
+.body_container_center_shop_contanier_info_ta{
+  display: flex;
+  margin-right: 100px;
+}
+
+/*-------------------------------------*/
+.main_title{
+  font-size: 80px;
+  font-family: 'Cute Font', cursive;
+  margin-bottom: 20px;
+  
+}
+
+.img_button{
+  margin-left: 150px;
+  margin-top: 20px;
+  border:none;
+  border-radius: 5px;
+  background-color: rgba(0,0,0, 0.2);
+  color:white;
+  cursor: pointer;
+  width: 100px;
+  height:30px;
+}
+
+.main_font{
+  font-family: 'Gamja Flower', cursive;
+  font-size: 30px;
+  margin-top: 50px;
+  margin-left: 100px;
+}
+
+
+
+.input_box{
+  border:none;
+  background-color: rgba(0,0,0, 0.05);
+  height: 4vh;
+}
+
+textarea { 
+  vertical-align: top; 
+}
+.store_button1{
+  border:none;
+  border-radius: 5px;
+  background-color: rgba(0,0,0, 0.2);
+  color:white;
+  cursor: pointer;
+  width: 100px;
+  height:30px;
+  margin-left: 60px;
+}
+
+.store_button2{
+  border:none;
+  border-radius: 5px;
+  background-color: rgba(0,0,0, 0.2);
+  color:white;
+  cursor: pointer;
+  width: 100px;
+  height:30px;
+  margin-left: 20px;
+}

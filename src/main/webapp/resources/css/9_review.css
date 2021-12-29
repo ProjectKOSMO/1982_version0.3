@@ -1,0 +1,51 @@
+*{
+    box-sizing: border-box;
+}
+.review_title{
+    font-size: 40px;
+}
+
+
+
+.wrap{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+}
+img{
+    width: 300px;
+    height: 500px;
+}
+.star{
+    display: flex;
+    margin-left: 10px;
+    font-size: 50px;
+}
+.article{
+    display: flex;
+    flex-direction: column;
+    margin-left: 100px;
+    
+}
+input{
+    width: 25rem;
+    height: 3rem;
+
+}
+.input_text{
+    margin: 15px 0;
+
+}
+.input_box{
+    height: 200px;
+    margin-bottom: 15px;
+}
+
+button{
+    background-color: chartreuse;
+    border: none;
+    cursor: pointer;
+    color: white;
+    height: 30px;
+}
