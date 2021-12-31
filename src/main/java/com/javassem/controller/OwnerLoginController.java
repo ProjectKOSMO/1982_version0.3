@@ -9,11 +9,13 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.javassem.domain.OwnerBoardVO;
@@ -121,6 +123,19 @@ public class OwnerLoginController {
     }
     
     
+    // 한세호 =======================================================
+	@Autowired
+	private SqlSessionTemplate mybatis;
+	
+    // 구인공고페이지 취소 클릭 시 공고 게시판 삭제
+    @RequestMapping({"cancel_job.do"})
+    public String job_cancel(@RequestParam int board_seq){
+    	
+    	mybatis.update("owner.ownerBoardCancel",board_seq);
+    	return "redirect:job_positing.do";
+    }
+    // =======================================================
+    
     //구인공고페이지 클릭시  구독권을 구매한경우 구인공고페이지로 아닐경우 구독권 구매페이지로 이동
     @RequestMapping({"job_positing.do"})
     public String job_list(OwnerVO vo,OwnerBoardVO vo1,ShopVO vo2, Model m, HttpServletRequest request) throws Exception {
@@ -130,7 +145,7 @@ public class OwnerLoginController {
         vo.setOwnernum(ownernum);
         vo1.setOwnernum(ownernum);
         vo2.setOwnernum(ownernum);
-    
+        
         //---------------------------------------------------------------
 
         List<OwnerVO> list = ownerService.getList(vo);

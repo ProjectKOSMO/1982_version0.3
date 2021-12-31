@@ -191,7 +191,12 @@
                                 <td>${boardList.shopname }</td>
                                 <td>${boardList.jobDate}</td>
                                 <td>${boardList.need_Num }</td>
-                                <td>취소</td>
+                                
+                                <td><form action="cancel_job.do">
+                                <input type="hidden" name="board_seq" value="${boardList.board_owner_seq }">
+                                <input type="submit" value="공고 취소"/>
+                                </form>
+                                </td>
 
                             </tr>
 				                            

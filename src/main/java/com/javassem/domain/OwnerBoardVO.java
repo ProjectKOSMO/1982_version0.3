@@ -13,7 +13,7 @@ public class OwnerBoardVO {
 
   private String ownersub;
 
-  private String writer;
+  private String writer; // 작성자가 아니라 게시판이 보이게 할거냐 안보이게 할거냐 하는 부분
 
   private String content;
   
