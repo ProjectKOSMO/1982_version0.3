@@ -17,6 +17,9 @@ var lastPage;
 var CenterMarker;
 var Centerinfowindow;
 
+var ThisDIV;			//선택했던 가게를 담아놓는 변수
+var ThisMarker;			//선택했던 마커를 담아놓는 변수 
+
 //내 위치 검색하기
 function MyLocation(){
 	if (navigator.geolocation) {
@@ -115,6 +118,30 @@ function Test(){
 		dataType:'json',
 		success:function(result){
 			
+			for (var i = 0; i < result.length; i ++) {
+				var confirm_y = result[i].location_y;
+				var confirm_x = result[i].location_x;
+				console.log("이전 값"+i+"번째"+result[i].location_y);
+
+				
+				for(var y = 0; y < result.length; y ++){
+					var confirm_y2 = result[y].location_y;
+					var confirm_x2 = result[y].location_x;
+				
+					if(i!=y){
+						if(confirm_y.toFixed(20)==confirm_y2.toFixed(20) && confirm_x.toFixed(20)==confirm_x2.toFixed(20)){
+							console.log("같은 값"+y+"번째"+result[y].location_y);
+
+							result[i].location_x=result[i].location_x+0.00005;
+							console.log("이후 값"+i+"번째"+result[i].location_y);
+						}
+					}else{continue;}
+				}
+				
+			}
+			
+			for (var i = 0; i < result.length; i ++) {console.log(result[i].location_y)}
+			
 			try{
 				for ( var i = 0; i < markers.length; i++ ) {
 		    	markers[i].setMap(null);
@@ -170,32 +197,53 @@ function Test(){
 				
 				var searchPost=document.getElementById('searchPost'); //붙일 div
 				
-				console.log(searchPost);
 				
 				//searchPost.remove();
 				
 				$("#searchPost *").remove();
 				
 				for(var i=0;i<result.length; i++){
+				var z = i+1;
+				var newNumIMG = document.createElement("img");
+				newNumIMG.setAttribute("class","NumIMG");
+				newNumIMG.src="../resources/images/"+z+".png";
 				
 				var newDIV = document.createElement("div");	//새로 생성된 div
 				newDIV.setAttribute("class","main_right");
+				newDIV.setAttribute("id",i);
 				
 				var newIMG = document.createElement("img");
+				newIMG.setAttribute("class","main_right_Img");
 				newIMG.src="../resources/upload/"+result[i].si_realname;
 				
 				var newDIV2 = document.createElement("div");	//새로 생성된 div
-				newDIV2.innerHTML=result[i].shopName+"\r\n"+result[i].shoppay;
+				newDIV2.setAttribute("class","shopName")
+				newDIV2.innerHTML="가게 이름 : "+result[i].shopName;
 				
-				var newDIV3 = document.createElement('a');
+				var newDIV3 = document.createElement("div");
+				newDIV3.innerHTML="알바 수당 : "+result[i].shoppay+" 원";
+				
+				var newDIV4 = document.createElement('a');
 				var AText= document.createTextNode("자세히 보기");
-				newDIV3.setAttribute('href', "userSupport.do?board_owner_seq="+result[i].board_owner_seq);
-				newDIV3.appendChild(AText);
+				newDIV4.setAttribute('href', "userSupport.do?board_owner_seq="+result[i].board_owner_seq);
+				newDIV4.appendChild(AText);
+				
+				var newDIV5 = document.createElement("div");
+				newDIV5.setAttribute("class","searchLocation_y");
+				newDIV5.innerHTML=result[i].location_y;
+				
+				var newDIV6 = document.createElement("div");
+				newDIV6.setAttribute("class","searchLocation_x");
+				newDIV6.innerHTML=result[i].location_x;
 				
 				searchPost.appendChild(newDIV);
+				newDIV.appendChild(newNumIMG);
 				newDIV.appendChild(newIMG);
 				newDIV.appendChild(newDIV2);
 				newDIV.appendChild(newDIV3);
+				newDIV.appendChild(newDIV4);
+				newDIV.appendChild(newDIV5);
+				newDIV.appendChild(newDIV6);
 				}
 		},
 		 error:function(request,status,error){
@@ -265,10 +313,10 @@ MyLocation();
 
 $(function(){
 	//맨처음 화면을 불러올 때 쓸 함수
-
+setTimeout(function(){
 	Test();
-	Test2();
-	
+	Test2();},500
+	);
 	
 //검색 클릭 시
 	$("#em").click(function(){
@@ -328,6 +376,57 @@ $(function(){
 	
 	openWin=window.open("locationExchange.do","childForm","width=1300, height=700, resizable = no, scrollbars = no");
 	
+	});
+	
+	$(".main").on("click",".main_right",function(){
+		
+		if(ThisDIV != $(this).attr('id')){
+		
+		ThisDIV=$(this).attr('id');
+		
+		for(var i=0;i<markers.length; i++){
+	    	markers[i].setMap(null);
+		}
+		
+		try{ThisMarker.setMap(null)
+			}catch(error){}
+		
+		var forlocation_y=$(this).children(".searchLocation_y").text();
+		var forlocation_x=$(this).children(".searchLocation_x").text();
+		var shopName=$(this).children(".shopName").text();
+		console.log(shopName);
+		
+		var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
+		
+		// 마커 이미지의 이미지 크기 입니다
+	    var imageSize = new kakao.maps.Size(24, 35); 
+	    
+	    // 마커 이미지를 생성합니다    
+	    var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize); 
+	    
+	    // 마커를 생성합니다
+	    var marker = new kakao.maps.Marker({
+	        map: map, // 마커를 표시할 지도
+	        position: new kakao.maps.LatLng(forlocation_y,forlocation_x), // 마커를 표시할 위치
+	        title : shopName, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
+	        image : markerImage // 마커 이미지 
+	    });
+	    
+	    ThisMarker=marker;
+	    
+	    ThisMarker.setMap(map);
+	    
+		}else{
+			for(var i=0;i<markers.length; i++){
+		    	markers[i].setMap(map);
+			}
+			try{ThisMarker.setMap(null)
+			}catch(error){}
+			
+			ThisDIV=5;
+		}
+		
+		
 	});
 	
 })

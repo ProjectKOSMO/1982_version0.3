@@ -111,19 +111,20 @@
                         <!-- 중간 메뉴바 시작-->
                         <div>
                             <div class="main_font">나의 매장 :
-                                <input name="shopname" class="select_css"/>                         
-
+                                <input class="input_box" type="text" value="${shopList[0].shopName}" disabled>                
+								<input class="hide" type="text" name="shopname" value="${shopList[0].shopName }">		
                             </div>
                             <div class="main_font">근무 날짜 :
                                 <input type="date" name="jobDate" class="select_css"
-	      						 value="2021-12-21" min="2021-12-21" max="2022-12-20">
+	      						 value="2021-12-30" min="2021-12-21" max="2022-12-20">
                             </div>
                             <div class="main_font">근무 시작 시간 :
                                 <input type="time" id="jobStart" name="jobTime_start" class="select_css"
                                     value="15:00:00">
                             </div>
                              <div class="main_font salary">주소 :
-                                <input class="input_box" type="text" name="shopaddr" placeholder=" 상세하게 적어주세요">
+                                 <input class="input_box" type="text" value="${shopList[0].shopaddr }" style="width:100%" disabled>
+                                 <input class="hide" type="text" name="shopaddr" value="${shopList[0].shopaddr }">
                             </div>
                             <div class="main_font">근무 종료 시간 :
                                 <input type="time" id="jobEnd" name="jobTime_end" class="select_css" value="23:00:00">
@@ -131,15 +132,16 @@
                             <div class="main_font salary">급여 :
                                 <input class="input_box" type="text" name="shoppay" placeholder=" 상세하게 적어주세요">
                             </div>
-                            <div class="main_font">우대사항 :
-                                <input class="input_box" type="text" placeholder=" 내용을 입력해주세요">
+                            <div class="main_font">연락처 :
+                                <input class="input_box" type="text" value="${shopList[0].shoppn }" disabled>
+                                <input class="hide" type ="text" name="shoppn" value="${shopList[0].shoppn }" >
                             </div>
                             <div class="main_font">필요인원 :
                                 <input class="input_box" type="text" name="need_Num" placeholder=" 내용을 입력해주세요">
                             </div>
                             <div class="main_font">상세내용 :
 
-                                <textarea name="" id="" cols="30" rows="10"></textarea>
+                                <textarea name="content" id="" cols="30" rows="10" style="resize:none;"></textarea>
                             </div>
                             
                             <div class="hide">

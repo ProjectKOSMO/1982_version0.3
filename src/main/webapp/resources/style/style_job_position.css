@@ -4,6 +4,9 @@
   
   
 }
+.hide{
+	display:none;
+}
 
 .body_container_left{
   width: auto;
@@ -113,13 +116,13 @@ div.minimalistBlack {
 
 .main_title{
   font-size: 80px;
-  font-family: 'Cute Font', cursive;
+  font-family:;
   margin-bottom: 20px;
-  
+  font-family: 'Gowun Dodum', sans-serif;
 }
 .main_font{
-  font-family: 'Gamja Flower', cursive;
-  font-size: 30px;
+  font-family: 'Gowun Dodum', sans-serif;
+  font-size: 25px;
   margin-top: 50px;
   margin-left: 100px;
 }
@@ -136,6 +139,7 @@ div.minimalistBlack {
   border:none;
   background-color: rgba(0,0,0, 0.05);
   height: 4vh;
+  
 }
 .main_wrap{
   display: flex;
@@ -279,4 +283,132 @@ ul, li{
   
   
 }
+
+
+/*------------------------- 반응형  css  -------------------------------- */
+
+@media screen and (max-width: 768px) {
+    
+
+  .section2{
+      margin-bottom: 100px;
+    }
+    #wrap{
+      margin-left: 50px;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
+    
+  
+  
+    .rap_inner_h4{
+      font-size: 20px;
+    }
+    .left_text{
+      font-size: 15px;
+    }
+    .footer_icon{
+      font-size: 10px;
+    }
+    
+    .right_area{
+      
+      font-size: 15px;
+    }
+    .right_ul{
+      
+    }
+  
+  
+  
+    .lorem{
+      margin: auto;
+    }
+    
+    
+    .title{
+      margin-top: 10px;
+    }
+    .title_wrap{
+      margin-left: 50px;
+    }
+    
+  
+  /*------------------------헤더 ----------------------------*/
+  .logo h1{
+    font-size: 50px;
+  }
+  .right-menu{
+    
+  }
+  .right-menu a{
+    font-size: 20px;
+    
+  }
+  #s1{
+    font-size: 20px;
+    padding: 0;
+  }
+  #s2{
+    font-size: 20px;
+    padding: 0;
+  }
+  #s3{
+    font-size: 20px;
+    padding: 0;
+  }
+  
+  
+  
+    /*------------------------왼쪽 메뉴 -------------------*/
+    .left_nav{
+        width: 400px;
+        height: 250px;
+        position: sticky;
+        
+    }
+    #left_nav1{
+        width: 400px;
+        height: 250px;
+        position: sticky;
+    }
+    .left_nav_text{
+        font-size: 25px;
+        color:black;
+        
+    }
+    .left_nav_text a{
+      color: rgba(0,0,0, 0.7);
+    }
+  
+    .body_container_center{
+        margin-top: 200px;
+        display: block;
+    }
+   
+    .body_container_center_shop_contanier{
+      display: block;
+    }
+   
+    .body_container_center_shop_contanier_info{
+      
+      margin: 300px auto;
+    }
+    
+    #search_title{
+      margin-top: 300px;
+    }
+    .main_font{
+      font-size: 30px;
+      margin: 30px auto;
+    }
+    .main_button{
+      display: inline-block;
+      margin: 50px auto;
+    }
+
+
+  
+    }
 

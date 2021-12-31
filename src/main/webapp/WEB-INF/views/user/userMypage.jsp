@@ -43,13 +43,13 @@
                <div class="right-menu">
                
                    <!--검색 -->
-                   <a href="storeClose.do" class="search">
+                   <a href="storeClose.do?userid=${userId}" class="search">
                   		 일자리찾기
                    </a>
                    <a href="userMypage.do?userid=${userId}" class="user">
                    		마이페이지
                    </a>
-                   <a href="userBoard.do">
+                   <a href="userBoard.do?userid=${userId}">
                  		  고객센터                       
                    </a>
                    <a href="/project1982/index.jsp" class="logout">
@@ -71,8 +71,7 @@
                 <br/>
                 <li class="left_nav_text"><a href="#actor1">업체지원현황</a></li>
                 <br/>
-                <li class="left_nav_text"><a href="#">간단한이력서</a></li>
-                
+                <li class="left_nav_text"><a href="#" onclick="window.open('userInfoView.do', '간단한 이력서','width=700;, height=500, resizable = no, scrollbars = no'); return false">간단한이력서</a></li>  
             </ul>
             
         <!-- 프로필 수정 -->
@@ -130,57 +129,52 @@
 		                	
 		                	<table id="mypageTable">
 								<tr>
-									<th bgcolor="#dee2e6" width="100" >NO</th>
+									
 									<th bgcolor="#dee2e6" width="140" >일자</th>
+									<th bgcolor="#dee2e6" width="100" >시작시간</th>
+									<th bgcolor="#dee2e6" width="100" >종료시간</th>
 									<th bgcolor="#dee2e6" width="240" >업체명</th>
-									<th bgcolor="#dee2e6" width="100" >지원자수</th>
+									<th bgcolor="#dee2e6" width="100" >급여</th>
 									<th bgcolor="#dee2e6" width="140" >매칭 여부</th>
 									<!-- 추가 -->
 								</tr>
-								<c:forEach items="${boardList}" var="board">
+								<c:forEach items="${support}" var="su">
 									<!-- 프라퍼티이름 변경 -->
 									<tr>
-										<td>${board.b_id }</td>
-										<td align="left">
-										<a href="getBoard.do?b_id=${board.b_id}">${board.b_title}</a>
-										</td>
-										<td>${board.b_name }</td>
-										<td>${board.b_date }</td>
-										<td>${board.b_count }</td>
+										<td>${su.jobDate }</td>
+										<td>${su.jobTime_start }</td>
+										<td>${su.jobTime_end }</td>
+										<td><a href="getBoard.do?b_id=${su.b_id}">${su.shopname}</a></td>
+										<td>${su.shoppay }</td>
+										<td>${su.shoppay }</td>
 										<!-- 추가 -->
 									</tr>
 								</c:forEach>
 							</table> 
                             </div>
-                            
+                           
                             <div class= "body_container_center_shop_contanier_info1">
                             	<div class="body_container_center_shop_contanier_info_ta1">
-                            		<c:if test="${board.b_realfname != null}">
-                            			<img src="/project1982/resources/upload/${board.b_realfname}">
-                            		</c:if>
+                            		<%-- <c:if test="${ != null}">
+                            			<img src="/project1982/resources/upload/${}">
+                            		</c:if> --%>
                             	</div>
-                            	
                             	<!-- 업체 미리보기 -->
                             	<div style="margin-left:10%;margin-right:10%;">
 	                            	<br/>
-	                            	${board.b_id}$가게이름
+	                            	 - 업체이름 : 
 	                            	<br/>
 	                            	<hr/>
 	                            	<br/>
-	                            	${board.b_title }$작업
+	                            	 - 업체주소 : 
 	                         		<br/>
 	                            	<hr/>
 	                            	<br/>                
-	                            	${board.b_name }$가게주소
+	                            	 - 업체 전화번호 : 
 	                            	<br/>
 	                            	<hr/>
 	                            	<br/>
-	                            	${board.b_date }$업체평점
-	                            	<br/>
-	                            	<hr/>
                             	</div>
-                            
-								
                             </div>
                         </div>
 

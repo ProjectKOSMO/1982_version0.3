@@ -16,14 +16,19 @@ a {
     justify-content: space-between;
     align-items: center;
     padding: 0px 45px;
- 
-  height: 150px;
-  width: 100%;
-  box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.05);
-  margin-bottom: 100px;
+    height: 150px;
+    width: 100%;
+    box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.05);
+    margin-bottom: 100px;
+  }
+  .logo{
+    font-size: 100px;
+    color:black;
+    text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.5);
   }
   .logo img {
     height: 70px;
+    
   }
   .menu {
     display: flex;
@@ -40,62 +45,19 @@ a {
     color: #555555;
   }
   .right-menu a {
-    margin: 0px 10px;
-    font-size: 1.2rem;
+    padding-right: 60px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 1.5rem;
     color: rgba(0, 0, 0, 0.7);
   }
   .menu a:hover,
   .right-menu a:hover,
   .search-cancel:hover,
   .form-cancel:hover {
-    color: #0b9d8a;
+    color: #ebe717;
     transition: all ease 0.3s;
   }
-  .sale-lable {
-    width: 38px;
-    height: 17px;
-    background-color: #f76b6a;
-    color: #ffffff;
-    font-weight: 400;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    position: absolute;
-    top: -25px;
-    right: -10px;
-  }
-  .sale-lable:after {
-    content: "";
-    width: 0px;
-    height: 0px;
-    border-bottom: 5px solid transparent;
-    border-left: 3px solid transparent;
-    border-top: 7px solid #f76b6a;
-    border-right: 5px solid transparent;
-    position: absolute;
-    left: 10%;
-    top: 100%;
-  }
-  .fa-shopping-cart {
-    position: relative;
-  }
-  .num-cart-product {
-    position: absolute;
-    top: -17px;
-    right: -17px;
-    width: 25px;
-    height: 25px;
-    font-size: 0.8rem;
-    border-radius: 50%;
-    background-color: #0b9d8a;
-    color: #ffffff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: 400;
-  }
+  
 
   /* footer ------------------------------------------------------------ */
 
@@ -190,7 +152,7 @@ margin:auto 300px;
     display: flex;
     flex-direction: column;
     margin: 50px 200px;
-    width:45%;
+    width:55%;
   }
   
   #login-form input {
@@ -235,56 +197,20 @@ margin:auto 300px;
     width: 500px;
     height: 700px;
     margin-top: 50px;
-    border: 5px solid lightsalmon;
+    
 }
-.review_star{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-left: 200px;
 
-    width: 300px;
+.img_box{
+	width:100%;
+  height: 100%;
+ 
+  background-size: contain;
+}
 
-    height: 150px;
-    border: 2px solid lightcoral;
 
-}
-.star{
-    margin: 10px 0;
 
-}
-.button{
-	display:flex;
-	justify-content:center;
-	flex-direction: column;
-	align-items:center;
-	text-align: center;
-  border: none;
-  cursor: pointer;
-  background-color: transparent;
-  font-size: 30px;
-  font-family: 'Cute Font', cursive;
-}
-@keyframes heartBeat {
-  0% {
-    color: tomato;
-    transform: none;
-  }
-  50% {
-    color: tomato;
-    transform: scale(1.5);
-  }
-  100% {
-    color: tomato;
-    transform: none;
-  }
-}
-.button:hover{
-  will-change: transform;
-  animation: heartBeat 1s ease-in-out infinite;
 
-}
+
 
 
 
@@ -323,10 +249,101 @@ table{
 
 
 
+/*-----------------  support   ------------------- */
 
 
 
 
+.button{
+  border: none;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.2);
+  font-size: 30px;
+  margin-top: 30px;
+  margin-left: 60px;
+  width: 200px;
+  height: 100px;
+  border-radius: 10px;
+  color:white;
+
+  display:flex;
+  justify-content:center;
+  flex-direction: column;
+  align-items:center;
+  text-align: center;
+
+  
+}
+@keyframes heartBeat {
+  0% {
+    color: tomato;
+    transform: none;
+  }
+  50% {
+    color: tomato;
+    transform: scale(1.2);
+  }
+  100% {
+    color: tomato;
+    transform: none;
+  }
+}
+.button:hover{
+  will-change: transform;
+  animation: heartBeat 1s ease-in-out infinite;
+}
+
+#button1{
+  font-family: 'Gowun Dodum', sans-serif;
+}
+
+.border_bottom{
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  margin-bottom: 50px;
+  padding-bottom: 10px;
+  font-size: 20px;
+}
+
+
+
+@media screen and (max-width: 768px) {
+  .logo h1{
+    font-size: 50px;
+  }
+  .right-menu{
+    
+  }
+  .right-menu a{
+    font-size: 20px;
+    
+  }
+  #s1{
+    font-size: 20px;
+    padding: 0;
+  }
+  #s2{
+    font-size: 20px;
+    padding: 0;
+  }
+  #s3{
+    font-size: 20px;
+    padding: 0;
+  }
+
+  #wrap{
+      margin-left: 50px;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+  }
+
+
+ 
+
+
+
+  
+}
 
 
 

@@ -157,9 +157,26 @@ margin:auto 300px;
     
 }
 
+.searchLocation_y {
+  display: none;
+}
+.searchLocation_x {
+  display: none;
+}
+.NumIMG{
+   width: 25px;
+  height: auto;
+  padding: 0;
+  margin: 0;
+}
 
-
-
+.main_right_Img {
+  width: 150px;
+  height: auto;
+  background-size: contain;
+  padding: 0;
+  margin: 0;
+}
 
 
 
@@ -272,13 +289,7 @@ margin:0px;
 text-align:center;
 }
 
-.main_right > img{
-  width: 150px;
-  height: auto;
-  background-size: contain;
-  padding: 0;
-  margin:0;
-}
+
 
 
 

@@ -30,6 +30,7 @@ public class UserBoardController {
   public String test(@PathVariable String step, HttpServletRequest request, Model m){
 	HttpSession session = request.getSession();
       m.addAttribute("userId",session.getAttribute("userId"));
+      m.addAttribute("userPass",session.getAttribute("userPass"));
       return "/user/" + step;
   }
 	 
@@ -74,8 +75,11 @@ public class UserBoardController {
   }
   
   @RequestMapping({"/user/getBoard.do"})
-  public void getBoard(BoardVO vo, Model m) {
+  public void getBoard(BoardVO vo,  HttpServletRequest request, Model m) {
     BoardVO result = this.boardService.getBoard(vo);
+	HttpSession session = request.getSession();
+    m.addAttribute("userId",session.getAttribute("userId"));
+    m.addAttribute("userPass",session.getAttribute("userPass"));
     m.addAttribute("board", result);
   }
   

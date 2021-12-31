@@ -18,6 +18,10 @@ public class ShopServiceImpl implements ShopService {
   public List<ShopVO> ShopList(ShopVO vo) {
     return this.shopDAO.ShopList(vo);
   }		
+  
+  public List<ShopVO> ShopList1(ShopVO vo) {
+	    return this.shopDAO.ShopList1(vo);
+	  }		
 		/*public List<ShopVO> ShopList(ShopVO vo) {
 			return shopDAO.ShopList(vo);
 		}*/

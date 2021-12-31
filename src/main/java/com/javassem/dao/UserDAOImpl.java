@@ -1,10 +1,15 @@
 package com.javassem.dao;
 
 
-import com.javassem.domain.UserVO;
+import java.util.HashMap;
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
+import com.javassem.domain.ShopVO;
+import com.javassem.domain.UserVO;
 
 @Repository("userDAO")
 public class UserDAOImpl implements UserDAO {
@@ -45,5 +50,9 @@ public class UserDAOImpl implements UserDAO {
 	
 	public UserVO getUserInfoView(UserVO vo) {
 	    return (UserVO)this.mybatis.selectOne("user.getUserView", vo);
+	}
+
+	public List<HashMap> getShopList(HashMap map) {
+		return this.mybatis.selectList("user.getShopList", map);
 	}
 }

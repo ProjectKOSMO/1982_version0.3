@@ -3,30 +3,20 @@ import java.io.File;
 import java.io.IOException;
 import java.util.UUID;
 import org.springframework.web.multipart.MultipartFile;
+
 public class BoardVO {
-  private int b_id;
-  
-  private String b_name;
-  
-  private String b_email;
-  
-  private String b_title;
-  
-  private String b_content;
-  
-  private String b_pwd;
-  
-  private String b_date;
-  
-  private int b_count;
-  
-  private String b_fname;
-  
-  private String b_realfname;
-  
-  private long b_fsize;
-  
-  MultipartFile file;
+  private int b_id; // 게시판 번호
+  private String b_name; // 작성자 이름
+  private String b_email; // 작성자 이메일
+  private String b_title; // 게시판 제목
+  private String b_content; // 게시판 콘텐츠
+  private String b_pwd; // 게시판 비밀번호
+  private String b_date; // 작성날짜
+  private int b_count; // 조회수
+  private String b_fname; // 업로드파일 이름
+  private String b_realfname; // 업로드파일 수정된 이름
+  private long b_fsize; // 업로드파일 사이즈
+  MultipartFile file; // 파일관련 업로드관련
   
   public MultipartFile getFile() {
     return this.file;
@@ -35,10 +25,11 @@ public class BoardVO {
   public void setFile(MultipartFile file) {
     this.file = file;
     if (!file.isEmpty()) {
-      this.b_fname = file.getOriginalFilename();
-      this.b_fsize = file.getSize();
-      UUID uuid = UUID.randomUUID();
-      this.b_realfname = String.valueOf(uuid.toString()) + "_" + this.b_fname;
+      this.b_fname = file.getOriginalFilename(); // 기본 파일 이름
+      this.b_fsize = file.getSize(); // 파일 사이즈
+      UUID uuid = UUID.randomUUID(); 
+      this.b_realfname = String.valueOf(uuid.toString()) + "_" + this.b_fname; // 중복되지 않는 파일 이름 생성
+      // 경로지정
       File f = new File("C:\\Programing\\git\\project1982\\src\\main\\webapp\\resources\\upload\\" + this.b_realfname);
       try {
         file.transferTo(f);

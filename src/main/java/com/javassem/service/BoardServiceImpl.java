@@ -13,6 +13,7 @@ public class BoardServiceImpl implements BoardService {
   @Autowired
   private BoardDAOImpl boardDAO;
   
+  // 게시판 서비스
   public void insertBoard(BoardVO vo) {
     this.boardDAO.insertBoard(vo);
   }
@@ -29,6 +30,7 @@ public class BoardServiceImpl implements BoardService {
     return this.boardDAO.getBoard(vo);
   }
   
+  // 게시판 검색기능 / 페이징처리
   public List<BoardVO> getBoardList(HashMap map) {
     return this.boardDAO.getBoardList(map);
   }

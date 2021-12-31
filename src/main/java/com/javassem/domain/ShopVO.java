@@ -2,7 +2,7 @@ package com.javassem.domain;
 
 public class ShopVO {
 	private String shopName;
-	private String showpn;
+	private String shoppn;
 	private String shopcm;
 	private String shopaddr;
 	private int shopins;
@@ -12,7 +12,7 @@ public class ShopVO {
 	private String shopdate;
 	private String jobDate;
 	private String normal_emergency;
-	private String ownernum;
+	private int ownernum;
 	private String jobTime_start;
 	private String jobTime_end;
 	private int board_owner_seq;
@@ -32,11 +32,12 @@ public class ShopVO {
 	public void setShopname(String shopName) {
 		this.shopName = shopName;
 	}
-	public String getShowpn() {
-		return showpn;
+	
+	public String getShoppn() {
+		return shoppn;
 	}
-	public void setShowpn(String showpn) {
-		this.showpn = showpn;
+	public void setShoppn(String shoppn) {
+		this.shoppn = shoppn;
 	}
 	public String getShopcm() {
 		return shopcm;
@@ -99,10 +100,10 @@ public class ShopVO {
 	public void setBoard_owner_seq(int board_owner_seq) {
 		this.board_owner_seq = board_owner_seq;
 	}
-	public String getOwnernum() {
+	public int getOwnernum() {
 		return ownernum;
 	}
-	public void setOwnernum(String ownernum) {
+	public void setOwnernum(int ownernum) {
 		this.ownernum = ownernum;
 	}
 	public String getJobTime_start() {

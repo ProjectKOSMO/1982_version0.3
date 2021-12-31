@@ -6,7 +6,8 @@ import com.javassem.domain.ShopVO;
 
 public interface ShopService {
   List<ShopVO> ShopList(ShopVO paramShopVO);
-
+  
+  List<ShopVO> ShopList1(ShopVO paramShopVO);
 	// 글 목록 조회
 /*	List<ShopVO> ShopList(ShopVO vo);*/
 

@@ -49,6 +49,7 @@
 <body>
 <% 
 	String userId = (String)session.getAttribute("userId");
+	String userPass = (String)session.getAttribute("userPass");
 %>
         <!--메뉴바  ------------------------------------------------->
         <header class="header" >
@@ -61,13 +62,13 @@
                <!--유저 메뉴--> 
                <div class="right-menu">
                    <!--검색 -->
-                   <a href="storeClose.do" class="search">
+                   <a href="storeClose.do?userid=${userId}" class="search">
                    일자리찾기
                    </a>
                    <a href="userMypage.do?userid=${userId}" class="user">
                    마이페이지
                    </a>
-                   <a href="userBoard.do">
+                   <a href="userBoard.do?userid=${userId}">
                    고객센터                       
                    </a>
                    <a href="/project1982/index.jsp" class="logout">
@@ -128,7 +129,7 @@
 				<!-- 프라퍼티이름 변경 -->
 				<tr>
 					<td>${board.b_id }</td>
-					<td align="left"><a href="getBoard.do?b_id=${board.b_id}" id="go">
+					<td align="left"><a href="#" onclick="window.open('getBoard.do?b_id=${board.b_id}', '상세글보기','width=500;, height=500, resizable = no, scrollbars = no'); return false">
 							${board.b_title }</a></td>
 					<td>${board.b_name }</td>
 					<td>${board.b_date }</td>
@@ -146,7 +147,7 @@
 				</tr>
 			</c:forEach>
 		</table>
-		<br> <a href="insertBoard.do">새글 등록</a>
+		<br> <a href="#" onclick="window.open('insertBoard.do', '새글등록','width=500;, height=500, resizable = no, scrollbars = no'); return false">새글 등록</a>
 		
 		
 			<div style="display: block; text-align: center;">		

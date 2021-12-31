@@ -6,6 +6,8 @@ import java.util.HashMap;
 import java.util.List;
 
 public interface BoardService {
+	
+  // 게시판 서비스
   void insertBoard(BoardVO paramBoardVO);
   
   void updateBoard(BoardVO paramBoardVO);
@@ -14,6 +16,7 @@ public interface BoardService {
   
   BoardVO getBoard(BoardVO paramBoardVO);
   
+  // 게시판 검색기능 / 페이징처리
   List<BoardVO> getBoardList(HashMap paramHashMap);
   
   int countBoard();

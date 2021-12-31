@@ -1,0 +1,76 @@
+package com.javassem.domain;
+
+public class Payed_listVO {
+	private String imp_uid;
+	private String merchant_uid;
+	private String biz_email;
+	private String pay_date;
+	private String amount;
+	private String card_no;
+	private String refund;
+	private String pay_date_end;
+	private int ownernum;
+	private String coupon_type;
+	
+	public String getCoupon_type() {
+		return coupon_type;
+	}
+	public void setCoupon_type(String coupon_type) {
+		this.coupon_type = coupon_type;
+	}
+	public int getOwnernum() {
+		return ownernum;
+	}
+	public void setOwnernum(int ownernum) {
+		this.ownernum = ownernum;
+	}
+	public String getPay_date_end() {
+		return pay_date_end;
+	}
+	public void setPay_date_end(String pay_date_end) {
+		this.pay_date_end = pay_date_end;
+	}
+	public String getImp_uid() {
+		return imp_uid;
+	}
+	public void setImp_uid(String imp_uid) {
+		this.imp_uid = imp_uid;
+	}
+	public String getMerchant_uid() {
+		return merchant_uid;
+	}
+	public void setMerchant_uid(String merchant_uid) {
+		this.merchant_uid = merchant_uid;
+	}
+	public String getBiz_email() {
+		return biz_email;
+	}
+	public void setBiz_email(String biz_email) {
+		this.biz_email = biz_email;
+	}
+	public String getPay_date() {
+		return pay_date;
+	}
+	public void setPay_date(String pay_date) {
+		this.pay_date = pay_date;
+	}
+	public String getAmount() {
+		return amount;
+	}
+	public void setAmount(String amount) {
+		this.amount = amount;
+	}
+	public String getCard_no() {
+		return card_no;
+	}
+	public void setCard_no(String card_no) {
+		this.card_no = card_no;
+	}
+	public String getRefund() {
+		return refund;
+	}
+	public void setRefund(String refund) {
+		this.refund = refund;
+	}
+	
+}

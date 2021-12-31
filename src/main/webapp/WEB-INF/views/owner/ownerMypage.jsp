@@ -22,7 +22,7 @@
 	out.println("번호 : " + ownernum);
 %>
         <!--메뉴바  ------------------------------------------------->
-       <header class="header" >
+        <header class="header" >
             <!-- 로고-->
                <div>
                <a href="#" class="logo">
@@ -34,16 +34,13 @@
                
                <!-- 오른쪽 메뉴-->
                <div class="right-menu">
-                   <!--검색 -->
-                   <a href="/project1982/owner/job_positing.do" class="search">
-                    구인공고
-                   </a>
+           
                    <!--유저 -->
-                   <a href="/project1982/owner/ownerMypage.do" class="user">
+                   <a href="/project1982/owner/ownerMypage.do" id="s2">
                    마이페이지
                    </a>
                    <!--카트  -->
-                   <a href="/project1982/owner/ownerBoard.do">
+                   <a href="/project1982/owner/ownerBoard.do" id="s3">
                    고객센터
                        <!--카트 상품-->
                        
@@ -58,8 +55,8 @@
         <main>
       
         <form action="shopInsert.do" method='post' enctype="multipart/form-data"> 
-            <ul class="left_nav">
-                <li class="left_nav_text"><a class="home" href="#">홈</a></li>
+            <ul class="left_nav" id="left_nav1">
+                <li class="left_nav_text"><a class="home" href="#"></a></li>
                 <li class="left_nav_text"><a href="#">새소식</a></li>
                 <li class="left_nav_text"><a href="#">상품</a></li>
                 <li class="left_nav_text"><a href="#">회사</a></li>
@@ -67,7 +64,7 @@
             <div class="body_container"> <!-- 페이지 컨테이너 시작-->
          
                 <div class="body_container_center"> <!-- 중간 메뉴바 시작-->
-                    <div>업체 등록 / 수정</div>
+                    <div class="main_title">업체 등록 / 수정</div>
                         <div class="body_container_center_shop_contanier">
                             <div class="body_container_center_shop_contanier_img">
                      
@@ -77,18 +74,18 @@
                  
                             </div>
                             <div class= "body_container_center_shop_contanier_info">
-                                <div>업체 이름: <input type="text" name="shopname"> </div>
+                                <div class="main_font">업체 이름: <input type="text" name="shopname"> </div>
 
-                                <div>업체 주소: <input type="text" name="shopaddr" id="shopaddr"><div id="locationConfirm">주소확인</div></div>                                
-                                <div>location_y: <input type="text" name="location_y" id="location_y" ></div>
-                                <div>location_x: <input type="text" name="location_x" id="location_x" ></div>
-                                <div>업체 연락처: <input type="text" name="shoppn"></div>                             
-                                <div class="body_container_center_shop_contanier_info_ta">업체 소개: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <textarea name="shopcontent" id="" cols="30" rows="10"></textarea>     
+                                <div class="main_font">업체 주소: <input type="text" name="shopaddr" id="shopaddr"><div id="locationConfirm">주소확인</div></div>                                
+                                <div class="hide">location_y: <input type="text" name="location_y" id="location_y" ></div>
+                                <div class="hide">location_x: <input type="text" name="location_x" id="location_x" ></div>
+                                <div class="main_font">업체 연락처: <input type="text" name="shoppn"></div>                             
+                                <div class="body_container_center_shop_contanier_info_ta main_font">업체 소개: &nbsp;&nbsp;
+                                    <textarea name="shopcontent" id="" cols="30" rows="10" style="resize:none;"></textarea>   &nbsp;&nbsp;  
                                  <div class="hide" >담당자 번호: <input type="text" name="ownernum" value = "${ownernum}"></div>   
                                 </div>                                
                                 
-                                                     <button>업체 등록 </button>                 
+                                                     <button class="sign_button">등록 </button>                 
                             </div>
                         </div>
                     
@@ -117,7 +114,7 @@
 <!-- footer --------------------------------------------------------------------->
     <footer>
         <div id="footer">
-            <div class="wrap_inner">
+            <div class="wrap_inner" id="wrap">
                 <div class="left_area">
                     <h4 class="rap_inner_h4">
                         일구하자 1982

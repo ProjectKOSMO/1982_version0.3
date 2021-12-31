@@ -1,93 +1,47 @@
-#login-form {
+
+button{
+  margin-top:10px;
+  
+  }  
+  .box{
+    width: 220px;
+    height: 300px;
+    border: 2px solid greenyellow;
+    border-radius: 10px;
+    margin: 100px auto;
     display: flex;
     flex-direction: column;
-    margin: auto;
-    width:20%;
-    margin-top:300px;
+    align-items: center;
+    justify-content: center;
   }
-  
-  #login-form input {
+  .list{
+    display: flex;
+  }
+  .box>h1{
+    font-size: 100px;
+    color: rgb(0, 47, 255);
+    font-style: italic;
+    margin: 0;
+  }
+  .box_button{
     border: none;
-    padding: 15px 0px;
-    font-size: 18px;
-    margin-bottom: 25px;
-  }
-  
-  #login-form input:not([type="submit"]) {
-    border-bottom: 1px solid rgba(227, 241, 23, 0.2);
-    transition: border-color 0.3s ease-in-out;
-  }
-  
-  #login-form input::placeholder {
-    color: rgba(0, 0, 0, 0.4);
-  }
-  
-  #login-form input:focus {
-    border-color: yellow;
-  }
-  
-  #login-form input[type="submit"] {
-    background-color: yellow;
+    border-radius: 11px;
     cursor: pointer;
-    padding: 20px 0px;
-    border-radius: 5px;
+    width: 80px;
+    height: 30px;
   }
-  
-  #login-form a {
-    text-align: center;
-    text-decoration: none;
-    color: inherit;
-    font-size: 13px;
-  }
-  .log_in{
-      display: flex;
-      
-  }
-  .login_article{
-    text-align: center;
-    font-weight: 500;
-  }
-  form h1{
-    margin-bottom: 50px;
-  }
-  
-  .hide{
-  display:none;
-  }
-  
-  .center{
-  display:flex;
-  align-items: center;
- justify-content: center;
-  
-  }
-  .left{
-  	flex:5;
-
-  	width:50px;
-  	height:150px;
-  }
-  .right{
-  flex:5;
-  	width:50px;
-  	height:150px;
+  .box_button:hover{
+    transform: scale(1.2);
   }
   
   .return{
-  margin-top:80px;
-	display:flex;
+    display: flex;
     justify-content: center;
   }
   
-  .list{
-  display:flex;
-  flex-direction: column;
-  width:80px;
-  margin-left:auto;
-  margin-right:auto;
+  @media screen and (max-width: 768px) {
+    .list{
+      display: block;
+    }
   
-
   }
-button{
-	margin-top:10px;
-}  

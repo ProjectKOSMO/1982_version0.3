@@ -36,7 +36,6 @@ public class UserLoginController {
 
     @RequestMapping({"{step.do}"})
     public String userJoin(@PathVariable String step) {
-    	System.out.println("유저 컨트롤러 로그인입니다.");
         return "/user/" + step;
     }
 
@@ -55,6 +54,7 @@ public class UserLoginController {
         	HttpSession session = request.getSession();
         	session.setAttribute("userNum", result.getUsernum());
         	session.setAttribute("userId", result.getUserid());
+        	session.setAttribute("userPass", result.getUserpass());
 /*        	session.setAttribute("userImg", result.getUserimg());
         	session.setAttribute("userSelf", result.getUserself());*/
         	System.out.println(result.getUserid());

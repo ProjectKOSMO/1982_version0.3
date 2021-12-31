@@ -1,6 +1,5 @@
 package com.javassem.controller;
 
-import java.util.HashMap;
 import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -11,7 +10,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.javassem.domain.OwnerBoardVO;
+import com.javassem.domain.OwnerVO;
 import com.javassem.domain.ShopVO;
+import com.javassem.service.OwnerService;
 import com.javassem.service.ShopService;
 
 
@@ -22,6 +24,9 @@ public class ShopController {
 	
 	@Autowired
 	private ShopService shopService;
+	
+	@Autowired
+	private OwnerService ownerService;
 	  
 	@Autowired
 	  private SqlSessionTemplate mybatis;	
@@ -44,15 +49,13 @@ public class ShopController {
 	public void getShop(@RequestParam int board_owner_seq, ShopVO vo, Model m){
 		
 		vo.setBoard_owner_seq(board_owner_seq);
-		System.out.println(vo);
-		System.out.println(board_owner_seq);
+		
 		
 		ShopVO result = shopService.getShop(vo);
 		
-		System.out.println(result);
+		
 		m.addAttribute("shop", result);
-		System.out.println(result.getBoard_owner_seq());
-		System.out.println("확인용");
+	
 		
 	}
 	
@@ -81,17 +84,18 @@ public class ShopController {
 			mybatis.insert("ShopDAO.getShop2", vo);
 			return "redirect:storeClose.do";
 		
+
 	}
 
   
 	// 일자리 찾기 버튼 클릭시 동작하는 코드
     @RequestMapping({"storeClose.do"})
     public void select(ShopVO vo, Model m) {
-        List<ShopVO> list = this.shopService.ShopList(vo);
+    	
+        List<ShopVO> list = shopService.ShopList(vo);
         m.addAttribute("ShopList", list);
      System.out.println("또여기냐?");
-    
-    
+     
         
     }
 }

@@ -31,7 +31,8 @@ function delete_ok(){
     alert("비밀번호를 입력세요.");
     form.b_pwd.focus();
     return false;
-  }  
+  }
+  document.update.action="deleteBoard.do?b_id=${board.b_id}"
   document.form.submit();
 }
 
@@ -70,10 +71,22 @@ function update_Action(){
 		 return;
 	 }
 	 
+	 document.update.action="updateBoard.do";
+	 document.update.submit();
+}
+
+/*//수정완료 클릭했을때
+function update_Action(){
+	 if(document.update.b_pwd.value ==""){
+		 alert("비밀번호를 입력해주세요.");
+		 document.update.b_pwd.focus();
+		 return;
+	 }
+	 
 	 document.update.action="update.do";
 	 document.update.submit();
 	
-}
+}*/
 
 
 

@@ -118,7 +118,7 @@ private String si_fname;
       this.si_fsize = file.getSize();
       UUID uuid = UUID.randomUUID();
       this.si_realname = String.valueOf(uuid.toString()) + "_" + this.si_fname;
-      File f = new File("D:\\project1982_local\\project1982\\src\\main\\webapp\\resources\\upload\\" + this.si_realname);
+      File f = new File("C:\\Users\\LEE\\Desktop\\local\\project1982\\src\\main\\webapp\\resources\\upload\\" + this.si_realname);
       try {
         file.transferTo(f);
       } catch (IllegalStateException e) {
