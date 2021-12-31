@@ -9,7 +9,7 @@
    	<link type="text/css" href="/project1982/resources/css/3_register.css" rel="stylesheet"/>
     <script type="text/javascript" src="/project1982/resources/js/jquery-1.7.1.js"></script>
     
-	<script type="text/javascript">
+	<script type="text/javascript" src="/project1982/resources/js/SongEmail.js">
 	
 
 	function passConfirm() {
@@ -52,11 +52,16 @@
         <div>
         	<input class="username" name="username" id ="username" type="text" placeholder="이름을 입력하세요" />
        		<input class="userbirth" name="userbirth" type="text" placeholder="생년월일 (ex:19960401)" />
-	        <input class="id_input" name="userpn" type="text" placeholder="핸드폰 번호를 입력하세요" />
-	        <input type="submit" value="인증요청" />
+       	</div>
+       	<div class="mail_check_wrap">
+	        <input name="usermail" class="mail_input" type="email" placeholder="이메일" />
+	        <input type="button" class="mail_check_button" value="인증요청" />
+	        <input name="phoneid" class="mail_check_input" disabled="disabled" type="text" placeholder="인증번호" />
+	        <div class="clearfix"></div>
+	        <div id="mail_check_input_box_warn">인증을 요청하세요</div> 
+
         </div>
-	        <input name="phoneid" type="text" placeholder="인증번호" />
-	        <input name="usermail" type="email" placeholder="이메일" />
+	        <input class="id_input" name="userpn" type="text" placeholder="핸드폰 번호를 입력하세요" />
 	        <input type="submit" value="가입" />
       </form>
 </body>
