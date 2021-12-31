@@ -3,7 +3,7 @@
 // (powered by FernFlower decompiler)
 //
 package com.javassem.controller;
-import java.util.HashMap;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.javassem.domain.OwnerBoardVO;
 import com.javassem.domain.OwnerVO;
 import com.javassem.domain.ShopVO;
+import com.javassem.service.MemberSV;
 import com.javassem.service.OwnerService;
 import com.javassem.service.ShopService;
 @Controller
@@ -30,6 +31,7 @@ public class OwnerLoginController {
     
     @Autowired
     public ShopService shopService;
+    
     
     public OwnerLoginController() {
     }
@@ -162,9 +164,10 @@ public class OwnerLoginController {
 
     }
     
-    
-
-
+    // 한세호 ====================================
+    @Autowired
+    public MemberSV memberSV;
+    // ====================================
 
     // 사업자 로그인 컨트롤러 로그인실패시 다시 로그인창 로그인 성공시 사업자 마이페이지로 이동
     @RequestMapping({"login.do"})
@@ -176,7 +179,24 @@ public class OwnerLoginController {
             HttpSession session = request.getSession();
             session.setAttribute("ownernum", result.getOwnernum());
             session.setAttribute("ownerid", result.getOwnerid());
+            
+            
             List<OwnerBoardVO> list = this.ownerService.getOwnerBoardList(boardVo);
+          // 한세호 =========================================================================================================
+            String ownerPayEnd = memberSV.select_pay_date_end((int) session.getAttribute("ownernum"));
+    
+            
+          System.out.println(Long.parseLong((String) ownerPayEnd));  //구독권 끝나는 시간
+          long now = new Date().getTime(); // 현재시간
+          System.out.println(now);
+          
+          if (Long.parseLong((String) ownerPayEnd) < now){
+          	System.out.println("현재 구독권 끝나는 시간과 현재 시간 비교 성공??");
+          	System.out.println("구독권 끝난 사람 지우기");
+          	memberSV.update_coupon_terminated((int) session.getAttribute("ownernum"));
+          }
+        //=========================================================================================================
+            
             m.addAttribute("ownerBoardList", list);
             return "redirect:ownerMypage.do";
         }

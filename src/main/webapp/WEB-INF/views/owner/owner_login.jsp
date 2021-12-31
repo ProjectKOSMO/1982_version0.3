@@ -10,6 +10,11 @@
     <link type="text/css" href="/project1982/resources/css/2_login.css" rel="stylesheet"/>
 </head>
 <script>
+	//현재 시간 데이터 세션에 넣기
+	var now = new Date().getTime();
+	sessionStorage.setItem("nowTime",now);
+	
+
 	window.onload = function(){
 		document.getElementById('Submit').onclick = check;	
 	}

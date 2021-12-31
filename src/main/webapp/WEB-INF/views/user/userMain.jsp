@@ -47,24 +47,27 @@
    
            </header>
     <!-- 메인 ---------------------------------------------------------------->
-        <main >
+        <main class="main1">
             <div>
                 <div class="main_title">내 주변 일자리</div>
                 <div  class="main">
-                  <div id="map" style="width:500px;height:450px;margin-top: 50px;border: 1px solid black;"></div>
+                  <div id="map" style="width:1400px;height:500px;margin-top: 50px;border: 1px solid black;"></div>
                   
     <script src="https://code.jquery.com/jquery-3.6.0.js" type="text/javascript"></script>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=eb66f18ab68f4698ad06cb4444bfc896&libraries=services"></script>
 <script src='/project1982/resources/js/locationExample4.js' type="text/javascript"></script>
 
     
-                  <div id="searchPost" style="width:700px;height:500px">  
+                  
+                </div>
+                
+                <div id="searchPost" style="width:1000px;height:250px; display:flex; margin-left:auto; margin-right:auto;">  
                        <div class="main_right"></div>
                        <div class="main_right"></div>
                        <div class="main_right"></div>
                        <div class="main_right"></div>
                   </div>
-                </div>
+                
                 
                <div id="SongPagingMap">
                
@@ -74,42 +77,36 @@
                 </div>
                
             </div>
-
+<div style="display:flex; justify-content:center; margin-bottom:20px;">
 <form name="search-form" method='get'>
-		<input type='text' name='CenterLocation_y' id='CenterLocation_y' >
-		<input type='text' name='CenterLocation_x' id='CenterLocation_x' >
-		<input type= 'text' name='pageNum' id='pageNum'>
+		<input type='text' name='CenterLocation_y' id='CenterLocation_y' style="display:none" >
+		<input type='text' name='CenterLocation_x' id='CenterLocation_x' style="display:none" >
+		<input type= 'text' name='pageNum' id='pageNum'style="display:none" >
 		<select name='searchCondition'>
 			<option value='I.shopName'>가게이름</option>
-			<option value='road_address'>도로명 주소</option>
+			<option value='I.content'>업무내용</option>
 		</select>
 		<input type='text' name='searchKeyword'>
 		<input type='button' id="em" value='검색'>
 </form>
+</div>
 
+<div style="display:flex; justify-content:center;">
 <button id="mapPanTo">검색 중심 좌표로 이동하기</button>
 <button id="moveCenterLocation">검색 중심 위치 변경하기</button>
+</div>
 
-
-            <div>
-                <div class="main_title">추천 일자리</div>
-                <div  class="main_article">
-                       <div class="main_right"></div>
-                       <div class="main_right"></div>
-                       <div class="main_right"></div>
-                       <div class="main_right"></div>
+			<div class="main2">
+                <img src="/project1982/resources/images/main1.jpg" alt="">
+                <div class="main_wrap">
+                    <h2>언제나 365일</h2>
+                    <p>일자리는 언제든 어디서든 열려있습니다. 주저하지 말고 지원하세요 저희는 당신을 응원합니다.
+                    </p>
+                    <form action="storeClose.do?userid=${userId}">
+                <input type="submit" class="main2_button" onclick="storeClose.do?userid=${userId}" value="지원하기">   
+                </form>
                 </div>
-                
-                <div id="divPaging">
-                    <div>◀</div>
-             		<div>1</div>
-                    <div>2</div>
-                    <div>3</div>
-                    <div>4</div>
-                    <div>5</div>
-                    <div>▶</div>
-                </div>
-            </div>
+            </div>           
         </main>
 
 

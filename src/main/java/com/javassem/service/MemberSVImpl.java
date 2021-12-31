@@ -21,9 +21,21 @@ public class MemberSVImpl implements MemberSV{
 	    return memberDAO.selectMember(ownernum);	
 	};
 	
+	@Override
 	public int update_sub(int ownernum) {
 		System.out.println("MemberDAO ownersub update 실행");
 		return memberDAO.updateOwnersub(ownernum);	
+	}
+	
+	@Override
+	public String select_pay_date_end(int ownernum) {
+		System.out.println("MemberDAO select_pay_date_end 실행");
+		return memberDAO.payDateEnd(ownernum);
+	}
+	
+	public int update_coupon_terminated(int ownernum) {
+		System.out.println("MemberDAO updateCouponTerminated 실행");
+		return memberDAO.updateCouponTerminated(ownernum);	
 	}
 
 }

@@ -378,7 +378,7 @@ setTimeout(function(){
 	
 	});
 	
-	$(".main").on("click",".main_right",function(){
+	$("#searchPost").on("click",".main_right",function(){
 		
 		if(ThisDIV != $(this).attr('id')){
 		

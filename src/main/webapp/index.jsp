@@ -13,41 +13,23 @@
 </head>
 <body>
  
-
-        <!--메뉴바  ------------------------------------------------->
-        <header class="header" >
-            <!-- 로고-->
-               <div>
-               <a href="#" class="logo">
-                   <h1>1982</h1>
-               </a>
-               </div>
-               <!--메뉴--> 
-             
-               
-               <!-- 오른쪽 메뉴-->
-               <div class="right-menu">
-                   <!--검색 -->
-                   <a href="#section1" class="search">
-                    소개
-                   </a>
-                   <!--유저 -->
-                   <a href="#section2" class="user">
-                   팀 소개
-                   </a>
-                   <!--카트  -->
-                   <a href="#">
-                   
-                    찾아오시는길
-               
-                   </a>
-               </div>
-   
-           </header>
 <!-- -->
+    
     <div class="main">
-         <a class="main_button" href="user/user_login.do">구직자 로그인</a>    
-        <a class="main_button" href="owner/owner_login.do">사업자 로그인</a>
+        <section class="section0">
+            <h3>일구하자 빨리</h3>
+            <p>여러분이 일자리를 가장 빠르게 연결시켜드립니다. 사람이 필요한 곳에 가장 빠르게 찾아보세요.</p>
+        </section>
+        <div class="main_button_wrap">
+            <div id="main_button1">
+                    <a class="main_button"  href="user/user_login.do">
+                     구직자 로그인  
+                    </a>
+                </div>
+            <div id="main_button1">
+                <a class="main_button" href="owner/owner_login.do">사업자 로그인</a>
+            </div>    
+        </div>
     </div>
 <!-- main------------------------------------------------------------------>
     <section class="section1" id="section1">
@@ -55,18 +37,18 @@
         <div class="title_wrap">
             <div>
                 <div class="circle"></div>
-                <p class="small">협동성</p>
+                <p class="small">365일</p>
             </div>
             <div>
                 <div class="circle"></div>
-                <p class="small">공정성</p>
+                <p class="small">정확성</p>
             </div>
             <div>
                 <div class="circle"></div>
                 <p class="small">신뢰성</p>
             </div>
         </div>
-        <div class="lorem">코스모 학원에서 만나서 엄호식, 김승민 선생님께 배우고 어찌하다가 1조가 되었습니다. </div>
+        <div class="lorem">일자리 지원 아무때나 어디에서나 하세요. 365일 24시간 원하는 일자리를 찾아보세요.</div>
     </section>
 
     <article class="section2" id="section2">
@@ -185,4 +167,3 @@
     </footer>
 </body>
 </html>
-

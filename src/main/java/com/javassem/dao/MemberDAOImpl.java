@@ -23,7 +23,18 @@ public class MemberDAOImpl implements MemberDAO {
 	  System.out.println("===> Mybatis updateOwnersub()");
 	  return mybatis.update("MemberDAO.update_sub",ownernum);
   }
+  
+  public String payDateEnd(int ownernum) {
+	  System.out.println("===> Mybatis select_pay_date_end()");
+	  return mybatis.selectOne("MemberDAO.select_pay_date_end",ownernum);
+  }
+  
+  public int updateCouponTerminated(int ownernum) {
+	  System.out.println("===> Mybatis update_coupon_terminated()");
+	  return mybatis.update("MemberDAO.update_coupon_terminated", ownernum);
+  }
 
+  
   //  
 //  public void updateMember(Biz_memberVO vo) {
 //    System.out.println("===> Mybatis updateMember()");

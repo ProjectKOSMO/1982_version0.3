@@ -25,51 +25,41 @@
 <body>
  
 
-        <!--메뉴바  ------------------------------------------------->
+    < <!--메뉴바  ------------------------------------------------->
+    <header class="header" >
+        <!-- 로고-->
+           <div>
+           <a href="#" class="logo">
+               <h1>1982</h1>
+           </a>
+           </div>
+           <!--메뉴--> 
+         
+           
+           <!-- 오른쪽 메뉴-->
+           <div class="right-menu">
+               <!--검색 -->
+               <a href="/project1982/owner/job_positing.do" id="s1">
+                구인공고
+               </a>
+               <!--유저 -->
+               <a href="/project1982/owner/ownerMypage" id="s2">
+               마이페이지
+               </a>
+               <!--카트  -->
+               <a href="/project1982/owner/ownerBoard.do" id="s3">
+               고객센터
+                   <!--카트 상품-->
+                   
+               </a>
+           </div>
 
-        <header class="header" >
-         <!-- 로고-->
-            
-            <a href="#" class="logo">
-                <img src=""/>
-            </a>
-            
-            <!--메뉴-->   
-            <ul class="menu">
-                <li><a href="#">구직자용</a></li>
-                <li><a href="#">구인자용</a>
-                <!--쎄일 라벨 -->
-                    <span class="sale-lable">신규</span>
-                </li>
-                <li><a href="#">둘러보기</a></li>
-                <li><a href="#">FAQ</a></li>
-                <li><a href="#">고객센터</a></li>
-            </ul>
-            <!-- 오른쪽 메뉴-->
-            <div class="right-menu">
-                <!--검색 -->
-                <a href="#" class="search">
-                    <i class="fas fa-search"></i>
-                </a>
-                <!--유저 -->
-                <a href="#" class="user">
-                    <i class="far fa-user"></i>
-                </a>
-                <!--카트  -->
-                <a href="#">
-                    <i class="fas fa-shopping-cart">
-                    <!--카트 상품-->
-                    <span class="num-cart-product">0</span>
-                    </i>
-                </a>
-            </div>
-
-        </header>
+       </header>
 
     <!-- 메인 ---------------------------------------------------------------->
         <main>
-            <ul class="left_nav">
-                <li class="left_nav_text"><a class="home" href="#">홈</a></li>
+            <ul class="left_nav" id="left_nav1">
+                <li class="left_nav_text"><a class="home" href="#"></a></li>
                 <li class="left_nav_text"><a href="./adminPage2.do">구독권 현황</a></li>
                 <li class="left_nav_text"><a href="#">상품</a></li>
                 <li class="left_nav_text"><a href="#">회사</a></li>
@@ -206,7 +196,7 @@
 <!-- footer --------------------------------------------------------------------->
     <footer>
         <div id="footer">
-            <div class="wrap_inner">
+            <div class="wrap_inner" id="wrap">
                 <div class="left_area">
                     <h4 class="rap_inner_h4">
                         일구하자 1982

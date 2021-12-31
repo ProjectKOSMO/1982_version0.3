@@ -19,7 +19,7 @@ a {
     height: 150px;
     width: 100%;
     box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.05);
-    margin-bottom: 100px;
+    margin-bottom: 0px;
   }
   .logo{
     font-size: 100px;
@@ -108,7 +108,7 @@ a {
 
 #footer{
     background: #fafafa;
-    margin: 120px auto 0;
+    margin: 0px auto 0;
     padding: 60px 0;
     border: 1px solid #e4e4e4;
     -webkit-box-sizing: border-box;
@@ -127,6 +127,30 @@ margin:auto 300px;
 }
 
 /* �쇊履� �긽�옄 --------------------------------*/
+
+.main1 {
+  color: black;
+  padding-top: 100px;
+  position: relative;
+  width: 100%;
+  height: 220vh;
+  z-index: 1;
+}
+
+.main1::after {
+  content: "";
+  background: url("/project1982/resources/images/main3.jpg");
+  background-size: cover;
+  overflow:hidden;
+  opacity: 0.6;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  z-index: -1;
+}
+
 .left_area{
     display: flex;
     flex-direction: column;
@@ -168,17 +192,60 @@ margin:auto 300px;
   height: auto;
   padding: 0;
   margin: 0;
+  vertical-align: top;
 }
 
 .main_right_Img {
-  width: 150px;
+  width: 210px;
   height: auto;
   background-size: contain;
   padding: 0;
   margin: 0;
+  
 }
 
-
+.main2 {
+  display: flex;
+  margin-top: 80px;
+}
+.main2 img {
+  width: 50%;
+  height: 80%;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
+  margin-left: 100px;
+  margin-bottom: 0px;
+}
+.main_wrap {
+  width: 50%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: auto;
+  margin-bottom:auto;
+}
+.main_wrap h2 {
+  font-size: 40px;
+  margin-bottom: 30px;
+}
+.main_wrap p {
+  font-size: 20px;
+  width: 70%;
+}
+.main2_button {
+  border: none;
+  border-radius: 5px;
+  width: 100px;
+  height: 50px;
+  margin-top: 50px;
+  transition: all 1s ease-in-out;
+  font-size: 15px;
+  cursor: pointer;
+}
+.main2_button:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+}
 
 
 /* �삤瑜몄そ �궗�뾽�옄 �벑濡앸쾲�샇 ------------------------------------*/
@@ -231,6 +298,7 @@ margin:auto 300px;
     width: 250px;
     height: 200px;
     border: 5px solid lightcoral;
+    background-color:white;
     margin-top: 50px;
     margin-right:0px;
     margin-bottom: 0px;
