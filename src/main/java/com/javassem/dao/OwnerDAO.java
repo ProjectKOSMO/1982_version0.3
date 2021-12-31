@@ -1,8 +1,10 @@
 package com.javassem.dao;
 
+import java.util.HashMap;
+import java.util.List;
+
 import com.javassem.domain.OwnerBoardVO;
 import com.javassem.domain.OwnerVO;
-import java.util.List;
 
 public interface OwnerDAO {
   OwnerVO idCheck(OwnerVO paramOwnerVO);
@@ -20,4 +22,8 @@ public interface OwnerDAO {
   List<OwnerVO> getList(OwnerVO paramOwnerVO);
   
   String shopSelect(OwnerVO paramOwnerVO);
+  
+  List<HashMap> getUserList(String ownerId);
+	
+	
 }

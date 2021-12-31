@@ -4,6 +4,7 @@
 //
 package com.javassem.controller;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -24,6 +25,7 @@ import com.javassem.domain.ShopVO;
 import com.javassem.service.MemberSV;
 import com.javassem.service.OwnerService;
 import com.javassem.service.ShopService;
+import com.javassem.service.UserService;
 @Controller
 @RequestMapping({"owner"})
 public class OwnerLoginController {
@@ -34,6 +36,8 @@ public class OwnerLoginController {
     @Autowired
     public ShopService shopService;
     
+    @Autowired
+    public UserService userService;
     
     public OwnerLoginController() {
     }
@@ -54,8 +58,15 @@ public class OwnerLoginController {
         vo.setOwnernum(ownernum);
         List<OwnerVO> list = this.ownerService.getList(vo);
         model.addAttribute("shopList", list);
-        System.out.println(list);
-        return list.isEmpty() ? "/owner/ownerMypage" : "/owner/ownerViewPage";
+        
+      
+        if( list.isEmpty() || list == null ){ 
+       
+        	return "/owner/ownerMypage"; 
+        			
+        }else{	
+        	return "redirect:ownerList.do"; 
+        }
     }
     
     //ownerMypage에서 처음 업체정보를 DB 저장하는 컨트롤러
@@ -66,6 +77,8 @@ public class OwnerLoginController {
         model.addAttribute("shopList", list);
         return "redirect:ownerList.do";
     }
+    
+    
     
     //ownerViewPage에서 사업자가 정보 수정하는페이지로 넘어갈때 DB데이터를 가져오는 컨트롤러
     @RequestMapping({"ownerUpdate.do"})
@@ -89,15 +102,45 @@ public class OwnerLoginController {
     
     //사업자 마이페이지에 DB에저장된 데이터를 가지고 보여주기만하는 컨트롤러
     @RequestMapping({"ownerList.do"})
-    public String getList(OwnerVO vo, Model model, HttpServletRequest request) throws Exception {
+    public String getList(OwnerVO vo,OwnerBoardVO vo1,ShopVO vo2, Model model, HttpServletRequest request) throws Exception {
         HttpSession session = request.getSession();
         Integer ownernum = (Integer)session.getAttribute("ownernum");
+        String ownerId = (String)session.getAttribute("ownerid");
+        
         vo.setOwnernum(ownernum);
+        vo1.setOwnernum(ownernum);
+        
         List<OwnerVO> list = this.ownerService.getList(vo);
-        model.addAttribute("shopList", list);
         
         
-        return "/owner/ownerViewPage";
+        List<OwnerBoardVO> list2 = this.ownerService.getOwnerBoardList(vo1);
+        System.out.println(list2);
+        
+        if (list2.isEmpty()){
+        	
+        	model.addAttribute("shopList", list);
+        	
+        	return "/owner/ownerViewPage";
+        	
+        }else {
+        	OwnerBoardVO board_seq = list2.get(0);
+
+        	
+           
+//            map.put("ownerid",ownerId);
+//            System.out.println(map);
+            
+            
+            List<HashMap> list5 = ownerService.getUserList(ownerId);
+            
+            System.out.println(list5);
+            
+            model.addAttribute("shopList", list);
+            model.addAttribute("userInfo",list5);
+            
+            return "/owner/ownerViewPage"; 
+        }
+  
     }
     
     //사업자 회원가입 컨트롤러
@@ -122,7 +165,6 @@ public class OwnerLoginController {
         return "redirect:job_positing.do";
     }
     
-    
     // 한세호 =======================================================
 	@Autowired
 	private SqlSessionTemplate mybatis;
@@ -135,7 +177,8 @@ public class OwnerLoginController {
     	return "redirect:job_positing.do";
     }
     // =======================================================
-    
+	
+	
     //구인공고페이지 클릭시  구독권을 구매한경우 구인공고페이지로 아닐경우 구독권 구매페이지로 이동
     @RequestMapping({"job_positing.do"})
     public String job_list(OwnerVO vo,OwnerBoardVO vo1,ShopVO vo2, Model m, HttpServletRequest request) throws Exception {
@@ -145,7 +188,7 @@ public class OwnerLoginController {
         vo.setOwnernum(ownernum);
         vo1.setOwnernum(ownernum);
         vo2.setOwnernum(ownernum);
-        
+    
         //---------------------------------------------------------------
 
         List<OwnerVO> list = ownerService.getList(vo);
@@ -165,7 +208,7 @@ public class OwnerLoginController {
        	
        	if(  Integer.parseInt(vosub.getOwnersub()) == 0 || vosub.getOwnersub() == null  ){
  
-       		System.out.println("널값입니다.");
+       		
        		
        		return "/owner/owner_sub";
        		
@@ -179,10 +222,12 @@ public class OwnerLoginController {
 
     }
     
-    // 한세호 ====================================
+    
+  // 한세호 ====================================
     @Autowired
     public MemberSV memberSV;
     // ====================================
+
 
     // 사업자 로그인 컨트롤러 로그인실패시 다시 로그인창 로그인 성공시 사업자 마이페이지로 이동
     @RequestMapping({"login.do"})
@@ -194,25 +239,25 @@ public class OwnerLoginController {
             HttpSession session = request.getSession();
             session.setAttribute("ownernum", result.getOwnernum());
             session.setAttribute("ownerid", result.getOwnerid());
-            
-            
-            List<OwnerBoardVO> list = this.ownerService.getOwnerBoardList(boardVo);
-          // 한세호 =========================================================================================================
-            String ownerPayEnd = memberSV.select_pay_date_end((int) session.getAttribute("ownernum"));
+			List<OwnerBoardVO> list = this.ownerService.getOwnerBoardList(boardVo);
+           
+			
+            // 한세호 =========================================================================================================
+//            String ownerPayEnd = memberSV.select_pay_date_end((int) session.getAttribute("ownernum"));
     
             
-          System.out.println(Long.parseLong((String) ownerPayEnd));  //구독권 끝나는 시간
-          long now = new Date().getTime(); // 현재시간
-          System.out.println(now);
-          
-          if (Long.parseLong((String) ownerPayEnd) < now){
-          	System.out.println("현재 구독권 끝나는 시간과 현재 시간 비교 성공??");
-          	System.out.println("구독권 끝난 사람 지우기");
-          	memberSV.update_coupon_terminated((int) session.getAttribute("ownernum"));
-          }
+//          System.out.println(Long.parseLong((String) ownerPayEnd));  //구독권 끝나는 시간
+//          long now = new Date().getTime(); // 현재시간
+//          System.out.println(now);
+//          
+//          if (Long.parseLong((String) ownerPayEnd) < now){
+//          	System.out.println("현재 구독권 끝나는 시간과 현재 시간 비교 성공??");
+//          	System.out.println("구독권 끝난 사람 지우기");
+//          	memberSV.update_coupon_terminated((int) session.getAttribute("ownernum"));
+//          }
         //=========================================================================================================
-            
-            m.addAttribute("ownerBoardList", list);
+			
+		   m.addAttribute("ownerBoardList", list);
             return "redirect:ownerMypage.do";
         }
     }

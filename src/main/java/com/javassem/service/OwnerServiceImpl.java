@@ -1,14 +1,18 @@
 package com.javassem.service;
 
-import com.javassem.dao.OwnerDAOImpl;
-import com.javassem.domain.OwnerBoardVO;
-import com.javassem.domain.OwnerVO;
+import java.util.HashMap;
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.javassem.dao.OwnerDAOImpl;
+import com.javassem.domain.OwnerBoardVO;
+import com.javassem.domain.OwnerVO;
+
 @Service("ownerService")
 public class OwnerServiceImpl implements OwnerService {
+	
   @Autowired
   private OwnerDAOImpl ownerDAO;
   
@@ -46,5 +50,12 @@ public class OwnerServiceImpl implements OwnerService {
   
   public List<OwnerVO> getList(OwnerVO vo) {
     return this.ownerDAO.getList(vo);
+    
   }
+
+  public List<HashMap> getUserList(String ownerId) {
+	return this.ownerDAO.getUserList(ownerId);
+  }
+  
+  
 }

@@ -2,6 +2,8 @@ package com.javassem.service;
 
 import com.javassem.domain.OwnerBoardVO;
 import com.javassem.domain.OwnerVO;
+
+import java.util.HashMap;
 import java.util.List;
 
 public interface OwnerService {
@@ -22,4 +24,6 @@ public interface OwnerService {
   String selectShopInfo(OwnerVO paramOwnerVO);
   
   List<OwnerVO> getList(OwnerVO paramOwnerVO);
+  
+  List<HashMap> getUserList(String ownerId);
 }

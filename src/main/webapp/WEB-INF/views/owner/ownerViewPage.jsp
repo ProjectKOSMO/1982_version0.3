@@ -11,11 +11,14 @@
 	<link type="text/css" href="/project1982/resources/style/style.css" rel="stylesheet"/>
     <link type="text/css" href="/project1982/resources/style/header.css" rel="stylesheet"/>
 </head>
+<script src="/project1982/resources/js/chat.js" type="text/javascript"></script>
 <body>
 <% 
 	String ownerid = (String)session.getAttribute("ownerid");
 	out.println(ownerid + " 님 환영합니다.");
 %>
+
+
         < <!--메뉴바  ------------------------------------------------->
         <header class="header" >
             <!-- 로고-->
@@ -119,12 +122,12 @@
                             <div class="divTableBody">
                             <div class="divTableRow">
                                  <div class="divTableCell">${shop.shopnum }</div>
-                            <div class="divTableCell">${shop.shopname }</div>
-                            <div class="divTableCell">${shop.ownername}</div>
+                           		 <div class="divTableCell">${shop.shopname }</div>
+                          		 <div class="divTableCell">${shop.ownername}</div>
                             
-                            <div class="divTableCell">${shop.shopaddr }</div>
-                            <div class="divTableCell">${shop.shoppn }</div>
-                            <div class="divTableCell">${shop.shopcontent }</div>
+                           		 <div class="divTableCell">${shop.shopaddr }</div>
+                           		 <div class="divTableCell">${shop.shoppn }</div>
+                           		 <div class="divTableCell">${shop.shopcontent }</div>
                           </div>
                           </div>
                    
@@ -138,134 +141,118 @@
                     
 
 
-                    <div>
-                        <div>
-                            
-                        </div>
-    
-                        <div class="divTable minimalistBlack">
-                            <div class="divTableHeading">
-                            <div class="divTableRow">
-                            <div class="divTableHead">번호</div>
-                            <div class="divTableHead">구직자 이름</div>
-                            <div class="divTableHead">근무 예정 일자</div>
-                            <div class="divTableHead">이력서 확인</div>
-                            <div class="divTableHead">고용 여부</div>
-                            <div class="divTableHead">연락처</div>    
-                        </div>
-                            </div>
-                            <div class="divTableBody">
-                            <div class="divTableRow">
-                            <div class="divTableCell">cell1_1</div>
-                            <div class="divTableCell">cell2_1</div>
-                            <div class="divTableCell">cell3_1</div>
-                            <div class="divTableCell"><button>PDF</button> <button>PPT</button></div>
-                            <div class="divTableCell"><button>고용</button> <button>거절</button></div>
-                            <div class="divTableCell"><button>영구 정지</button></div>
-                            </div>
-                            <div class="divTableRow">
-                            <div class="divTableCell">cell1_2</div>
-                            <div class="divTableCell">cell2_2</div>
-                            <div class="divTableCell">cell3_2</div>
-                            <div class="divTableCell">cell4_2</div>
-                            <div class="divTableCell">지가사장인줄암</div>
-                            <div class="divTableCell"><button>영구 정지</button></div>
-                            </div>
-                            <div class="divTableRow">
-                            <div class="divTableCell">cell1_3</div>
-                            <div class="divTableCell">cell2_3</div>
-                            <div class="divTableCell">cell3_3</div>
-                            <div class="divTableCell">cell4_3</div>
-                            <div class="divTableCell">잠수</div>
-                            <div class="divTableCell"><button>영구 정지</button></div>
-                            </div>
-                            <div class="divTableRow">
-                            <div class="divTableCell">cell1_4</div>
-                            <div class="divTableCell">cell2_4</div>
-                            <div class="divTableCell">cell3_4</div>
-                            <div class="divTableCell">cell4_4</div>
-                            <div class="divTableCell">싹퉁바가지</div>
-                            <div class="divTableCell"><button>영구 정지</button></div>
-                            </div>
-                            <div class="divTableRow">
-                            <div class="divTableCell">cell1_5</div>
-                            <div class="divTableCell">cell2_5</div>
-                            <div class="divTableCell">cell3_5</div>
-                            <div class="divTableCell">cell4_5</div>
-                            <div class="divTableCell">범죄</div>
-                            <div class="divTableCell"><button>영구 정지</button></div>
-                            </div>
-                            
-                            </div>
+                   
                            
+                        <div class="divTable minimalistBlack"><!-- 구직자 신청 현황 시작 -->
+                            <div class="divTableHeading">
+                            	<div class="divTableRow">
+                            		<div class="divTableHead">번호</div>
+                          	 		<div class="divTableHead">구직자 이름</div>
+                           	 		<div class="divTableHead">근무 예정 일자</div>
+                          	 		<div class="divTableHead">이력서 확인</div>
+                         	 		<div class="divTableHead">고용 여부</div>
+                          			<div class="divTableHead">연락처</div>    
+                          			<div class="divTableHead">대화하기</div>   
+                        		</div>
                             </div>
-    						<br>
+                            	 <c:forEach items="${userInfo }" var="info">    
+                            	 
+                           			 <div class="divTableBody">
+                           				 <div class="divTableRow">
+                             		   		 <div class="divTableCell">${info.board_owner_seq }</div>
+                            				 <div class="divTableCell">${info.userName }</div>
+                            				 <div class="divTableCell">${info.jobDate}</div>
+                            
+                           					 <div class="divTableCell">${info.shopaddr }</div>
+                           					 <div class="divTableCell">
+                           					 	
+                           					 	<button onclick="return false">고용</button>
+                           					 	<button onclick="return false">거절</button>
+                           					 
+                           					 </div>
+                          					 
+                           					 <div class="divTableCell">${info.userPn }</div>
+                           					 <div class="divTableCell">
+                           					 	<input type=button value="대화" onclick="javascript:openWin();">  
+
+
+                           					 </div>
+                           					 	
+                           					 </div>
+                           					 
+                         				 </div>
+                         			</c:forEach>
+                     	 </div> <!-- 구직자 신청 현황 종료 -->
+                   
+                            <br>
+                            <br>
+                            
                             <div class="main_title">출근 현황</div>
-                    <div>
-                        <div class="divTable minimalistBlack">
-                            <div class="divTableHeading">
-                            <div class="divTableRow">
-                            <div class="divTableHead">긴급 / 일일</div>
-                            <div class="divTableHead">번호</div>
-                            <div class="divTableHead">구직자 이름</div>
-                            <div class="divTableHead">근무시간</div>
-                            <div class="divTableHead">급여</div>
-                            <div class="divTableHead">차단</div>
-                            <div class="divTableHead">알바종료</div>
+                    
+                        <div class="divTable minimalistBlack"><!-- 출근현황 시작 -->
+                            <div class="divTableHeading"><!-- 제목 전체 -->
+                           		 <div class="divTableRow"><!-- 제목 내부 -->
+                           			 <div class="divTableHead">긴급 / 일일</div>
+                          			 <div class="divTableHead">번호</div>
+                          			 <div class="divTableHead">구직자 이름</div>
+                          			 <div class="divTableHead">근무시간</div>
+                          			 <div class="divTableHead">급여</div>
+                           			 <div class="divTableHead">차단</div>
+                           			 <div class="divTableHead">알바종료</div>
     
-                        </div>
-                            </div>
-                            <div class="divTableBody">
+                     			 </div><!-- 제목내부 -->
+                            </div><!-- 제목 전체 -->
+                         <div class="divTableBody">
                             <div class="divTableRow">
-                            <div class="divTableCell">cell1_1</div>
-                            <div class="divTableCell">cell2_1</div>
-                            <div class="divTableCell">cell3_1</div>
-                            <div class="divTableCell">cell4_1</div>
-                            <div class="divTableCell">근무태만</div>
-                            <div class="divTableCell"><button>차단</button></div>
-                            <div class="divTableCell"><button>알바 종료</button></div>
-                            </div>
+                         	 	  <div class="divTableCell">cell1_1</div>
+                         	  	 <div class="divTableCell">cell2_1</div>
+                          	 	 <div class="divTableCell">cell3_1</div>
+                           		 <div class="divTableCell">cell4_1</div>
+                          	 	 <div class="divTableCell">근무태만</div>
+                          	 	 <div class="divTableCell"><button>차단</button></div>
+                          	 	 <div class="divTableCell"><button>알바 종료</button></div>
+                           	</div> <!-- 첫행 -->
                             <div class="divTableRow">
-                            <div class="divTableCell">cell1_2</div>
-                            <div class="divTableCell">cell2_2</div>
-                            <div class="divTableCell">cell3_2</div>
-                            <div class="divTableCell">cell4_2</div>
-                            <div class="divTableCell">지가사장인줄암</div>
-                            <div class="divTableCell"><button>차단</button></div>
-                            <div class="divTableCell"><button>알바 종료</button></div>
-                            </div>
-                            <div class="divTableRow">
-                            <div class="divTableCell">cell1_3</div>
-                            <div class="divTableCell">cell2_3</div>
-                            <div class="divTableCell">cell3_3</div>
-                            <div class="divTableCell">cell4_3</div>
-                            <div class="divTableCell">잠수</div>
-                            <div class="divTableCell"><button>차단</button></div>
-                            <div class="divTableCell"><button>알바 종료</button></div>
+                         		   <div class="divTableCell">cell1_2</div>
+                         	   <div class="divTableCell">cell2_2</div>
+                         	   <div class="divTableCell">cell3_2</div>
+                         		   <div class="divTableCell">cell4_2</div>
+                         	   <div class="divTableCell">지가사장인줄암</div>
+                         	   <div class="divTableCell"><button>차단</button></div>
+                         	   <div class="divTableCell"><button>알바 종료</button></div>
                             </div>
                             <div class="divTableRow">
-                            <div class="divTableCell">cell1_4</div>
-                            <div class="divTableCell">cell2_4</div>
-                            <div class="divTableCell">cell3_4</div>
-                            <div class="divTableCell">cell4_4</div>
-                            <div class="divTableCell">싹퉁바가지</div>
-                            <div class="divTableCell"><button>차단</button></div>
-                            <div class="divTableCell"><button>알바 종료</button></div>
+                          	  <div class="divTableCell">cell1_3</div>
+                          	  <div class="divTableCell">cell2_3</div>
+                         	   <div class="divTableCell">cell3_3</div>
+	                            <div class="divTableCell">cell4_3</div>
+		                            <div class="divTableCell">잠수</div>
+	                      	      <div class="divTableCell"><button>차단</button></div>
+                         	   <div class="divTableCell"><button>알바 종료</button></div>
                             </div>
                             <div class="divTableRow">
-                            <div class="divTableCell">cell1_5</div>
-                            <div class="divTableCell">cell2_5</div>
-                            <div class="divTableCell">cell3_5</div>
-                            <div class="divTableCell">cell4_5</div>
-                            <div class="divTableCell">범죄</div>
-                            <div class="divTableCell"><button>차단</button></div>
-                            <div class="divTableCell"><button>알바 종료</button></div>
+                          	  <div class="divTableCell">cell1_4</div>
+                         	   <div class="divTableCell">cell2_4</div>
+                        	    <div class="divTableCell">cell3_4</div>
+                         	   <div class="divTableCell">cell4_4</div>
+                         		   <div class="divTableCell">싹퉁바가지</div>
+                         	   <div class="divTableCell"><button>차단</button></div>
+                          	  <div class="divTableCell"><button>알바 종료</button></div>
+                            </div>
+                            <div class="divTableRow">
+                          	  <div class="divTableCell">cell1_5</div>
+                          	  <div class="divTableCell">cell2_5</div>
+                          	  <div class="divTableCell">cell3_5</div>
+                          	  <div class="divTableCell">cell4_5</div>
+                          	  <div class="divTableCell">범죄</div>
+                           	 <div class="divTableCell"><button>차단</button></div>
+                           	 <div class="divTableCell"><button>알바 종료</button></div>
                             </div>
                             
                             </div>
                            
-                            </div>
-                    </div>
+                            </div><!--  출근현황 종료 -->
+                
     
                     <div class="main_title">구직자 차단 내역</div>
                     <div>
@@ -320,6 +307,22 @@
                             </div>
                            
                             </div>
+                   
+                        		
+                          </div> <!-- 구직자 차단내역 종료 -->
+                          
+                          
+                          
+                          </div>
+                            
+                            
+                         
+                        </div>
+                        
+                        
+                     
+    				<div>
+                     
                    
                 </div><!--중간 메뉴바 종료-->
                

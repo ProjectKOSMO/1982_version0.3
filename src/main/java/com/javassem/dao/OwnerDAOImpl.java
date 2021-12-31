@@ -2,6 +2,8 @@ package com.javassem.dao;
 
 import com.javassem.domain.OwnerBoardVO;
 import com.javassem.domain.OwnerVO;
+
+import java.util.HashMap;
 import java.util.List;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,4 +62,8 @@ public class OwnerDAOImpl implements OwnerDAO {
     System.out.println("===> Mybatis ownerList()");
     return this.mybatis.selectList("owner.getList", vo);
   }
+  
+  public List<HashMap> getUserList(String ownerId) {
+		return this.mybatis.selectList("owner.getUserList", ownerId);
+	}
 }
