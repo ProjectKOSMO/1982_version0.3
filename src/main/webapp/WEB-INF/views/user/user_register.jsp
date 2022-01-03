@@ -62,7 +62,7 @@
 
         </div>
 	        <input class="id_input" name="userpn" type="text" placeholder="핸드폰 번호를 입력하세요" />
-	        <input type="submit" value="가입" />
+	        <input type="submit" id="register" disabled="disabled" value="가입" />
       </form>
 </body>
 </html>

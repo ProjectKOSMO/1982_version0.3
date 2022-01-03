@@ -54,11 +54,7 @@ public class ParkController {
 //		return "/admin/" +step;
 //	}
 	
-	@RequestMapping("visit.do")
-	public void visit(){
-		visitService.visit();
-	}
-	
+
 	@RequestMapping("admin_login.do")
 	public String move(){
 		return "admin/admin_login";	
@@ -147,6 +143,8 @@ public class ParkController {
 			m.addAttribute("visitYesterday2",visitYesterday2);
 			m.addAttribute("visitYesterday3",visitYesterday3);
 			m.addAttribute("visitYesterday4",visitYesterday4);
+			
+			m.addAttribute("Total_visitor",visitService.countTotalVisit());
 			
 			return "/admin/" + "adminPage";
 			

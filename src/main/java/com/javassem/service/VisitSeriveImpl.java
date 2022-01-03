@@ -11,10 +11,8 @@ public class VisitSeriveImpl implements VisitService{
 
 	@Autowired
 	private VisitDAO visitDAO;
+
 	
-	public void visit(){
-		this.visitDAO.visit();
-	}
 	public int countTotalVisit(){
 		return this.visitDAO.countTotalVisit();
 	}

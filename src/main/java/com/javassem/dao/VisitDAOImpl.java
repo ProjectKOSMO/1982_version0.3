@@ -10,9 +10,7 @@ public class VisitDAOImpl implements VisitDAO{
 	@Autowired
 	  private SqlSessionTemplate mybatis;
 	
-	public void visit(){
-		this.mybatis.insert("visit.visit");
-	}
+
 	public int countTotalVisit(){
 		return this.mybatis.selectOne("visit.countTotal");
 	}

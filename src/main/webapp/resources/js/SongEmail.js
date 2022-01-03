@@ -20,13 +20,16 @@ $(function(){
 	
 	
 	$(".mail_check_input").keyup(function(){
-		
-		inputNum=$(".mail_check_input").val();
-	
-		if(inputNum==code){
-			$("#mail_check_input_box_warn").text("인증번호가 일치합니다.");
-		}else{
-			$("#mail_check_input_box_warn").text("인증번호가 불일치합니다.");
-		}
+      
+      inputNum=$(".mail_check_input").val();
+   
+      if(inputNum==code){
+         $("#mail_check_input_box_warn").text("인증번호가 일치합니다.");
+         $("#register").attr("disabled",false);
+      }else{
+         $("#mail_check_input_box_warn").text("인증번호가 불일치합니다.");
+         $("#register").attr("disabled",true);
+      }
+  
 	})
 })

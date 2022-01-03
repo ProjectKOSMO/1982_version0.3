@@ -16,6 +16,7 @@ import com.javassem.domain.ParkBlackVO;
 import com.javassem.domain.SubscribeVO;
 import com.javassem.service.ParkBlackService;
 import com.javassem.service.SubscribeService;
+import com.javassem.service.VisitService;
 
 
 @Controller
@@ -23,6 +24,7 @@ public class SubscribeController {
 	
 	@Autowired
 	public SubscribeService subscribeService;
+
 
 	@RequestMapping("admin/adminPage2.do")
 	public String moveSubscribe(SubscribeVO vo, Model m, PagingVO vo1
