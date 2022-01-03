@@ -22,6 +22,8 @@ public interface UserDAO {
   
   void updateUserInfoView(UserVO paramUserVO);
   
+  void updateInfoView(UserVO paramUserVO);
+  
   void deleteUserInfoView(UserVO paramUserVO);
   
   UserVO getUserInfoView(UserVO paramUserVO);

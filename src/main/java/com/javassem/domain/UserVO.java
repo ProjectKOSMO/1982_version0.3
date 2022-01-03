@@ -7,44 +7,65 @@ import java.util.UUID;
 import org.springframework.web.multipart.MultipartFile;
 
 public class UserVO {
-	// 구직자 번호
+	// 구직자 기본정보
 	private int usernum;
-	// 구직자 아이디
 	private String userid;
-	// 구직자 비밀번호
 	private String userpass;
 	private String userpass2;
-	// 구직자 이름
 	private String username;
+	private String username2;
 	private String usercode;
-	// 구직자 성별
 	private String usergender;
-	// 구직자 핸드폰번호
 	private String userpn;
-	// 구직자 주소
 	private String useraddr;
-	// 구직자 메일
 	private String usermail;
-	// 가입 날짜
 	private String userdate;
-	// 생일
 	private String userbirth;
-	// 구직자 자기소개
+	
+	// 구직자 이력서 관련
 	private String userself;
+	
 	// 최종학력
 	private String userschool;
+	private String userschool_date;
+	private String userschool_subject;
+	private String userschool_end;
+	private String userschool_bigo;
+	private String userschool_date1;
+	private String userschool_subject1;
+	private String userschool1;
+	private String userschool_end1;
+	private String userschool_bigo1;
+	
 	// 구직자 경력
 	private String usercareerlist;
-	// 일했던 직장
 	private String shopname;
-	// 경력 날짜
 	private String careerdate;
-	// 부서 이름
-	private String depatementname;
-	// 자격증 이름
+	private String departmentname;
+	private String careerspot;
+	private String careerbigo;
+	private String careerdate1;
+	private String departmentname1; 
+	private String careerspot1; 
+	private String usercareerlist1; 
+	private String careerbigo1;
+	private String careerdate2;
+	private String departmentname2;
+	private String careerspot2;
+	private String usercareerlist2;
+	private String careerbigo2;
+	
+	// 구직자 자격증
 	private String certficatename;
-	// 자격증 취득 날짜
 	private String certficatedate;
+	private String certficate_company;
+	private String certficatedate1;
+	private String certficatename1;
+	private String certficate_company1;
+	private String certficatedate2;
+	private String certficatename2;
+	private String certficate_company2;
+	
 	// 구직자 사진
 	private String userimg;
 	private String userimg1;
@@ -223,13 +244,6 @@ public void setCareerDate(String careerDate) {
 	this.careerdate = careerDate;
 }
 
-public String getDepatementName() {
-	return depatementname;
-}
-
-public void setDepatementName(String depatementName) {
-	this.depatementname = depatementName;
-}
 
 public String getCertficateName() {
 	return certficatename;
@@ -261,6 +275,294 @@ public String getUserself() {
 
 public void setUserself(String userself) {
 	this.userself = userself;
+}
+
+public String getUserschool() {
+	return userschool;
+}
+
+public void setUserschool(String userschool) {
+	this.userschool = userschool;
+}
+
+public String getUserschool_date() {
+	return userschool_date;
+}
+
+public void setUserschool_date(String userschool_date) {
+	this.userschool_date = userschool_date;
+}
+
+public String getUserschool_subject() {
+	return userschool_subject;
+}
+
+public void setUserschool_subject(String userschool_subject) {
+	this.userschool_subject = userschool_subject;
+}
+
+public String getUserschool_end() {
+	return userschool_end;
+}
+
+public void setUserschool_end(String userschool_end) {
+	this.userschool_end = userschool_end;
+}
+
+public String getUserschool_bigo() {
+	return userschool_bigo;
+}
+
+public void setUserschool_bigo(String userschool_bigo) {
+	this.userschool_bigo = userschool_bigo;
+}
+
+public String getUserschool_date1() {
+	return userschool_date1;
+}
+
+public void setUserschool_date1(String userschool_date1) {
+	this.userschool_date1 = userschool_date1;
+}
+
+public String getUserschool_subject1() {
+	return userschool_subject1;
+}
+
+public void setUserschool_subject1(String userschool_subject1) {
+	this.userschool_subject1 = userschool_subject1;
+}
+
+public String getUserschool1() {
+	return userschool1;
+}
+
+public void setUserschool1(String userschool1) {
+	this.userschool1 = userschool1;
+}
+
+public String getUserschool_end1() {
+	return userschool_end1;
+}
+
+public void setUserschool_end1(String userschool_end1) {
+	this.userschool_end1 = userschool_end1;
+}
+
+public String getUserschool_bigo1() {
+	return userschool_bigo1;
+}
+
+public void setUserschool_bigo1(String userschool_bigo1) {
+	this.userschool_bigo1 = userschool_bigo1;
+}
+
+public String getUsercareerlist() {
+	return usercareerlist;
+}
+
+public void setUsercareerlist(String usercareerlist) {
+	this.usercareerlist = usercareerlist;
+}
+
+public String getShopname() {
+	return shopname;
+}
+
+public void setShopname(String shopname) {
+	this.shopname = shopname;
+}
+
+public String getCareerdate() {
+	return careerdate;
+}
+
+public void setCareerdate(String careerdate) {
+	this.careerdate = careerdate;
+}
+
+public String getCareerspot() {
+	return careerspot;
+}
+
+public void setCareerspot(String careerspot) {
+	this.careerspot = careerspot;
+}
+
+public String getCareerbigo() {
+	return careerbigo;
+}
+
+public void setCareerbigo(String careerbigo) {
+	this.careerbigo = careerbigo;
+}
+
+public String getCareerdate1() {
+	return careerdate1;
+}
+
+public void setCareerdate1(String careerdate1) {
+	this.careerdate1 = careerdate1;
+}
+
+public String getDepartmentname1() {
+	return departmentname1;
+}
+
+public void setDepartmentname1(String departmentname1) {
+	this.departmentname1 = departmentname1;
+}
+
+public String getCareerspot1() {
+	return careerspot1;
+}
+
+public void setCareerspot1(String careerspot1) {
+	this.careerspot1 = careerspot1;
+}
+
+public String getUsercareerlist1() {
+	return usercareerlist1;
+}
+
+public void setUsercareerlist1(String usercareerlist1) {
+	this.usercareerlist1 = usercareerlist1;
+}
+
+public String getCareerbigo1() {
+	return careerbigo1;
+}
+
+public void setCareerbigo1(String careerbigo1) {
+	this.careerbigo1 = careerbigo1;
+}
+
+public String getCareerdate2() {
+	return careerdate2;
+}
+
+public void setCareerdate2(String careerdate2) {
+	this.careerdate2 = careerdate2;
+}
+
+public String getDepartmentname2() {
+	return departmentname2;
+}
+
+public void setDepartmentname2(String departmentname2) {
+	this.departmentname2 = departmentname2;
+}
+
+public String getCareerspot2() {
+	return careerspot2;
+}
+
+public void setCareerspot2(String careerspot2) {
+	this.careerspot2 = careerspot2;
+}
+
+public String getUsercareerlist2() {
+	return usercareerlist2;
+}
+
+public void setUsercareerlist2(String usercareerlist2) {
+	this.usercareerlist2 = usercareerlist2;
+}
+
+public String getCareerbigo2() {
+	return careerbigo2;
+}
+
+public void setCareerbigo2(String careerbigo2) {
+	this.careerbigo2 = careerbigo2;
+}
+
+public String getCertficatename() {
+	return certficatename;
+}
+
+public void setCertficatename(String certficatename) {
+	this.certficatename = certficatename;
+}
+
+public String getCertficatedate() {
+	return certficatedate;
+}
+
+public void setCertficatedate(String certficatedate) {
+	this.certficatedate = certficatedate;
+}
+
+public String getCertficate_company() {
+	return certficate_company;
+}
+
+public void setCertficate_company(String certficate_company) {
+	this.certficate_company = certficate_company;
+}
+
+public String getCertficatedate1() {
+	return certficatedate1;
+}
+
+public void setCertficatedate1(String certficatedate1) {
+	this.certficatedate1 = certficatedate1;
+}
+
+public String getCertficatename1() {
+	return certficatename1;
+}
+
+public void setCertficatename1(String certficatename1) {
+	this.certficatename1 = certficatename1;
+}
+
+public String getCertficate_company1() {
+	return certficate_company1;
+}
+
+public void setCertficate_company1(String certficate_company1) {
+	this.certficate_company1 = certficate_company1;
+}
+
+public String getCertficatedate2() {
+	return certficatedate2;
+}
+
+public void setCertficatedate2(String certficatedate2) {
+	this.certficatedate2 = certficatedate2;
+}
+
+public String getCertficatename2() {
+	return certficatename2;
+}
+
+public void setCertficatename2(String certficatename2) {
+	this.certficatename2 = certficatename2;
+}
+
+public String getCertficate_company2() {
+	return certficate_company2;
+}
+
+public void setCertficate_company2(String certficate_company2) {
+	this.certficate_company2 = certficate_company2;
+}
+
+public String getUsername2() {
+	return username2;
+}
+
+public void setUsername2(String username2) {
+	this.username2 = username2;
+}
+
+public String getDepartmentname() {
+	return departmentname;
+}
+
+public void setDepartmentname(String departmentname) {
+	this.departmentname = departmentname;
 }
   
   

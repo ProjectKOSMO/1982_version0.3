@@ -63,6 +63,9 @@ public class UserDAOImpl implements UserDAO {
 	public ShopInfoVO getShopView(ShopInfoVO vo) {
 		return this.mybatis.selectOne("user.getShopView", vo);
 	}
-
 	
+	@Override
+	public void updateInfoView(UserVO vo) {
+		this.mybatis.update("user.updateInfoView", vo);
+	}
 }

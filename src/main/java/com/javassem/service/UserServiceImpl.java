@@ -35,7 +35,10 @@ public class UserServiceImpl implements UserService {
 		this.userDAO.updateUserInfoView(vo);
 	}
 	
-
+	public void updateInfoView(UserVO vo) {
+		this.userDAO.updateInfoView(vo);
+	}
+	
 	public void deleteUserInfoView(UserVO vo) {
 		this.userDAO.deleteUserInfoView(vo);
 	}

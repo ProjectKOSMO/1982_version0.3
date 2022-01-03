@@ -45,6 +45,12 @@ public class UserController {
     	m.addAttribute("infoview", user);
     }
     
+    @RequestMapping({"/user/updateInfoView.do"})
+    public void updateinfoview(UserVO vo){
+    	System.out.println(vo.getUserbirth());
+    	this.userService.updateInfoView(vo);
+    }
+    
     @RequestMapping({"/user/updateMypage.do"})
     public String updateBoard(UserVO vo) {
       this.userService.updateUserInfoView(vo);

@@ -101,7 +101,7 @@ $(document).ready(function(){
                 <br/>
                 <li class="left_nav_text"><a href="#actor1">업체지원현황</a></li>
                 <br/>
-                <li class="left_nav_text"><a href="#" onclick="window.open('userInfoView.do', '간단한 이력서','width=700;, height=500, resizable = no, scrollbars = no'); return false">간단한이력서</a></li>  
+                <li class="left_nav_text"><a href="#" onclick="window.open('userInfoView.do?userid=${userId}', '간단한 이력서','width=700;, height=500, resizable = no, scrollbars = no'); return false">간단한이력서</a></li>  
             </ul>
             
         <!-- 프로필 수정 -->
