@@ -1,13 +1,12 @@
 package com.javassem.service;
 
-import java.util.HashMap;
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.javassem.dao.UserDAOImpl;
+import com.javassem.domain.ShopInfoVO;
 import com.javassem.domain.ShopVO;
+import com.javassem.domain.SupportVO;
 import com.javassem.domain.UserVO;
 
 @Service("userService")
@@ -25,7 +24,7 @@ public class UserServiceImpl implements UserService {
 	  return this.userDAO.userInsert(vo);
 	}
 	  
-	// 구직자 마이페이지 서비스단
+	// 구직자 이력서 서비스단
 	public void insertUserInfoView(UserVO vo) {
 		this.userDAO.insertUserInfoView(vo);
 	}
@@ -45,7 +44,15 @@ public class UserServiceImpl implements UserService {
 		return this.userDAO.getUserInfoView(vo);
 	}
 
-	public List<HashMap> getShopList(HashMap map) {
-		return this.userDAO.getShopList(map);
+	// 구직자 지원현황 서비스단
+	public SupportVO getSupportView(SupportVO vo) {
+		return this.userDAO.getSupportView(vo);
 	}
+
+
+	public ShopInfoVO getShopView(ShopInfoVO vo) {
+		return this.userDAO.getShopView(vo);
+	}
+
+	
 }

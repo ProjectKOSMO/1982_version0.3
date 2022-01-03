@@ -80,11 +80,10 @@
 .left_nav {
   list-style-type: none;
   padding: 0px;
-  
   margin-left: 35px;
   width: 11%;
   background: #dee2e6;
-  height: 50%;
+  height: 500px;
   overflow: auto;
   position: fixed;
   border-radius: 8px;
@@ -229,6 +228,7 @@ div.minimalistBlack {
   display: flex;
   margin:10px;
   border:solid 1px #444444;
+  width:250px;
   height: 300px;
 }
 
@@ -297,7 +297,7 @@ table{
 
 ul, li{ 
   list-style:none;
-  text-align:center;
+  text-align:left;
   padding:0;
   margin:0;
 }

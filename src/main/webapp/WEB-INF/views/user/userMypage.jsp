@@ -19,15 +19,39 @@
     <title>마이 페이지</title>
     <link type="text/css" href="/project1982/resources/css/reset.min.css" rel="stylesheet">
     <link type="text/css" href="/project1982/resources/css/all.min.css" rel="stylesheet">
-    <link type="text/css" href="/project1982/resources/css/userMypage.css" rel="stylesheet"/>
 	<link type="text/css" href="/project1982/resources/style/useStyle.css" rel="stylesheet"/>
     <link type="text/css" href="/project1982/resources/style/header.css" rel="stylesheet"/>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 </head>
+<script>
+$(document).ready(function(){
 
+	$("#supportdetail").on("click", function(){
+		var teo = {"shopname" : "${support.shopname}"}
+		$.ajax({
+			type : 'post',
+			url : '../user/shopInfoView.do',
+			contentType : "application/json",
+			data : JSON.stringify(teo),
+			dataType : 'json',
+			success : function(shop){
+				console.log(shop)
+				var image = "<img src=" + "/project1982/resources/upload/" + shop.si_realname + " style='width: 500px;'/>";
+				$(".body_container_center_shop_contanier_info_ta1").html(image)
+				$("#shopname").html(shop.shopname)
+				$("#shopaddr").html(shop.shopaddr)
+				$("#shoppn").html(shop.shoppn)
+			},
+			error:function(request,status,error){
+			    alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+			   }
+		})
+	});
+});
+</script>
 <body>
 <% 
 	String userId = (String)session.getAttribute("userId");
-	out.println(userId);
 %>
         <!--메뉴바(헤더)  ------------------------------------------------->
         <header class="header" >
@@ -53,7 +77,7 @@
                  		  고객센터                       
                    </a>
                    <a href="/project1982/index.jsp" class="logout">
-                    로그아웃
+                    	로그아웃
                    </a>
                </div>
                
@@ -76,7 +100,7 @@
             
         <!-- 프로필 수정 -->
 		<form action="updateMypage.do" method="post" enctype="multipart/form-data">
-			<input name="userid" type="hidden" value="${userid}" />
+			<input name="userid" type="hidden" value="${userId}" />
             <div class="body_container"> <!-- 페이지 컨테이너 시작-->
                 <div class="body_container_center"> <!-- 중간 메뉴바 시작-->
                 
@@ -138,42 +162,36 @@
 									<th bgcolor="#dee2e6" width="140" >매칭 여부</th>
 									<!-- 추가 -->
 								</tr>
-								<c:forEach items="${support}" var="su">
-									<!-- 프라퍼티이름 변경 -->
 									<tr>
-										<td>${su.jobDate }</td>
-										<td>${su.jobTime_start }</td>
-										<td>${su.jobTime_end }</td>
-										<td><a href="getBoard.do?b_id=${su.b_id}">${su.shopname}</a></td>
-										<td>${su.shoppay }</td>
-										<td>${su.shoppay }</td>
+										<td>${support.jobDate }</td>
+										<td>${support.jobTime_start }</td>
+										<td>${support.jobTime_end }</td>
+										<td><a href="#" id="supportdetail">${support.shopname}</a></td>
+										<td>${support.shoppay }</td>
+										<td>${support.maching }</td>
 										<!-- 추가 -->
 									</tr>
-								</c:forEach>
 							</table> 
                             </div>
                            
                             <div class= "body_container_center_shop_contanier_info1">
-                            	<div class="body_container_center_shop_contanier_info_ta1">
-                            		<%-- <c:if test="${ != null}">
-                            			<img src="/project1982/resources/upload/${}">
-                            		</c:if> --%>
+                            	<div class="body_container_center_shop_contanier_info_ta1" style="width:500px;">
+                            			
                             	</div>
                             	<!-- 업체 미리보기 -->
                             	<div style="margin-left:10%;margin-right:10%;">
-	                            	<br/>
-	                            	 - 업체이름 : 
-	                            	<br/>
-	                            	<hr/>
-	                            	<br/>
-	                            	 - 업체주소 : 
-	                         		<br/>
-	                            	<hr/>
-	                            	<br/>                
-	                            	 - 업체 전화번호 : 
-	                            	<br/>
-	                            	<hr/>
-	                            	<br/>
+                            		<ul>
+                            			<br/>
+                            			<li>- 업체이름 : <p id="shopname"></p></li>
+                            			<br/>
+	                            		<hr/>
+	                            		<br/>
+                            			<li>- 업체주소 : <p id="shopaddr"></p></li>
+                            			<br/>
+	                            		<hr/>
+	                            		<br/>
+	                            		<li>- 업체 전화번호 : <p id="shoppn"></p></li>
+                            		</ul>
                             	</div>
                             </div>
                         </div>
