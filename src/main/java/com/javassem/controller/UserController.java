@@ -1,6 +1,8 @@
 package com.javassem.controller;
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,7 +26,7 @@ public class UserController {
     @RequestMapping({"/user/userMypage.do"})
     public void getuser(UserVO vo, SupportVO vo1, Model m) {
       UserVO result = this.userService.getUserInfoView(vo);
-      SupportVO support = this.userService.getSupportView(vo1);
+      List<SupportVO> support = this.userService.getSupportView(vo1);
       m.addAttribute("user", result);
       m.addAttribute("support", support);
     }
@@ -32,6 +34,7 @@ public class UserController {
     @PostMapping(value = {"/user/shopInfoView.do"}, produces="application/json")
     @ResponseBody
     public ShopInfoVO getshop(@RequestBody ShopInfoVO vo){
+    	System.out.println(vo.getShopName());
     	ShopInfoVO shop = this.userService.getShopView(vo);
       return shop;
     }
@@ -42,9 +45,9 @@ public class UserController {
     	m.addAttribute("infoview", user);
     }
     
-//    @RequestMapping({"/user/updateMypage.do"})
-//    public String updateBoard(UserVO vo) {
-//      this.userService.updateUserInfoView(vo);
-//      return "redirect:userMain.do";
-//    }
+    @RequestMapping({"/user/updateMypage.do"})
+    public String updateBoard(UserVO vo) {
+      this.userService.updateUserInfoView(vo);
+      return "redirect:userMain.do";
+    }
 }

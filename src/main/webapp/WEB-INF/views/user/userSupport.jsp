@@ -8,7 +8,9 @@
     <title>5</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome@5.14.0/css/all.min.css">
-     <link type="text/css" href="/project1982/resources/css/5_store.css" rel="stylesheet"/>
+    <link type="text/css" href="/project1982/resources/css/5_store.css" rel="stylesheet"/>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+     
 </head>
 <body>
  <% 
@@ -31,18 +33,21 @@
            <!-- 오른쪽 메뉴-->
            <div class="right-menu">
                <!--검색 -->
-               <a href="storeClose.do" id="s1">
+               <a href="storeClose.do?userid=${userId}" class="search">
              일자리찾기
                </a>
                <!--유저 -->
-               <a href="userMypage.do" id="s2">
+               <a href="userMypage.do?userid=${userId}" class="user"">
                마이페이지
                </a>
                <!--카트  -->
-               <a href="userBoard.do" id="s3">
+               <a href="userBoard.do?userid=${userId}" id="s3">
                고객센터
-                   <!--카트 상품-->
                    
+               </a>
+               <a href="/project1982/index.jsp" class="logout">
+                    로그아웃
+
                </a>
            </div>
 
@@ -56,7 +61,7 @@
                <img class="img_box" src="../resources/upload/${shop.si_realname}" alt="" />
            </div>
            <div >
-               <form action="../user/support.do" method="post" id="login-form">
+               <form  id="supportInfo">
                
                    <input type="hidden" value="${userId}" name="userid"/>
                    <input type="hidden" value="${shop.board_owner_seq }" name="board_owner_seq"/>
@@ -82,10 +87,10 @@
                  	
                     <div class="review_star">
                           
-                     <button class="button" id="button1" type="submit" > 지원하기</button>
+                     
                  </div>
                  </form>
-     
+     				<button class="button" id="button1"> 지원하기</button>
                        
                  </div>
        </main>
@@ -160,6 +165,28 @@
        </div>
 
    </footer>
+<script>
+$(document).ready(function(){
+  $('#button1').click(function(){
+	  $.ajax({
+		  url:"/project1982/Go/supportInsert2",
+		  type:"GET",
+		  data:$("#supportInfo").serialize(),
+		  dataType:'text',
+		  success:function(data){
+			 alert(data);
+			 var url="/project1982/user/storeClose.do";
+			 location.replace(url); 
+		  },
+		  error:function(request,status,error){
+		        alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+		       }
+
+	  }) //ajax
+  }) //button1
+}) //document ready
+</script>
+
 
 </body>
 </html>

@@ -1,6 +1,10 @@
 package com.javassem.dao;
 
 
+import java.util.HashMap;
+import java.util.List;
+
+import com.javassem.domain.BoardVO;
 import com.javassem.domain.ShopInfoVO;
 import com.javassem.domain.SupportVO;
 import com.javassem.domain.UserVO;
@@ -22,7 +26,7 @@ public interface UserDAO {
   
   UserVO getUserInfoView(UserVO paramUserVO);
   
-  SupportVO getSupportView(SupportVO paramSupportVO);
+  List<SupportVO> getSupportView(SupportVO paramSupportVO);
   
   ShopInfoVO getShopView(ShopInfoVO paramShopInfoVO);
 }

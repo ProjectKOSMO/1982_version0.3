@@ -23,11 +23,16 @@
     <link type="text/css" href="/project1982/resources/style/header.css" rel="stylesheet"/>
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 </head>
-<script>
-$(document).ready(function(){
 
-	$("#supportdetail").on("click", function(){
-		var teo = {"shopname" : "${support.shopname}"}
+<script type="text/javascript">
+$(document).ready(function(){
+	
+	$("a#supportdetail").on("click", function(){
+		
+		var teo = {"shopname" : $(this).text()}
+		
+		console.log($(this).text());
+		
 		$.ajax({
 			type : 'post',
 			url : '../user/shopInfoView.do',
@@ -47,6 +52,7 @@ $(document).ready(function(){
 			   }
 		})
 	});
+	
 });
 </script>
 <body>
@@ -162,15 +168,17 @@ $(document).ready(function(){
 									<th bgcolor="#dee2e6" width="140" >매칭 여부</th>
 									<!-- 추가 -->
 								</tr>
+								<c:forEach items="${support}" var="sup">
 									<tr>
-										<td>${support.jobDate }</td>
-										<td>${support.jobTime_start }</td>
-										<td>${support.jobTime_end }</td>
-										<td><a href="#" id="supportdetail">${support.shopname}</a></td>
-										<td>${support.shoppay }</td>
-										<td>${support.maching }</td>
+										<td>${sup.jobDate }</td>
+										<td>${sup.jobTime_start }</td>
+										<td>${sup.jobTime_end }</td>
+										<td id="shopnames"><a href="#" id="supportdetail">${sup.shopname}</a></td>
+										<td>${sup.shoppay }</td>
+										<td>${sup.maching }</td>
 										<!-- 추가 -->
 									</tr>
+								</c:forEach>
 							</table> 
                             </div>
                            

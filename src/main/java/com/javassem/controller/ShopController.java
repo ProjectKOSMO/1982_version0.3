@@ -60,7 +60,7 @@ public class ShopController {
 	}
 	
 	@RequestMapping(value = {"support.do"}, method=RequestMethod.POST)
-	public String getShop2(
+	public String getShop3(
 			
 			@RequestParam int board_owner_seq,
 			@RequestParam String shopname,
@@ -85,16 +85,8 @@ public class ShopController {
 			vo.setUserid(userid);
 			
 			
-			ShopVO y = mybatis.selectOne("ShopDAO.getSupport", vo);
+				return "redirect:storeClose.do";
 			
-			if(y != null){
-				return "redirect:storeClose.do";
-							
-			}else{
-				
-				mybatis.insert("ShopDAO.getShop2", vo);
-				return "redirect:storeClose.do";
-			}
 		
 
 	}

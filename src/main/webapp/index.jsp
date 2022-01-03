@@ -10,9 +10,10 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome@5.14.0/css/all.min.css">
     <link type="text/css" href="/project1982/resources/css/1_intro.css" rel="stylesheet"/>
+    
 </head>
 <body>
- 
+
 <!-- -->
     
     <div class="main">
@@ -28,7 +29,7 @@
                 </div>
             <div id="main_button1">
                 <a class="main_button" href="owner/owner_login.do">사업자 로그인</a>
-            </div>    
+            </div>
         </div>
     </div>
 <!-- main------------------------------------------------------------------>

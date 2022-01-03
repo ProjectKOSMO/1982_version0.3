@@ -1,11 +1,12 @@
 package com.javassem.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.javassem.dao.UserDAOImpl;
 import com.javassem.domain.ShopInfoVO;
-import com.javassem.domain.ShopVO;
 import com.javassem.domain.SupportVO;
 import com.javassem.domain.UserVO;
 
@@ -45,7 +46,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	// 구직자 지원현황 서비스단
-	public SupportVO getSupportView(SupportVO vo) {
+	public List<SupportVO> getSupportView(SupportVO vo) {
 		return this.userDAO.getSupportView(vo);
 	}
 
