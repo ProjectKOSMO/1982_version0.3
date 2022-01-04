@@ -41,7 +41,7 @@ $(document).ready(function(){
 			dataType : 'json',
 			success : function(shop){
 				console.log(shop)
-				var image = "<img src=" + "/project1982/resources/upload/" + shop.si_realname + " style='width: 500px;'/>";
+				var image = "<img src=" + "/project1982/resources/upload/" + shop.si_realname + " style='width: 100%;'/>";
 				$(".body_container_center_shop_contanier_info_ta1").html(image)
 				$("#shopname").html(shop.shopname)
 				$("#shopaddr").html(shop.shopaddr)
@@ -95,8 +95,6 @@ $(document).ready(function(){
       		<!-- 왼쪽 네비게이션 -->
             <ul class="left_nav">
             	<br/>
-                <li class="left_nav_text"><a class="home" href="userMain.do">홈</a></li>
-                <br/>
                 <li class="left_nav_text"><a href="#actor">프로필 수정</a></li>
                 <br/>
                 <li class="left_nav_text"><a href="#actor1">업체지원현황</a></li>
@@ -158,14 +156,13 @@ $(document).ready(function(){
 								</div>
 		                	
 		                	<table id="mypageTable">
-								<tr>
-									
-									<th bgcolor="#dee2e6" width="140" >일자</th>
-									<th bgcolor="#dee2e6" width="100" >시작시간</th>
-									<th bgcolor="#dee2e6" width="100" >종료시간</th>
-									<th bgcolor="#dee2e6" width="240" >업체명</th>
-									<th bgcolor="#dee2e6" width="100" >급여</th>
-									<th bgcolor="#dee2e6" width="140" >매칭 여부</th>
+								<tr >
+									<th bgcolor="#dee2e6" width="150" >일자</th>
+									<th bgcolor="#dee2e6" width="110" >시작시간</th>
+									<th bgcolor="#dee2e6" width="110" >종료시간</th>
+									<th bgcolor="#dee2e6" width="250" >업체명</th>
+									<th bgcolor="#dee2e6" width="110" >급여</th>
+									<th bgcolor="#dee2e6" width="150" >매칭 여부</th>
 									<!-- 추가 -->
 								</tr>
 								<c:forEach items="${support}" var="sup">
@@ -183,22 +180,22 @@ $(document).ready(function(){
                             </div>
                            
                             <div class= "body_container_center_shop_contanier_info1">
-                            	<div class="body_container_center_shop_contanier_info_ta1" style="width:500px;">
+                            	<div class="body_container_center_shop_contanier_info_ta1" style="width:95%;">
                             			
                             	</div>
                             	<!-- 업체 미리보기 -->
-                            	<div style="margin-left:10%;margin-right:10%;">
-                            		<ul>
+                            	<div style="margin-left:5%;margin-right:5%;">
+                            		<ul style="font-size:18px;font-weight:bolder;font-family:italic;">
                             			<br/>
-                            			<li>- 업체이름 : <p id="shopname"></p></li>
-                            			<br/>
-	                            		<hr/>
-	                            		<br/>
-                            			<li>- 업체주소 : <p id="shopaddr"></p></li>
+                            			<li>- 업체이름 : <span id="shopname"></span></li>
                             			<br/>
 	                            		<hr/>
 	                            		<br/>
-	                            		<li>- 업체 전화번호 : <p id="shoppn"></p></li>
+                            			<li>- 업체주소 : <span id="shopaddr"></span></li>
+                            			<br/>
+	                            		<hr/>
+	                            		<br/>
+	                            		<li>- 업체 전화번호 : <span id="shoppn"></span></li>
                             		</ul>
                             	</div>
                             </div>

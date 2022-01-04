@@ -92,7 +92,7 @@
                            <option value="b_content">내용</option>
                            <option value="b_name">작성자</option>
                         </select>
-						<input type='text' name='searchKeyword' style="width:600px;">
+						<input type='text' name='searchKeyword' style="width:500px;">
 						<input type='submit' value='검색' style="width:100px;">
 					</form>
 				</div>
@@ -116,13 +116,13 @@
 					
 	<table id="boardTable">
 			<tr>
-				<th bgcolor="#dee2e6" width="100" >번호</th>
-				<th bgcolor="#dee2e6" width="400" >제목</th>
-				<th bgcolor="#dee2e6" width="150" >작성자</th>
-				<th bgcolor="#dee2e6" width="170" >등록일</th>
-				<th bgcolor="#dee2e6" width="120" >조회수</th>
-				<th bgcolor="#dee2e6" width="170">파일이름</th>
-				<th bgcolor="#dee2e6" width="120">파일용량</th>				
+				<th bgcolor="#dee2e6" width="130" >번호</th>
+				<th bgcolor="#dee2e6" width="430" >제목</th>
+				<th bgcolor="#dee2e6" width="180" >작성자</th>
+				<th bgcolor="#dee2e6" width="200" >등록일</th>
+				<th bgcolor="#dee2e6" width="150" >조회수</th>
+				<th bgcolor="#dee2e6" width="200">파일이름</th>
+				<th bgcolor="#dee2e6" width="150">파일용량</th>				
 				<!-- 추가 -->
 			</tr>
 			<c:forEach items="${boardList}" var="board">

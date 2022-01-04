@@ -8,10 +8,10 @@
     <title>user_register.jsp</title>
    	<link type="text/css" href="/project1982/resources/css/3_register.css" rel="stylesheet"/>
     <script type="text/javascript" src="/project1982/resources/js/jquery-1.7.1.js"></script>
-    
-	<script type="text/javascript" src="/project1982/resources/js/SongEmail.js">
+	<script type="text/javascript" src="/project1982/resources/js/SongEmail.js"></script>
+	<script  src="/project1982/resources/js/js_userinput.js"></script>
+	<script>
 	
-
 	function passConfirm() {
 	
 	var userpass = document.getElementById('userpass');					//비밀번호 

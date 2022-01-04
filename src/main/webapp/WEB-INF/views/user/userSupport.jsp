@@ -77,9 +77,9 @@
                    <div class="border_bottom">날짜 : ${shop.jobDate }</div>
                    <input type="hidden" value="${shop.jobDate }" name="jobDate"/>
                    <div class="border_bottom">시작시간 : ${shop.jobTime_start }</div>
-                   <input type="hidden" value="${shop.jobTime_start }" name="startTime"/>
+                   <input type="hidden" value="${shop.jobTime_start }" name="jobTime_start"/>
                    <div class="border_bottom">종료시간 : ${shop.jobTime_end }</div>
-                   <input type="hidden" value="${shop.jobTime_end }" name="endTime" />
+                   <input type="hidden" value="${shop.jobTime_end }" name="jobTime_end" />
                  	<div class="border_bottom">연락처 : ${shop.shoppn }</div>
                    <input type="hidden" value="${shop.shoppn }" name="shoppn" />
                  	

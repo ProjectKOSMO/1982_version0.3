@@ -15,10 +15,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.javassem.domain.ShopVO;
 import com.javassem.service.OwnerService;
 import com.javassem.service.ShopService;
+import com.javassem.util.PagingVO;
 
 
 @Controller
-@RequestMapping({"user"})
 public class ShopController {
 
 	
@@ -32,20 +32,39 @@ public class ShopController {
 	  private SqlSessionTemplate mybatis;	
 	
 	// 일자리 찾기 업체 가져오기.
-	@RequestMapping(value="storeCloseget.do", method=RequestMethod.GET)
-	public String select(ShopVO vo, Model m,String searchCondition, String searchKeyword ){
-		
-		HashMap map = new HashMap();
+	@RequestMapping(value={"/user/storeClose.do"}, method=RequestMethod.GET)
+	public String select(PagingVO vo, Model m, String searchCondition, 
+			String searchKeyword,
+			@RequestParam(value = "nowPage", required = false) String nowPage, 
+			@RequestParam(value = "cntPerPage", required = false) String cntPerPage) {
+	   
+		HashMap<Object, Object> map = new HashMap<>();
+	    int total = this.shopService.countStore();
+	    if (nowPage == null && cntPerPage == null){
+	    	 nowPage = "1";
+	      cntPerPage = "5";
+	    } else if (nowPage == null) {
+	      nowPage = "1";
+	    } else if (cntPerPage == null) {
+	      cntPerPage = "5";
+	    }
+	    
+	    vo = new PagingVO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
+	    System.out.println(vo.getStart());
+	    System.out.println(vo.getEnd());
 		map.put("searchCondition", searchCondition);
 		map.put("searchKeyword", searchKeyword);
+		map.put("start", vo.getStart());
+		map.put("end", vo.getEnd());
 		
-		List<ShopVO> list = shopService.getShopList(map);
+		List<ShopVO> list = this.shopService.getShopList(map);
+		m.addAttribute("paging", vo);
 		m.addAttribute("ShopList", list);
 		return "user/storeClose" ;
 	}
 	
 
-	@RequestMapping(value = {"userSupport.do"}, method=RequestMethod.GET)
+	@RequestMapping(value = {"/user/userSupport.do"}, method=RequestMethod.GET)
 	public void getShop(@RequestParam int board_owner_seq, ShopVO vo, Model m){
 		
 		vo.setBoard_owner_seq(board_owner_seq);
@@ -59,7 +78,7 @@ public class ShopController {
 		
 	}
 	
-	@RequestMapping(value = {"support.do"}, method=RequestMethod.POST)
+	@RequestMapping(value = {"/user/support.do"}, method=RequestMethod.POST)
 	public String getShop3(
 			
 			@RequestParam int board_owner_seq,
@@ -94,7 +113,7 @@ public class ShopController {
 
 
 	// 일자리 찾기 버튼 클릭시 동작하는 코드
-    @RequestMapping({"storeClose.do"})
+    @RequestMapping({"/user/storeClose.do"})
     public void select(ShopVO vo, Model m) {
     	
         List<ShopVO> list = shopService.ShopList(vo);

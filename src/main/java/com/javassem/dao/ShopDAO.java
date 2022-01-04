@@ -7,17 +7,15 @@ import com.javassem.domain.ShopVO;
 
 public interface ShopDAO {
 
-  List<ShopVO> ShopList(ShopVO paramShopVO);
-
-
-/*	public List<ShopVO> ShopList(ShopVO vo);*/
+	List<ShopVO> ShopList(ShopVO paramShopVO);
 	
-	public List<ShopVO> getShopList(HashMap map);
+	List<ShopVO> getShopList(HashMap map);
 	
 	ShopVO getShop(ShopVO paramShopVO);
-	
-	int countShop();
-	
+
 	ShopVO support(ShopVO paramShopVO);
+	
+	int countStore();
+	
 
 }

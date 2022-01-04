@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.javassem.domain.ShopVO;
+import com.javassem.util.PagingVO;
 
 
 	@Repository("shopDAO")
@@ -31,13 +32,9 @@ import com.javassem.domain.ShopVO;
 		
 		public List<ShopVO> getShopList(HashMap map) {
 			System.out.println("===> Mybatis getBoardList() 호출");
-			return mybatis.selectList("ShopDAO.getShopList", map);
+			return this.mybatis.selectList("ShopDAO.getShopList", map);
 		}
 		
-		public int countShop(){
-			return ((Integer)this.mybatis.selectOne("ShopDAO.countShop")).intValue();
-		  
-		}
 		
 		public ShopVO getShop(ShopVO vo){
 			System.out.println("===> Mybatis getShop()");
@@ -48,4 +45,12 @@ import com.javassem.domain.ShopVO;
 		System.out.println("===> Mybatis support()");
 		return (ShopVO)this.mybatis.selectList("ShopDAO.support", vo);
 		}
+		
+		public int countStore(){
+			return ((Integer)this.mybatis.selectOne("ShopDAO.countStore")).intValue();
+		}
+		 public List<ShopVO> selectStore(PagingVO vo) {
+			    List<ShopVO> result = this.mybatis.selectList("ShopDAO.selectStore", vo);
+			    return result;
+			  }
 }

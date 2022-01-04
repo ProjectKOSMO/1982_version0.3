@@ -14,6 +14,35 @@
     <link type="text/css" href="/project1982/resources/css/6_my_store.css" rel="stylesheet"/>
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 </head>
+<style>
+	h2 {
+		text-align: center;
+	}
+	table {
+		width: 100%;
+	}
+	#outter2 {
+		display: block;
+ 		width: 100%;
+		margin: auto;
+	}
+	a {
+		text-decoration: none;
+	}
+	.chart{
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+	align-items:center;
+	}
+</style>
+
+<script>
+	function selChange() {
+		var sel2 = document.getElementById('cntPerPage').value;
+		location.href="/project1982/user/storeClose.do?nowPage=${paging.nowPage}&cntPerPage="+sel2;
+	}
+</script>
 
 
 <body>
@@ -53,7 +82,7 @@
    
            </header>
  <!-- 메인 ---------------------------------------------------------------->
-     	<form class="search-form" action="/project1982/user/storeCloseget.do" autocomplete="off" method="get">
+     	<form class="search-form" action="/project1982/user/storeClose.do" autocomplete="off" method="get">
      		<select name="searchCondition">
      			<option value="shopaddr">주소</option>
      			<option value="shopname">업체명</option>
@@ -64,7 +93,20 @@
      		<input type="text" name="searchKeyword">
      		<input type="submit" value="검색">
      	</form>
-     
+     	<div id="outter2">
+				   <div style="float: right;">
+						<select id="cntPerPage" name="sel2" onchange="selChange()">
+							<option value="5"
+								<c:if test="${paging.cntPerPage == 5}">selected</c:if>>5줄 보기</option>
+							<option value="10"
+								<c:if test="${paging.cntPerPage == 10}">selected</c:if>>10줄 보기</option>
+							<option value="15"
+								<c:if test="${paging.cntPerPage == 15}">selected</c:if>>15줄 보기</option>
+							<option value="20"
+								<c:if test="${paging.cntPerPage == 20}">selected</c:if>>20줄 보기</option>
+						</select>
+						</div>
+			</div>
     <section class="section_main">
            
       <div id="mainWrapper">
@@ -99,8 +141,26 @@
 						</c:forEach>                            
                   </ul>
               </li>
-  	
-          </div>
+  			<div style="display: block; text-align: center;">		
+				<c:if test="${paging.startPage != 1 }">
+					<a href="/project1982/user/storeClose.do?nowPage=${paging.startPage - 1 }&cntPerPage=${paging.cntPerPage}">&lt;</a>
+				</c:if>
+				<c:forEach begin="${paging.startPage }" end="${paging.endPage }" var="p">
+					<c:choose>
+						<c:when test="${p == paging.nowPage }">
+							<b>${p}</b>
+						</c:when>
+						<c:when test="${p != paging.nowPage }">
+							<a href="/project1982/user/storeClose.do?nowPage=${p }&cntPerPage=${paging.cntPerPage}">${p }</a>
+						</c:when>
+					</c:choose>
+				</c:forEach>
+				<c:if test="${paging.endPage != paging.lastPage}">
+					<a href="/project1982/user/storeClose.do?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}">&gt;</a>
+				</c:if>
+			</div>
+		</div>	
+       
           </section>
               <!-- 게시판 페이징 영역 -->
 
@@ -176,5 +236,6 @@
         </div>
 
     </footer>
+
 </body>
 </html> 

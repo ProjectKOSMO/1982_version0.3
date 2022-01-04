@@ -31,7 +31,7 @@ public class ShopServiceImpl implements ShopService {
 		}
 		
 		public int countShop(){
-			return shopDAO.countShop();
+			return shopDAO.countStore();
 		}
 		
 		public ShopVO getShop(ShopVO vo){
@@ -42,4 +42,16 @@ public class ShopServiceImpl implements ShopService {
 			return this.shopDAO.support(vo);
 		
 		}
+		
+		public int countStore() {
+			return this.shopDAO.countStore();
+		}
+
+		
+		public List<ShopVO> selectStore(com.javassem.util.PagingVO vo) {
+			return this.shopDAO.selectStore(vo);
+		}
+
+		
 }
+
