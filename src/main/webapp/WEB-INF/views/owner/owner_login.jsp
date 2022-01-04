@@ -8,6 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>11</title>
     <link type="text/css" href="/project1982/resources/css/2_login.css" rel="stylesheet"/>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" type="text/javascript"></script>
+
 </head>
 <script>
 	//현재 시간 데이터 세션에 넣기
@@ -33,7 +35,14 @@
 		}
 		
 		document.loginform.submit();//전송
+		
+		
 	}
+	$(function(){
+		$("#searchPassword").click(function(){
+			window.open("searchPassword.do","childForm","width=520, height=700, resizable = no, scrollbars = no");
+		})
+	})
 </script>
 <body>
     <form action="login.do" method="post" id="login-form" name="loginform">
@@ -43,7 +52,7 @@
         <input type="submit" name="Submit" id="Submit" value="로그인" />
         <div class="login_article">
             <a href="#">아이디 |</a>
-            <a href="#">비밀번호찾기 |</a>
+            <a href="#" id="searchPassword">비밀번호찾기 |</a>
             <a href="owner_register.do">회원가입</a>
         </div>    
     </form>

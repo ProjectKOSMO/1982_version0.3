@@ -8,6 +8,8 @@ public interface BoardDAO {
   void insertBoard(BoardVO paramBoardVO);
   
   void updateBoard(BoardVO paramBoardVO);
+
+  void updatecount(BoardVO paramBoardVO);
   
   void deleteBoard(BoardVO paramBoardVO);
   

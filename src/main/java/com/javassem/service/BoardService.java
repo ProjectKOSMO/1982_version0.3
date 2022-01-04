@@ -11,7 +11,7 @@ public interface BoardService {
   void insertBoard(BoardVO paramBoardVO);
   
   void updateBoard(BoardVO paramBoardVO);
-  
+  void updatecount(BoardVO paramBoardVO);  
   void deleteBoard(BoardVO paramBoardVO);
   
   BoardVO getBoard(BoardVO paramBoardVO);

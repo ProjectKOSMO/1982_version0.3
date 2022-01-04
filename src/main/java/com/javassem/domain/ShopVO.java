@@ -17,6 +17,7 @@ public class ShopVO {
 	private String jobTime_end;
 	private int board_owner_seq;
 	private String userid;
+	private String content;
 	
 	private String si_realname;
 	
@@ -129,6 +130,12 @@ public class ShopVO {
 	}
 	public void setUserid(String userid) {
 		this.userid = userid;
+	}
+	public String getContent() {
+		return content;
+	}
+	public void setContent(String content) {
+		this.content = content;
 	}
 }
 

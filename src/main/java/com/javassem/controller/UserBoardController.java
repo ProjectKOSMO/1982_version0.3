@@ -76,7 +76,9 @@ public class UserBoardController {
   
   @RequestMapping({"/user/getBoard.do"})
   public void getBoard(BoardVO vo,  HttpServletRequest request, Model m) {
-    BoardVO result = this.boardService.getBoard(vo);
+	this.boardService.updatecount(vo);
+
+	BoardVO result = this.boardService.getBoard(vo);
 	HttpSession session = request.getSession();
     m.addAttribute("userId",session.getAttribute("userId"));
     m.addAttribute("userPass",session.getAttribute("userPass"));

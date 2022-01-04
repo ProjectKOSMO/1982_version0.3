@@ -22,6 +22,10 @@ public class BoardServiceImpl implements BoardService {
     this.boardDAO.updateBoard(vo);
   }
   
+  public void updatecount(BoardVO vo){
+	this.boardDAO.updatecount(vo);
+  }
+    
   public void deleteBoard(BoardVO vo) {
     this.boardDAO.deleteBoard(vo);
   }

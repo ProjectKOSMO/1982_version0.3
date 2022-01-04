@@ -23,6 +23,10 @@ public class BoardDAOImpl implements BoardDAO {
     this.mybatis.update("BoardDAO.updateBoard", vo);
   }
   
+  public void updatecount(BoardVO vo){
+	  this.mybatis.update("BoardDAO.updateCount", vo);
+  }
+    
   public void deleteBoard(BoardVO vo) {
     System.out.println("===> Mybatis deleteBoard()");
     this.mybatis.delete("BoardDAO.deleteBoard", vo);

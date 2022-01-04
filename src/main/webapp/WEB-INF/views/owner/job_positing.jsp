@@ -139,9 +139,8 @@
                             <div class="main_font">필요인원 :
                                 <input class="input_box" type="text" name="need_Num" placeholder=" 내용을 입력해주세요">
                             </div>
-                            <div class="main_font">상세내용 :
-
-                                <textarea name="content" id="" cols="30" rows="10" style="resize:none;"></textarea>
+                            <div class="main_font">업무내용 :
+                                <input class = "input_box" name="content" id="content" placeholder="업무를 입력해주세요">
                             </div>
                             
                             <div class="hide">

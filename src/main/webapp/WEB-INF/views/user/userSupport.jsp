@@ -82,6 +82,8 @@
                    <input type="hidden" value="${shop.jobTime_end }" name="jobTime_end" />
                  	<div class="border_bottom">연락처 : ${shop.shoppn }</div>
                    <input type="hidden" value="${shop.shoppn }" name="shoppn" />
+                   <div class="border_bottom">업무 내용 : ${shop.content }</div>
+                   <input type="hidden" value="${shop.content }" name="content" />
                  	
                  	
                  	

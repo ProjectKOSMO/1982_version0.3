@@ -38,7 +38,7 @@ $(function(){
          $("#mail_check_input_box_warn").text("인증번호가 불일치합니다.");
          $("#mail_check_input_box_warn").css("color","#ff0000");
          $("#register").attr("disabled",true);
-         $("#confirm").attr("disabled",false);
+         $("#confirm").attr("disabled",true);
       }
   
    })
