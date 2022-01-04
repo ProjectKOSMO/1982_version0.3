@@ -101,23 +101,23 @@ public class ParkBlackController {
     }
 
     @RequestMapping("checkCnt.do")
-    public String checkCnt(ParkBlackVO vo, @RequestParam("userID") String userID,
+    public String checkCnt(ParkBlackVO vo, @RequestParam("userId") String userId,
     		@RequestParam("warnCnt") int warnCnt,
     		@RequestParam("userName") String userName,
-    		@RequestParam("userPN") String userPN,
+    		@RequestParam("warnDate") String warnDate,
     		@RequestParam("reason") String reason,
     		Model m, HttpServletResponse response,RedirectAttributes redirect) throws Exception{
     	vo.setReason(reason);
-    	vo.setUserID(userID);
+    	vo.setUserId(userId);
     	vo.setUserName(userName);
-    	vo.setUserPN(userPN);
+    	vo.setWarnDate(warnDate);
     	vo.setWarnCnt(warnCnt);
     	
     	int cnt=parkBlackService.checkCnt(vo);
     	redirect.addAttribute("reason",vo.getReason());
-    	redirect.addAttribute("userID",vo.getUserID());
+    	redirect.addAttribute("userId",vo.getUserId());
     	redirect.addAttribute("userName",vo.getUserName());
-    	redirect.addAttribute("userPN",vo.getUserPN());
+    	redirect.addAttribute("warnDate",vo.getWarnDate());
     	redirect.addAttribute("warnCnt",vo.getWarnCnt());
     	
     	if(cnt==3){
@@ -130,20 +130,20 @@ public class ParkBlackController {
     
     @RequestMapping("stopAccount.do")
     public String stopAccount(ParkBlackVO vo, @RequestParam("warnCnt") int warnCnt,
-    		@RequestParam("userID") String userID,
+    		@RequestParam("userId") String userId,
     		@RequestParam("userName") String userName,
-    		@RequestParam("userPN") String userPN,
+    		@RequestParam("warnDate") String warnDate,
     		@RequestParam("reason") String reason){
    
     	vo.setReason(reason);
-    	vo.setUserID(userID);
+    	vo.setUserId(userId);
     	vo.setUserName(userName);
-    	vo.setUserPN(userPN);
+    	vo.setWarnDate(warnDate);
     	vo.setWarnCnt(warnCnt);
     	
     	HashMap<Object, Object> map = new HashMap<>();
-    	map.put("userID",vo.getUserID());
-    	map.put("userPN",vo.getUserPN());
+    	map.put("userId",vo.getUserId());
+    	map.put("userPN",vo.getWarnDate());
     	map.put("userName",vo.getUserName());
     	map.put("warnCnt",vo.getWarnCnt());
     	map.put("reason",vo.getReason());

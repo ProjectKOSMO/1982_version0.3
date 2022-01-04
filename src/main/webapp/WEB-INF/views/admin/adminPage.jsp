@@ -36,8 +36,8 @@
             
             <!--메뉴-->   
             <ul class="menu">
-                <li><a href="#">구직자용</a></li>
-                <li><a href="#">구인자용</a>
+                <li><a href="admin_positing.do">구직자용</a></li>
+                <li><a href="admin_storeClose.do">구인자용</a>
                 <!--쎄일 라벨 -->
                     <span class="sale-lable">신규</span>
                 </li>
@@ -138,8 +138,8 @@
                             <div class="divTableRow">
                             <div class="divTableHead">계정명</div>
                             <div class="divTableHead">경고누적 횟수</div>
+                            <div class="divTableHead">경고 날짜</div>
                             <div class="divTableHead">구직자 이름</div>
-                            <div class="divTableHead">연락처</div>
                             <div class="divTableHead">사유</div>
                             <div class="divTableHead">이용 정지</div>    
                     </div>
@@ -147,10 +147,10 @@
                            <c:forEach items="${blacklist}" var="blacklist">
                             <div class="divTableBody">
                             <div class="divTableRow">
-                            <div class="divTableCell"><form action='../checkCnt.do' method='post'><input type='hidden' name="userID" value='${blacklist.userID}'>${blacklist.userID}</div>
+                            <div class="divTableCell"><form action='../checkCnt.do' method='post'><input type='hidden' name="userId" value='${blacklist.userId}'>${blacklist.userId}</div>
                             <div class="divTableCell"><input type='hidden' name="warnCnt" value='${blacklist.warnCnt}'>${blacklist.warnCnt}</div>
+                            <div class="divTableCell"><input type='hidden' name="warnDate" value='${blacklist.warnDate}'>${blacklist.warnDate}</div>
                             <div class="divTableCell"><input type='hidden' name="userName" value='${blacklist.userName}'>${blacklist.userName}</div>
-                            <div class="divTableCell"><input type='hidden' name="userPN" value='${blacklist.userPN}'>${blacklist.userPN}</div>
                             <div class="divTableCell"><input type='hidden' name="reason" value='${blacklist.reason}'>${blacklist.reason}</div>
                             <div class="divTableCell"><input type='Submit' value='영구정지'></div></form>
                           </div>
@@ -274,10 +274,10 @@
     var myChart = new Chart(ctx, {
         type: 'pie',
         data: {
-            labels: ['매칭 건수', '전체 지원 건수'],
+            labels: ['매칭 건수', '매칭 실패 건수'],
             datasets: [{
                 label: '매칭' ,
-                data: ['${matching}', '${wholeApply}'],
+                data: ['${matching}', '${wholeApply}'-'${matching}'],
                 backgroundColor: [
                     'rgba(255, 99, 71)'
                  
@@ -299,10 +299,10 @@
     var myChart = new Chart(ctx, {
         type: 'pie',
         data: {
-            labels: ['재이용자', '최근 3개월 간 이용자'],
+            labels: ['최근 3개월 간 재이용자', '최근 3개월 간 단기 이용자'],
             datasets: [{
                 label: '재이용률',
-                data: ['${reusing}', '${whole_use}'],
+                data: ['${reusing}', '${whole_use}'-'${reusing}'],
                 backgroundColor: [
                     'rgba(10,110,255, 0.8)'
                  

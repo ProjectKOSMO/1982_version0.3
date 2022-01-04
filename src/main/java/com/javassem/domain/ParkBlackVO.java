@@ -2,9 +2,9 @@ package com.javassem.domain;
 
 public class ParkBlackVO {
 	
-  private String userID;
+  private String userId;
   private String reason;
-  private String userPN;
+  private String warnDate;
   private String userName;
   private int warnCnt;
   
@@ -24,14 +24,6 @@ public int getWarnCnt() {
     this.reason = reason;
   }
   
-  public String getUserPN() {
-    return this.userPN;
-  }
-  
-  public void setUserPN(String userPN) {
-    this.userPN = userPN;
-  }
-  
   public String getUserName() {
     return this.userName;
   }
@@ -40,11 +32,19 @@ public int getWarnCnt() {
     this.userName = userName;
   }
   
-  public String getUserID() {
-    return this.userID;
+  public String getUserId() {
+    return this.userId;
   }
   
-  public void setUserID(String userID) {
-    this.userID = userID;
+  public void setUserId(String userId) {
+    this.userId = userId;
   }
+
+  public String getWarnDate() {
+	  return warnDate;
+  }
+  public void setWarnDate(String warnDate) {
+	  this.warnDate = warnDate;
+  }
+  
 }
