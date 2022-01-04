@@ -56,7 +56,7 @@
     <!-- 메인 ---------------------------------------------------------------->
         <main>
       
-        <form action="ownerUpdate.do" method='post' enctype="multipart/form-data"> 
+        	<form action="ownerUpdate.do" method='post' enctype="multipart/form-data"> 
             <ul class="left_nav" id="left_nav1">
                 <li class="left_nav_text"><a class="home" href="#"></a></li>
                 <li class="left_nav_text"><a href="#">새소식</a></li>
@@ -96,13 +96,13 @@
                                
                             </div>
                         </div> 
-                     
+              </form>       
                           
                             
                     
                     
                     
-
+<!-- 업체등록현황  리스트-->
                     <div class="main_title">업체 등록 현황</div>
                     <div>
                         <div class="divTable minimalistBlack">
@@ -136,6 +136,9 @@
                     </div>
     				<br>
     				<br>
+    				
+    				<!-- 업체등록현황  리스트 종료-->
+    				<!-- 구직자 신청 현황 리스트 시작 -->
                     <div class="main_title">구직자 신청 현황</div>
 
                     
@@ -148,6 +151,7 @@
                             	<div class="divTableRow">
                             		<div class="divTableHead">번호</div>
                           	 		<div class="divTableHead">구직자 이름</div>
+                          	 		<div class="divTableHead">구직자 아이디</div>
                            	 		<div class="divTableHead">근무 예정 일자</div>
                           	 		<div class="divTableHead">이력서 확인</div>
                          	 		<div class="divTableHead">고용 여부</div>
@@ -161,14 +165,24 @@
                            				 <div class="divTableRow">
                              		   		 <div class="divTableCell">${info.board_owner_seq }</div>
                             				 <div class="divTableCell">${info.userName }</div>
+                            				 <div class="divTableCell">${info.userId }</div>
                             				 <div class="divTableCell">${info.jobDate}</div>
                             
                            					 <div class="divTableCell">${info.shopaddr }</div>
                            					 <div class="divTableCell">
+                           						<div style="display:flex; justify-content:center;"> <!-- 고용,거절 -->
+                           					 	<form action="accept.do">                           					 	
+                           					 	 <input type="hidden" name="info_board_seq" value="${info.board_owner_seq }">
+                           					 	 <input type="hidden" name="info_userId" value="${info.userId }">
+                           					     <input type="submit" value="고용"/>			
+                           					 	</form>
                            					 	
-                           					 	<button onclick="return false">고용</button>
-                           					 	<button onclick="return false">거절</button>
-                           					 
+                           					 	<form action="sorry.do">                           					 	
+                           					 	 <input type="hidden" name="info_board_seq" value="${info.board_owner_seq }">
+                           					 	 <input type="hidden" name="info_userId" value="${info.userId }">
+                           					     <input type="submit" value="거절"/>			
+                           					 	</form>
+                           					 	</div>
                            					 </div>
                           					 
                            					 <div class="divTableCell">${info.userPn }</div>
@@ -186,138 +200,141 @@
                    
                             <br>
                             <br>
-                            
-                            <div class="main_title">출근 현황</div>
+                            <!--  출근 현황 시작 -->
+                           <div class="main_title">출근 현황</div>
+
                     
-                        <div class="divTable minimalistBlack"><!-- 출근현황 시작 -->
-                            <div class="divTableHeading"><!-- 제목 전체 -->
-                           		 <div class="divTableRow"><!-- 제목 내부 -->
-                           			 <div class="divTableHead">긴급 / 일일</div>
-                          			 <div class="divTableHead">번호</div>
-                          			 <div class="divTableHead">구직자 이름</div>
-                          			 <div class="divTableHead">근무시간</div>
-                          			 <div class="divTableHead">급여</div>
-                           			 <div class="divTableHead">차단</div>
-                           			 <div class="divTableHead">알바종료</div>
-    
-                     			 </div><!-- 제목내부 -->
-                            </div><!-- 제목 전체 -->
-                         <div class="divTableBody">
-                            <div class="divTableRow">
-                         	 	  <div class="divTableCell">cell1_1</div>
-                         	  	 <div class="divTableCell">cell2_1</div>
-                          	 	 <div class="divTableCell">cell3_1</div>
-                           		 <div class="divTableCell">cell4_1</div>
-                          	 	 <div class="divTableCell">근무태만</div>
-                          	 	 <div class="divTableCell"><button>차단</button></div>
-                          	 	 <div class="divTableCell"><button>알바 종료</button></div>
-                           	</div> <!-- 첫행 -->
-                            <div class="divTableRow">
-                         		   <div class="divTableCell">cell1_2</div>
-                         	   <div class="divTableCell">cell2_2</div>
-                         	   <div class="divTableCell">cell3_2</div>
-                         		   <div class="divTableCell">cell4_2</div>
-                         	   <div class="divTableCell">지가사장인줄암</div>
-                         	   <div class="divTableCell"><button>차단</button></div>
-                         	   <div class="divTableCell"><button>알바 종료</button></div>
-                            </div>
-                            <div class="divTableRow">
-                          	  <div class="divTableCell">cell1_3</div>
-                          	  <div class="divTableCell">cell2_3</div>
-                         	   <div class="divTableCell">cell3_3</div>
-	                            <div class="divTableCell">cell4_3</div>
-		                            <div class="divTableCell">잠수</div>
-	                      	      <div class="divTableCell"><button>차단</button></div>
-                         	   <div class="divTableCell"><button>알바 종료</button></div>
-                            </div>
-                            <div class="divTableRow">
-                          	  <div class="divTableCell">cell1_4</div>
-                         	   <div class="divTableCell">cell2_4</div>
-                        	    <div class="divTableCell">cell3_4</div>
-                         	   <div class="divTableCell">cell4_4</div>
-                         		   <div class="divTableCell">싹퉁바가지</div>
-                         	   <div class="divTableCell"><button>차단</button></div>
-                          	  <div class="divTableCell"><button>알바 종료</button></div>
-                            </div>
-                            <div class="divTableRow">
-                          	  <div class="divTableCell">cell1_5</div>
-                          	  <div class="divTableCell">cell2_5</div>
-                          	  <div class="divTableCell">cell3_5</div>
-                          	  <div class="divTableCell">cell4_5</div>
-                          	  <div class="divTableCell">범죄</div>
-                           	 <div class="divTableCell"><button>차단</button></div>
-                           	 <div class="divTableCell"><button>알바 종료</button></div>
-                            </div>
-                            
-                            </div>
+
+
+                   
                            
-                            </div><!--  출근현황 종료 -->
-                
-    
-                    <div class="main_title">구직자 차단 내역</div>
-                    <div>
+                        <div class="divTable minimalistBlack"><!-- 출근 현황 시작 -->
+                            <div class="divTableHeading">
+                            	<div class="divTableRow">
+                            		<div class="divTableHead">번호</div>
+                          	 		<div class="divTableHead">구직자 이름</div>
+                          	 		<div class="divTableHead">구직자 아이디</div>
+                           	 		<div class="divTableHead">근무 예정 일자</div>
+                          	 		<div class="divTableHead">근무 시작 시간</div>
+                         	 		<div class="divTableHead">근무 종료 시간</div>
+                          			<div class="divTableHead">연락처</div>    
+                          			<div class="divTableHead">급여</div> 
+                          			<div class="divTableHead">차단</div> 
+                          			<div class="divTableHead">업무종료</div> 
+                          			   
+                        		</div>
+                            </div>
+                            	 <c:forEach items="${machingList }" var="maching">    
+                            	 
+                           			 <div class="divTableBody">
+                           				 <div class="divTableRow">
+                             		   		 <div class="divTableCell">${maching.board_owner_seq }</div>
+                            				 <div class="divTableCell">${maching.userName }</div>
+                            				 <div class="divTableCell">${maching.userId }</div>
+                            				 <div class="divTableCell">${maching.jobDate}</div>
+                            				 <div class="divTableCell">${maching.jobTime_start}</div>
+                            				 <div class="divTableCell">${maching.jobTime_end}</div>
+                            				 <div class="divTableCell">${maching.userPn }</div>
+                           					 <div class="divTableCell">${maching.shoppay }</div>
+                           					 <div class="divTableCell">
+                           					 	<form action="black.do">
+                           					 		<input type="hidden" name="userName" value="${maching.userName }">
+                           					 		<input type="hidden" name="userId" value="${maching.userId }">
+                           					 		<input type="hidden" name="userNum" value="${maching.userNum }">
+                           					 		<input type="hidden" name="ownerNum" value="${maching.ownernum }">
+                           					 		<input type="hidden" name="info_board_seq" value="${maching.board_owner_seq }">
+                           					 		<input type="hidden" name="info_userId" value="${maching.userId }">
+                               		 				<input style="width:120px;" type="text" name="reason" value="">
+                               		 				<input type="submit" value="차단"/>
+                           		  				 </form>
+                           				
+                           					 </div>
+                           					 <div class="divTableCell">
+                           					 <form action="ownerEnd.do">                           					 	
+                           					 	 <input type="hidden" name="info_board_seq" value="${maching.board_owner_seq }">
+                           					 	 <input type="hidden" name="info_userId" value="${maching.userId }">
+                           					     <input type="submit" value="업무 종료"/>			
+                           					 	</form>
+                           					 </div>
+                           					 	
+                           					 </div>
+                           					 
+                         				 </div>
+                         			</c:forEach>
+                     	 </div>
+                            <!--  출근현황 종료 -->
+            
+    <!-- 종료 내역 시작 -->
+                     <div class="main_title">종료된 내역</div>
+                           
                         <div class="divTable minimalistBlack">
                             <div class="divTableHeading">
-                            <div class="divTableRow">
-                            <div class="divTableHead">번호</div>
-                            <div class="divTableHead">구직자 이름 / 아이디</div>
-                            <div class="divTableHead">차단 일자</div>
-                            <div class="divTableHead">차단사유</div>
-           
-    
-                        </div>
+                            	<div class="divTableRow">
+                            		<div class="divTableHead">번호</div>
+                          	 		<div class="divTableHead">구직자 이름</div>
+                          	 		<div class="divTableHead">구직자 아이디</div>
+                           	 		<div class="divTableHead">근무 일자</div>
+                          
+                          			<div class="divTableHead">연락처</div>    
+                          			<div class="divTableHead">급여</div> 
+                          		
+                          			<div class="divTableHead">업무종료</div> 
+                          			   
+                        		</div>
                             </div>
-                            <div class="divTableBody">
-                            <div class="divTableRow">
-                            <div class="divTableCell">1</div>
-                            <div class="divTableCell">cell2_1</div>
-                            <div class="divTableCell">cell3_1</div>
-                            <div class="divTableCell">cell4_1</div>
-                   
-                            </div>
-                            <div class="divTableRow">
-                            <div class="divTableCell">2</div>
-                            <div class="divTableCell">이성대(skyvcx)</div>
-                            <div class="divTableCell">2021-12-13</div>
-                            <div class="divTableCell">지가 사장인줄 암</div>
-               
-                            </div>
-                            <div class="divTableRow">
-                            <div class="divTableCell">cell1_3</div>
-                            <div class="divTableCell">cell2_3</div>
-                            <div class="divTableCell">cell3_3</div>
-                            <div class="divTableCell">cell4_3</div>
-               
-                            </div>
-                            <div class="divTableRow">
-                            <div class="divTableCell">cell1_4</div>
-                            <div class="divTableCell">cell2_4</div>
-                            <div class="divTableCell">cell3_4</div>
-                            <div class="divTableCell">cell4_4</div>
-                            
-                            </div>
-                            <div class="divTableRow">
-                            <div class="divTableCell">cell1_5</div>
-                            <div class="divTableCell">cell2_5</div>
-                            <div class="divTableCell">cell3_5</div>
-                            <div class="divTableCell">cell4_5</div>
-    
-                            </div>
-                            
-                            </div>
+                            	 <c:forEach items="${endList }" var="end">    
+                            	 
+                           			 <div class="divTableBody">
+                           				 <div class="divTableRow">
+                             		   		 <div class="divTableCell">${end.board_owner_seq }</div>
+                            				 <div class="divTableCell">${end.userName }</div>
+                            				 <div class="divTableCell">${end.userId }</div>
+                            				 <div class="divTableCell">${end.jobDate}</div>
+                            				 <div class="divTableCell">${end.userPn}</div>
+                            				 <div class="divTableCell">${end.shoppay}</div>
+                            				
+                           					 <div class="divTableCell">${end.maching }</div>
+                           					 <div class="divTableCell"></div>
+                           					 <div class="divTableCell"></div>
+                           					 	
+                           				 </div>
+                           					 
+                         			</div>
+                         			</c:forEach>
+                     	 </div> <!-- 종료내역 끝 -->
+                          <div class="main_title">블랙리스트</div>
                            
+                        <div class="divTable minimalistBlack">
+                            <div class="divTableHeading">
+                            	<div class="divTableRow">
+                          	 		<div class="divTableHead">구직자 이름</div>
+                          	 		<div class="divTableHead">구직자 아이디</div>
+                           	 		<div class="divTableHead">근무 일자</div>
+                          			<div class="divTableHead">사유</div> 
+                          	   	</div>
                             </div>
-                   
-                        		
-                          </div> <!-- 구직자 차단내역 종료 -->
+                            	 <c:forEach items="${blackList }" var="black">    
+                            	 
+                           			 <div class="divTableBody">
+                           				 <div class="divTableRow">
+                             		   		 <div class="divTableCell">${black.userId }</div>
+                            				 <div class="divTableCell">${black.userName }</div>
+                            				 <div class="divTableCell">${black.warnDate }</div>
+                            				 <div class="divTableCell">${black.reason}</div>
+                            				 <div class="divTableCell">${black.userPn}</div>
+                            				 	
+                           				 </div>
+                           					 
+                         			</div>
+                         			</c:forEach>
+                     	 </div> 
                           
                           
-                          
-                          </div>
+               
                             
                             
                          
-                        </div>
+            
                         
                         
                      
@@ -328,7 +345,7 @@
                
             
             </div><!-- 페이지 컨테이너 종료--> 
-        </form> <!--  전체폼으로 감싸기 -->
+     
         </main>
         
         

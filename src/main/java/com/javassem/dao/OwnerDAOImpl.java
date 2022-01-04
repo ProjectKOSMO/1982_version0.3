@@ -66,4 +66,12 @@ public class OwnerDAOImpl implements OwnerDAO {
   public List<HashMap> getUserList(String ownerId) {
 		return this.mybatis.selectList("owner.getUserList", ownerId);
 	}
+  
+  public List<HashMap> machingList(String ownerId) {
+		return this.mybatis.selectList("owner.machingList", ownerId);
+	}
+  
+  public List<HashMap> endList(String ownerId) {
+		return this.mybatis.selectList("owner.endList", ownerId);
+	}  
 }

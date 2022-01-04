@@ -57,5 +57,13 @@ public class OwnerServiceImpl implements OwnerService {
 	return this.ownerDAO.getUserList(ownerId);
   }
   
+  public List<HashMap> machingList(String ownerId) {
+		return this.ownerDAO.machingList(ownerId);
+	  }
+
+  public List<HashMap> endList(String ownerId) {
+	  return this.ownerDAO.endList(ownerId);
+  }
+  
   
 }

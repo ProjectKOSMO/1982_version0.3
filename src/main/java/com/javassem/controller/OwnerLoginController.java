@@ -3,7 +3,6 @@
 // (powered by FernFlower decompiler)
 //
 package com.javassem.controller;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -24,6 +23,7 @@ import com.javassem.domain.OwnerVO;
 import com.javassem.domain.ShopVO;
 import com.javassem.service.MemberSV;
 import com.javassem.service.OwnerService;
+import com.javassem.service.ParkBlackService;
 import com.javassem.service.ShopService;
 import com.javassem.service.UserService;
 @Controller
@@ -38,6 +38,9 @@ public class OwnerLoginController {
     
     @Autowired
     public UserService userService;
+    
+    @Autowired
+    public ParkBlackService parkBlackService;
     
     public OwnerLoginController() {
     }
@@ -123,20 +126,35 @@ public class OwnerLoginController {
         	return "/owner/ownerViewPage";
         	
         }else {
-        	OwnerBoardVO board_seq = list2.get(0);
-
         	
-           
-//            map.put("ownerid",ownerId);
-//            System.out.println(map);
+        	
+        	
+        	
             
             
             List<HashMap> list5 = ownerService.getUserList(ownerId);
+            List<HashMap> list6 = ownerService.machingList(ownerId);
+            List<HashMap> list7 = ownerService.endList(ownerId);
             
-            System.out.println(list5);
+            String test = list5.get(0).get("userNum").toString();
             
+            HashMap hashmap2= new HashMap();
+        	
+        	hashmap2.put("ownerNum",ownernum);
+        	hashmap2.put("userNum", test);
+        	
+        	System.out.println(test);
+        	
+        	List<HashMap> black =  mybatis.selectList("owner.blackList", hashmap2);
+            
+        	System.out.println(black);
+        	
             model.addAttribute("shopList", list);
             model.addAttribute("userInfo",list5);
+            model.addAttribute("machingList",list6);
+            model.addAttribute("endList",list7);
+            model.addAttribute("blackList",black);
+            
             
             return "/owner/ownerViewPage"; 
         }
@@ -178,7 +196,108 @@ public class OwnerLoginController {
     }
     // =======================================================
 	
-	
+    @RequestMapping({"accept.do"})
+    public String owner_accept(@RequestParam int info_board_seq, @RequestParam String info_userId){
+    	
+    	int seq = info_board_seq;
+    	String id = info_userId;
+    	
+    	
+    	HashMap hashmap= new HashMap();
+    	hashmap.put("info_board_seq",seq);
+    	hashmap.put("info_userId",id);
+    	
+    	mybatis.update("owner.ownerAccept",hashmap);
+    	return "redirect:ownerList.do";
+    }
+    
+    
+    @RequestMapping({"sorry.do"})
+    public String owner_sorry(@RequestParam int info_board_seq, @RequestParam String info_userId){
+    	
+    	int seq = info_board_seq;
+    	String id = info_userId;
+    	
+    	
+    	HashMap hashmap= new HashMap();
+    	hashmap.put("info_board_seq",seq);
+    	hashmap.put("info_userId",id);
+    	
+    	mybatis.update("owner.ownerSorry",hashmap);
+    	return "redirect:ownerList.do";
+    }
+    
+    
+    @RequestMapping({"ownerEnd.do"})
+    public String ownerEnd(@RequestParam int info_board_seq, @RequestParam String info_userId){
+    	
+    	int seq = info_board_seq;
+    	String id = info_userId;
+    	
+    	
+    	HashMap hashmap= new HashMap();
+    	hashmap.put("info_board_seq",seq);
+    	hashmap.put("info_userId",id);
+    	
+    	mybatis.update("owner.ownerEnd",hashmap);
+    	return "redirect:ownerList.do";
+    }
+    
+    
+	//사업자측 차단 버튼 클릭시 blacklist에 데이터 insert
+    @RequestMapping({"black.do"})
+    public String ownerblack(OwnerBoardVO vo,
+    		
+    		@RequestParam String reason,
+    		@RequestParam String userName,
+    		@RequestParam String userId,
+    		@RequestParam String userNum,
+    		@RequestParam String ownerNum
+
+    		){
+    
+    	
+    	
+    	String rea= reason;
+    	String un= userName;
+    	String ui= userId;
+    	String usern= userNum;
+    	String on= ownerNum;
+    	
+    	HashMap hashmap= new HashMap();
+    	hashmap.put("reason",rea);
+    	hashmap.put("userName",un);
+    	hashmap.put("userId",ui);
+    	hashmap.put("userNum",usern);
+    	hashmap.put("ownerNum",on);
+    	
+
+        HashMap dd = mybatis.selectOne("owner.blackCnt", hashmap);
+    	
+        if (dd == null || dd.isEmpty()){
+        	
+        	mybatis.insert("owner.black", hashmap);
+        		
+        	return "redirect:ownerList.do";
+        	
+        }else{
+        	mybatis.insert("owner.black2", hashmap);
+        	
+        	
+        	return "redirect:ownerList.do";
+        }
+        
+        
+/*  hashmap.put("warnCnt",dd.get("warnCnt"));*/
+        
+    	
+    	
+    	
+    	
+        
+    }
+    
+    
     //구인공고페이지 클릭시  구독권을 구매한경우 구인공고페이지로 아닐경우 구독권 구매페이지로 이동
     @RequestMapping({"job_positing.do"})
     public String job_list(OwnerVO vo,OwnerBoardVO vo1,ShopVO vo2, Model m, HttpServletRequest request) throws Exception {

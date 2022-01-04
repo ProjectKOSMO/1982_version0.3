@@ -29,7 +29,16 @@ public class OwnerBoardVO {
 
   private int ownernum;
 
+  private int warnCnt;
 
+
+public int getWarnCnt() {
+	return warnCnt;
+}
+
+public void setWarnCnt(int warnCnt) {
+	this.warnCnt = warnCnt;
+}
 
 private Date regDate;
 

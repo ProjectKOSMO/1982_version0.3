@@ -5,7 +5,7 @@
 }
 
 .body_container{
-  margin-left: 15%;
+  margin-left: 18%;
   
   display: flex;
 }
@@ -80,7 +80,7 @@ div.minimalistBlack {
 
 .body_container_center_shop_contanier{
   display: flex;
-  margin-bottom: 300px;
+  margin-bottom: 50px;
 }
 .body_container_center_shop_contanier_img{
   margin-top: 50px;
