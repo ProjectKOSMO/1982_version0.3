@@ -14,5 +14,4 @@ public interface SubscribeService {
 	int getType3();
 	int getType2();
 	int getType1();
-	
 }

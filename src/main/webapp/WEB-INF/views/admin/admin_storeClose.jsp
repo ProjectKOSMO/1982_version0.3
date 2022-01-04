@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>adminPage2.jsp</title>
+    <title>adminPage.jsp</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome@5.14.0/css/all.min.css">
 	<link type="text/css" href="/project1982/resources/style/style.css" rel="stylesheet"/>
@@ -17,10 +17,9 @@
 </head>
 <script src='../resources/js/reply.js' type="text/javascript"></script>
 <script>
-
 	function selChange() {
 		var sel = document.getElementById('cntPerPage').value;
-		location.href="/project1982/admin/adminPage2.do?nowPage=${paging.nowPage}&cntPerPage="+sel;
+		location.href="/project1982/admin/admin_storeClose.do?nowPage=${paging.nowPage}&cntPerPage="+sel;
 	}
 </script>
 <body>
@@ -38,10 +37,6 @@
             <!--메뉴-->   
             <ul class="menu">
                 <li><a href="admin_positing.do">구직자용</a></li>
-                <li><a href="admin_storeClose.do">구인자용</a>
-                <!--쎄일 라벨 -->
-                    <span class="sale-lable">신규</span>
-                </li>
                 <li><a href="#">둘러보기</a></li>
                 <li><a href="#">FAQ</a></li>
                 <li><a href="#">고객센터</a></li>
@@ -69,12 +64,11 @@
 
     <!-- 메인 ---------------------------------------------------------------->
         <main>
-        <form>
             <ul class="left_nav">
                 <li class="left_nav_text"><a class="home" href="#">홈</a></li>
-                <li class="left_nav_text"><a href="adminPage.do">회원 현황</a></li>
+                <li class="left_nav_text"><a href="adminPage.do">블랙리스트 현황</a></li>
+                <li class="left_nav_text"><a href="adminPage2.do">구독권 현황</a></li>
                 <li class="left_nav_text"><a href="admin_shopInfo.do">사업자 매장정보</a></li>
-                <li class="left_nav_text"><a href="#">회사</a></li>
             </ul>
 
             <div class="body_container"> <!-- 페이지 컨테이너 시작-->
@@ -85,53 +79,59 @@
                     <div class="body_container_center_services">
                         <div class="service1">
 <!-- 여기2 -->                            
+                         
+
+                            
                         </div>
 
                     </div>
-
-               <!--  구독권 종류별 구매자 수  -->
-                    <div class="body_container_center_members">   
-                    	<div class="member1">
-                        </div>
-                        <div class="member2">
-                       	 <canvas id="barChart" width="250" height="250"></canvas>
-                        </div>
+                   
+                   
+                   
+               
+               <!--  회원가입 현황  -->
+                    <div class="body_container_center_members">
        
                     </div>
-                    
-                    
-                    
-                    
-                    
-                    s
-                    
-                    
-                    
 <!-- 여기2 -->           
-                     <div>구독권 현황</div>
+                     <div>구직자 매칭 게시판</div>
+                     
                      <div>
-                        <div class="divTable minimalistBlack">
+                     <div class="divTable minimalistBlack">
                             <div class="divTableHeading">
                             <div class="divTableRow">
-                            <div class="divTableHead">구독권 종류</div>
-                            <div class="divTableHead">사업자 계정</div>
-                            <div class="divTableHead">구독 날짜</div>
-                            <div class="divTableHead">구독 만료일</div> 
+                            <div class="divTableHead">매장명</div>
+                            <div class="divTableHead">구인 상태(?)</div>
+                            <div class="divTableHead">매장 주소</div>
+                            <div class="divTableHead">급여</div>
+                            <div class="divTableHead">등록일</div>
+                            <div class="divTableHead">업무 시간</div>
+                            <div class="divTableHead">구직자 계정</div>
+                            <div class="divTableHead">매장 연락처</div>
+                            <div class="divTableHead">매칭 상태</div>
+                            <div class="divTableHead">데이터 삭제</div>
                     </div>
                     </div>
-                           <c:forEach items="${subscribelist}" var="subscribelist">    
+                           <c:forEach items="${supportList}" var="supportList">
                             <div class="divTableBody">
                             <div class="divTableRow">
-                            <div class="divTableCell">${subscribelist.coupon_type}</div>
-                            <div class="divTableCell">${subscribelist.ownernum}</div>
-                            <div class="divTableCell">${subscribelist.pay_date}</div>
-                            <div class="divTableCell">${subscribelist.pay_date_end}</div>
+                            <div class="divTableCell"><form action='#' method='post'><input type='hidden' name="shopname" value='${supportList.shopname}'>${supportList.shopname}</div>
+                            <div class="divTableCell"><input type='hidden' name="normal_emergency" value='${supportList.normal_emergency}'>${supportList.normal_emergency}</div>
+                            <div class="divTableCell"><input type='hidden' name="shopaddr" value='${supportList.shopaddr}'>${supportList.shopaddr}</div>
+                            <div class="divTableCell"><input type='hidden' name="shoppay" value='${supportList.shoppay}'>${supportList.shoppay}</div>
+                            <div class="divTableCell"><input type='hidden' name="jobDate" value='${supportList.jobDate}'>${supportList.jobDate}</div>
+                            <div class="divTableCell"><input type='hidden' name="workTime" value='${supportList.jobTime_start} ~ ${supportList.jobTime_end}'>${supportList.jobTime_start} ~ ${supportList.jobTime_end}</div>
+                            <div class="divTableCell"><input type='hidden' name="userid" value='${supportList.userid}'>${supportList.userid}</div>
+                            <div class="divTableCell"><input type='hidden' name="shoppn" value='${supportList.shoppn}'>${supportList.shoppn}</div>
+                            <div class="divTableCell"><input type='hidden' name="maching" value='${supportList.maching}'>${supportList.maching}</div>
+                            <div class="divTableCell"><input type='Submit' value='데이터 삭제'></div></form>
                           </div>
                           </div>
+                          
                          </c:forEach>
                          <div style="display: block; text-align: center;">		
 							<c:if test="${paging.startPage != 1 }">
-								<a href="/project1982/admin/adminPage2.do?nowPage=${paging.startPage - 1 }&cntPerPage=${paging.cntPerPage}">&lt;</a>
+								<a href="/project1982/admin/admin_storeClose.do?nowPage=${paging.startPage - 1 }&cntPerPage=${paging.cntPerPage}">&lt;</a>
 							</c:if>
 							<c:forEach begin="${paging.startPage }" end="${paging.endPage }" var="p">
 								<c:choose>
@@ -139,22 +139,20 @@
 										<b>${p }</b>
 									</c:when>
 									<c:when test="${p != paging.nowPage }">
-										<a href="/project1982/admin/adminPage2.do?nowPage=${p }&cntPerPage=${paging.cntPerPage}">${p }</a>
+										<a href="/project1982/admin/admin_storeClose.do?nowPage=${p }&cntPerPage=${paging.cntPerPage}">${p }</a>
 									</c:when>
 								</c:choose>
 							</c:forEach>
 							<c:if test="${paging.endPage != paging.lastPage}">
-								<a href="/project1982/admin/adminPage2.do?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}">&gt;</a>
+								<a href="/project1982/admin/admin_storeClose.do?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}">&gt;</a>
 							</c:if>
 						</div>
                         </div>
                         </div>
-                    
                 </div><!--중간 메뉴바 종료-->
                
             
             </div><!-- 페이지 컨테이너 종료--> 
-          </form>
         </main>
         
         
@@ -237,61 +235,5 @@
         </div>
 
     </footer>
-<script>
-
-    var ctx = document.getElementById('barChart').getContext('2d');
-    var myChart = new Chart(ctx, {
-  	  type: 'bar',    
-  	  data: {
-            labels: ['30일', '60일', '90일', '184일', '365일'],
-            datasets: [{
-                data: ['${Type1}', '${Type2}', '${Type3}', '${Type4}', '${Type5}'],
-                backgroundColor: [
-              	  'rgba(0, 204, 102)',
-              	  'rgba(0, 204, 102)',
-              	  'rgba(0, 204, 102)',
-              	  'rgba(0, 204, 102)',
-              	  'rgba(0, 204, 102)'
-                ],
-                borderColor: [
-              	  'rgba(0, 204, 102)',
-              	  'rgba(0, 204, 102)',
-              	  'rgba(0, 204, 102)',
-              	  'rgba(0, 204, 102)',
-              	  'rgba(0, 204, 102)' 
-                ],
-                borderWidth: 1,
-               fill: false
-            }]
-        },
-        options: {
-        	  maintainAspectRatio: false,
-        	  cutoutPercentage: 50,
-        	  responsive: true,
-        	  legend: {
-        		    display: false
-        		  },
-              scales: {
-                  xAxes: [{
-                      display: true,
-                      scaleLabel: {
-                          display: true,
-                          labelString: '구독권 종류'
-                      }
-                  }],
-                  yAxes: [{
-                      display: true,
-                      ticks: {
-                          suggestedMin: 0,
-                      },
-                      scaleLabel: {
-                          display: false,
-                          labelString: '(명)'
-                      }
-                  }]
-              }
-          }
-    });
-    </script>
 </body>
 </html>

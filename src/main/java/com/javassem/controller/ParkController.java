@@ -132,17 +132,11 @@ public class ParkController {
 			
 			List<VisitorVO> visitList=mybatis.selectList("visit.CntPerDay");
 			
-			int visitToday = visitList.get(0).getToday();
-			int visitYesterday1 =visitList.get(0).getBefore1();
-			int visitYesterday2 =visitList.get(0).getBefore2();
-			int visitYesterday3 =visitList.get(0).getBefore3();
-			int visitYesterday4 =visitList.get(0).getBefore4();
-			
-			m.addAttribute("visitToday",visitToday);
-			m.addAttribute("visitYesterday1",visitYesterday1);
-			m.addAttribute("visitYesterday2",visitYesterday2);
-			m.addAttribute("visitYesterday3",visitYesterday3);
-			m.addAttribute("visitYesterday4",visitYesterday4);
+			m.addAttribute("visitToday",visitList.get(0).getToday());
+			m.addAttribute("visitYesterday1",visitList.get(0).getBefore1());
+			m.addAttribute("visitYesterday2",visitList.get(0).getBefore2());
+			m.addAttribute("visitYesterday3",visitList.get(0).getBefore3());
+			m.addAttribute("visitYesterday4",visitList.get(0).getBefore4());
 			
 			m.addAttribute("Total_visitor",visitService.countTotalVisit());
 			

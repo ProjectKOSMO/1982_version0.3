@@ -65,6 +65,7 @@ public class SubscribeController {
 		m.addAttribute("Type2", Type2);
 		m.addAttribute("Type1", Type1);
 		
+
 		return "admin/adminPage2";
 	}
 }

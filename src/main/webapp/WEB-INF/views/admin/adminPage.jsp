@@ -70,8 +70,8 @@
         <main>
             <ul class="left_nav">
                 <li class="left_nav_text"><a class="home" href="#">홈</a></li>
-                <li class="left_nav_text"><a href="./adminPage2.do">구독권 현황</a></li>
-                <li class="left_nav_text"><a href="#">상품</a></li>
+                <li class="left_nav_text"><a href="adminPage2.do">구독권 현황</a></li>
+                <li class="left_nav_text"><a href="admin_shopInfo.do">사업자 매장정보</a></li>
                 <li class="left_nav_text"><a href="#">회사</a></li>
             </ul>
 

@@ -36,6 +36,7 @@ public class GraphVO {
 	public void setWhole_apply(int whole_apply) {
 		this.whole_apply = whole_apply;
 	}
+
 	public int getMatching_success() {
 		return matching_success;
 	}

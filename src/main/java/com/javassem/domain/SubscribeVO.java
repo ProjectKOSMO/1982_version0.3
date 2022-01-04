@@ -6,12 +6,15 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class SubscribeVO {
+	
 	private int coupon_type;
 	private int ownernum;
 	private long pay_date;
 	private long pay_date_end;
 	private int payed_list_seq;
 	private int amount;
+	//통계용
+	private double expectation;
 	
 	
 	public int getCoupon_type() {
@@ -50,10 +53,20 @@ public class SubscribeVO {
 	public void setAmount(int amount) {
 		this.amount = amount;
 	}
+	
+	// 통계용
+	public double getExpectation() {
+		return expectation;
+	}
+	public void setExpectation(double expectation) {
+		this.expectation = expectation;
+	}
+	//날짜변환
 	public static String convertDate(long second){
 		String pattern="yyyy-MM-dd";
 		SimpleDateFormat formatter = new SimpleDateFormat(pattern);
 		String date=(String)formatter.format(new Timestamp(second));
 		return date;
 	}
+
 }

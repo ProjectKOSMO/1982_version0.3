@@ -43,5 +43,4 @@ public class SubscribeServiceImpl implements SubscribeService{
 	public int getType1(){
 		return this.subscribeDAO.getType1();
 	}
-
 }

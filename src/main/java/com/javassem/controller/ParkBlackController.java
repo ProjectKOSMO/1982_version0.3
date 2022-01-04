@@ -143,7 +143,7 @@ public class ParkBlackController {
     	
     	HashMap<Object, Object> map = new HashMap<>();
     	map.put("userId",vo.getUserId());
-    	map.put("userPN",vo.getWarnDate());
+    	map.put("warnDate",vo.getWarnDate());
     	map.put("userName",vo.getUserName());
     	map.put("warnCnt",vo.getWarnCnt());
     	map.put("reason",vo.getReason());
