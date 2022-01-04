@@ -118,11 +118,14 @@ $(document).ready(function(){
                             				<img src="/project1982/resources/upload/${user.userimg1}" style="height: 240px;width: 180px;">
                             			</c:if>
                                 	</div>
-                                	<input type="file" name='file' maxlength="60" size="40" value='대표사진변경' style=" margin-left:10px;">
+                                	<input type="file" name='file' maxlength="60" size="40" value="${user.userimg1}" style=" margin-left:10px;">
                                 </div>
                                 	<div style="flex:10;">
-                               		<p style="margin-left:4%;margin-top:10px;font-size:20px;font-weight:bolder;font-family:italic;">자기소개<p><br/>                
-                               		<input id= "dia1" name="userself" type="text" value="${user.userself}"/><br/>
+                               		<p style="margin-left:4%;width:92%;margin-rigth:4%;margin-top:10px;font-size:20px;font-weight:bolder;border-bottom:solid 2px black;font-family:italic;">회원정보수정<p><br/>                 
+                               		<p style="margin-left:4%;font-weight:bolder;font-family:italic;">- 이&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 름 :<input id="dia" name="username" type="text" value="${user.username}"/><p><br/>
+                               		<p style="margin-left:4%;font-weight:bolder;font-family:italic;">- 비밀번호 :<input id="dia" name="userpass" type="password" value="${user.userpass}"/><p><br/>
+                               		<p style="margin-left:4%;font-weight:bolder;font-family:italic;">- 자기소개<p><br/>
+                               		<input id="dia1" name="userself" type="text" placeholder="자신을 소개해보세요" value="${user.userself}"/>
                                		<input type="submit" value="수정완료" style="margin-left:4%;">
                                		</div>                              
                             </div>
@@ -196,6 +199,8 @@ $(document).ready(function(){
 	                            		<hr/>
 	                            		<br/>
 	                            		<li>- 업체 전화번호 : <span id="shoppn"></span></li>
+	                            		<br/>
+	                            		<hr/>
                             		</ul>
                             	</div>
                             </div>

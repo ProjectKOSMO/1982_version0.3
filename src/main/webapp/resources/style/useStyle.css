@@ -182,19 +182,16 @@ div.minimalistBlack {
 #dia{
   width:350px;
   height:30px;
-  margin:5px;
-  margin-top:10px;
-  margin-left:5%;
-  margin-right:8%;
+  margin-left:20px;
   font-size:18px;
 }
 
 #dia1{
   width:92%;
-  height:200px;
+  height:90px;
   margin-left:4%;
   margin-right:4%;
-  margin-bottom:10px;
+  margin-bottom:5px;
   font-size:18px;
 }
 

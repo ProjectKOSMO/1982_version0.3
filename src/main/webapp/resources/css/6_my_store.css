@@ -493,7 +493,11 @@ ul, li{
    align-items: center;
    justify-content:center;
 }
-
+#cntPerPage{
+   margin-top:20px;
+   margin-left:68%;
+   margin-right:22%;
+}
 
 
 

@@ -94,7 +94,7 @@
      		<input type="submit" value="검색">
      	</form>
      	<div id="outter2">
-				   <div style="float: right;">
+				   <div>
 						<select id="cntPerPage" name="sel2" onchange="selChange()">
 							<option value="5"
 								<c:if test="${paging.cntPerPage == 5}">selected</c:if>>5줄 보기</option>

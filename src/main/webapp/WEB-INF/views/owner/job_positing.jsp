@@ -77,7 +77,7 @@
                    마이페이지
                    </a>
                    <!--카트  -->
-                   <a href="/project1982/board.do">
+                   <a href="/project1982/owner/ownerBoard.do">
                    고객센터
                        <!--카트 상품-->
                        
