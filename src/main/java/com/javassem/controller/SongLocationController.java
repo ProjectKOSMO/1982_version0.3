@@ -20,7 +20,7 @@ public class SongLocationController {
 	private SongLocationService songLocationService;
 	
 	int pagePost=0;				//db에서 페이지에 표시할 게시글 수
-	int maxPagePost=4;
+	int maxPagePost=5;
 	
 	@GetMapping(value="getLocationList", produces="text/plain;charset=UTF-8")
 	@ResponseBody
@@ -106,7 +106,7 @@ public class SongLocationController {
 		}
 		System.out.println(result.size());
 		
-		int max=(int) Math.ceil((double)result.size()/4);
+		int max=(int) Math.ceil((double)result.size()/5);
 		
 		System.out.println("더블형");
 		System.out.println(result.size());

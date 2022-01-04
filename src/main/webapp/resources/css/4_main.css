@@ -119,14 +119,14 @@ a {
   width:100%;
   
 }
-/* �쟾泥� 諛뺤뒪 ---------------------------------------------------------*/
+/*  쟾泥  諛뺤뒪 ---------------------------------------------------------*/
 .wrap_inner{
 display: flex;
 justify-content: space-between;
 margin:auto 300px;
 }
 
-/* �쇊履� �긽�옄 --------------------------------*/
+/*  쇊履   긽 옄 --------------------------------*/
 
 .main1 {
   color: black;
@@ -197,11 +197,13 @@ margin:auto 300px;
 
 .main_right_Img {
   width: 210px;
-  height: auto;
+  height: 120px;
   background-size: contain;
   padding: 0;
-  margin: 0;
-  
+  margin-left:15px;
+  margin-top: 0;
+  margin-right:15px;
+  margin-bottom:0;
 }
 
 .main2 {
@@ -248,7 +250,7 @@ margin:auto 300px;
 }
 
 
-/* �삤瑜몄そ �궗�뾽�옄 �벑濡앸쾲�샇 ------------------------------------*/
+/*  삤瑜몄そ  궗 뾽 옄  벑濡앸쾲 샇 ------------------------------------*/
 .right_area{
     margin-top: 30px;
 }
@@ -276,7 +278,7 @@ margin:auto 300px;
 }
 
 
-/* ------------------------------------硫붿씤 --------------------------------------*/
+/* ------------------------------------硫붿씤 --------------------------------------*/
 
 .main_title{
     display: flex;
@@ -300,9 +302,9 @@ margin:auto 300px;
     border: 5px solid lightcoral;
     background-color:white;
     margin-top: 50px;
-    margin-right:0px;
+    margin-right:22px;
     margin-bottom: 0px;
-    margin-left: 25px;
+    margin-left: 15px;
     float:left;
 }
 
@@ -338,16 +340,16 @@ text-align:center;
 }
 
 .nothing{
-	display:none;
+   display:none;
 }
 
 
 #divPagingMap{
-	display:flex;
-	justify-content: center;
-	margin-top: 30px;
-	margin-bottom:30px;
-	padding:10px;
+   display:flex;
+   justify-content: center;
+   margin-top: 30px;
+   margin-bottom:30px;
+   padding:10px;
 }
 
 #divPagingMap > div {
@@ -356,7 +358,6 @@ width: 30px;
 margin:0px;
 text-align:center;
 }
-
 
 
 

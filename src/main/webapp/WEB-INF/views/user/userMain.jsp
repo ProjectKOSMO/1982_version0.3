@@ -14,8 +14,8 @@
 <body>
 
 <% 
-	String userId = (String)session.getAttribute("userId");
-	String userPass = (String)session.getAttribute("userPass");
+   String userId = (String)session.getAttribute("userId");
+   String userPass = (String)session.getAttribute("userPass");
 %>
 
         <!-- 메뉴바  ------------------------------------------------->
@@ -40,7 +40,7 @@
                    <a href="userBoard.do?userid=${userId}">
                    고객센터                       
                    </a>
-		           <a href="/project1982/index.jsp" class="logout">
+                 <a href="/project1982/index.jsp" class="logout">
                     로그아웃
                    </a>
                </div>
@@ -61,7 +61,7 @@
                   
                 </div>
                 
-                <div id="searchPost" style="width:1000px;height:250px; display:flex; margin-left:auto; margin-right:auto;">  
+                <div id="searchPost" style="width:1430px;height:250px; display:flex; margin-left:auto; margin-right:auto;">  
                        <div class="main_right"></div>
                        <div class="main_right"></div>
                        <div class="main_right"></div>
@@ -79,15 +79,15 @@
             </div>
 <div style="display:flex; justify-content:center; margin-bottom:20px;">
 <form name="search-form" method='get'>
-		<input type='text' name='CenterLocation_y' id='CenterLocation_y' style="display:none" >
-		<input type='text' name='CenterLocation_x' id='CenterLocation_x' style="display:none" >
-		<input type= 'text' name='pageNum' id='pageNum'style="display:none" >
-		<select name='searchCondition'>
-			<option value='I.shopName'>가게이름</option>
-			<option value='I.content'>업무내용</option>
-		</select>
-		<input type='text' name='searchKeyword'>
-		<input type='button' id="em" value='검색'>
+      <input type='text' name='CenterLocation_y' id='CenterLocation_y' style="display:none" >
+      <input type='text' name='CenterLocation_x' id='CenterLocation_x' style="display:none" >
+      <input type= 'text' name='pageNum' id='pageNum'style="display:none" >
+      <select name='searchCondition'>
+         <option value='I.shopName'>가게이름</option>
+         <option value='I.content'>업무내용</option>
+      </select>
+      <input type='text' name='searchKeyword'>
+      <input type='button' id="em" value='검색'>
 </form>
 </div>
 
@@ -96,7 +96,7 @@
 <button id="moveCenterLocation">검색 중심 위치 변경하기</button>
 </div>
 
-			<div class="main2">
+         <div class="main2">
                 <img src="/project1982/resources/images/main1.jpg" alt="">
                 <div class="main_wrap">
                     <h2>언제나 365일</h2>

@@ -148,41 +148,41 @@ margin:auto 300px;
     color:rgba(0, 0, 0, 0.7);
 }
 /* -------------------------------------------------로긴 -----------------------------*/
-#login-form {
+#supportInfo {
     display: flex;
     flex-direction: column;
     margin: 50px 200px;
     width:55%;
   }
   
-  #login-form input {
+  #supportInfo input {
     border: none;
     padding: 15px 0px;
     font-size: 18px;
     margin-bottom: 25px;
   }
   
-  #login-form input:not([type="submit"]) {
+  #supportInfo input:not([type="submit"]) {
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
     transition: border-color 0.3s ease-in-out;
   }
   
-  #login-form input::placeholder {
+  #supportInfo input::placeholder {
     color: rgba(0, 0, 0, 0.4);
   }
   
-  #login-form input:focus {
+  #supportInfo input:focus {
     border-color: var(--yellow);
   }
   
-  #login-form input[type="submit"] {
+  #supportInfo input[type="submit"] {
     background-color: var(--yellow);
     cursor: pointer;
     padding: 20px 0px;
     border-radius: 5px;
   }
   
-  #login-form a {
+  #supportInfo a {
     text-align: center;
     text-decoration: none;
     color: inherit;
@@ -260,7 +260,7 @@ table{
   background-color: rgba(0, 0, 0, 0.2);
   font-size: 30px;
   margin-top: 30px;
-  margin-left: 60px;
+  margin-left: 300px;
   width: 200px;
   height: 100px;
   border-radius: 10px;
