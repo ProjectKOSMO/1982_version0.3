@@ -8,11 +8,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>adminPage.jsp</title>
+    <title>admin_positing.jsp</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome@5.14.0/css/all.min.css">
-	<link type="text/css" href="/project1982/resources/style/style.css" rel="stylesheet"/>
-    <link type="text/css" href="/project1982/resources/style/header.css" rel="stylesheet"/>
+	<link type="text/css" href="/project1982/resources/style/style2.css" rel="stylesheet"/>
+    <link type="text/css" href="/project1982/resources/style/main.css" rel="stylesheet"/>
 <script src="/project1982/resources/js/Chart.min.js"></script>
 </head>
 <script src='../resources/js/reply.js' type="text/javascript"></script>
@@ -28,61 +28,35 @@
         <!--메뉴바  ------------------------------------------------->
 
         <header class="header" >
-         <!-- 로고-->
-            
-            <a href="#" class="logo">
-                <img src=""/>
-            </a>
-            
-            <!--메뉴-->   
-            <ul class="menu">
-                <li><a href="admin_storeClose.do">구인자용</a>
-                <!--쎄일 라벨 -->
-                    <span class="sale-lable">신규</span>
-                </li>
-                <li><a href="#">둘러보기</a></li>
-                <li><a href="#">FAQ</a></li>
-                <li><a href="#">고객센터</a></li>
-            </ul>
-            <!-- 오른쪽 메뉴-->
-            <div class="right-menu">
-                <!--검색 -->
-                <a href="#" class="search">
-                    <i class="fas fa-search"></i>
+            <!-- 로고-->
+            <div>
+                <a href="userMain.do" class="logo">
+                    <h1>1982</h1>
                 </a>
-                <!--유저 -->
-                <a href="#" class="user">
-                    <i class="far fa-user"></i>
-                </a>
-                <!--카트  -->
-                <a href="#">
-                    <i class="fas fa-shopping-cart">
-                    <!--카트 상품-->
-                    <span class="num-cart-product">0</span>
-                    </i>
-                </a>
-            </div>
-
-        </header>
-
-    <!-- 메인 ---------------------------------------------------------------->
-        <main>
-            <ul class="left_nav">
-                <li class="left_nav_text"><a class="home" href="#">홈</a></li>
+                </div>
+               <!--메뉴-->   
+               <ul class="menu">
                 <li class="left_nav_text"><a href="adminPage.do">블랙리스트 현황</a></li>
                 <li class="left_nav_text"><a href="adminPage2.do">구독권 현황</a></li>
                 <li class="left_nav_text"><a href="admin_shopInfo.do">사업자 매장정보</a></li>
-            </ul>
+                <li class="left_nav_text"><a href="admin_positing.do">구직자용</a></li>
+                <li class="left_nav_text"><a href="admin_storeClose.do">구인자용</a></li>
+                <li class="left_nav_text"><a href="Board.do">고객센터</a></li>
+                <li class="left_nav_text"><a href="/project1982/index.jsp">로그아웃</a></li>
+               </ul>
+               <!-- 오른쪽 메뉴-->
+               <div class="right-menu">
 
+               </div>
+   
+           </header>
+
+    <!-- 메인 ---------------------------------------------------------------->
+        <main>
             <div class="body_container"> <!-- 페이지 컨테이너 시작-->
-         
                 <div class="body_container_center"> <!-- 중간 메뉴바 시작-->
-                   
-                    <div>서비스 이용 지표</div>
                     <div class="body_container_center_services">
-                        <div class="service1"></div>
-
-                     <div>구인게시판 현황</div>
+                     <div class="title">구인게시판 현황</div>
                      
                      <div>
                      <div class="divTable minimalistBlack">
@@ -96,14 +70,13 @@
                             <div class="divTableHead">알바 소게</div>    
                             <div class="divTableHead">근무일</div> 
                             <div class="divTableHead">급여</div> 
-                            <div class="divTableHead">주소</div> 
-                            <div class="divTableHead">데이터 삭제</div> 
+                            <div class="divTableHead">주소</div>  
                     </div>
                     </div>
                            <c:forEach items="${board_ownerList}" var="board_ownerList">
                             <div class="divTableBody">
                             <div class="divTableRow">
-                            <div class="divTableCell"><form action='#' method='post'><input type='hidden' name="shopname" value='${board_ownerList.shopname}'>${board_ownerList.shopname}</div>
+                            <div class="divTableCell"><input type='hidden' name="shopname" value='${board_ownerList.shopname}'>${board_ownerList.shopname}</div>
                             <div class="divTableCell"><input type='hidden' name="normal_emergency" value='${board_ownerList.normal_emergency}'>${board_ownerList.normal_emergency}</div>
                             <div class="divTableCell"><input type='hidden' name="jobDate" value='${board_ownerList.jobDate}'>${board_ownerList.jobDate}</div>
                             <div class="divTableCell"><input type='hidden' name="workTime" value='${board_ownerList.jobTime_start} ~ ${board_ownerList.jobTime_end}'>${board_ownerList.jobTime_start} ~ ${board_ownerList.jobTime_end}</div>
@@ -112,12 +85,11 @@
                             <div class="divTableCell"><input type='hidden' name="regDate" value='${board_ownerList.regDate}'>${board_ownerList.regDate}</div>
                             <div class="divTableCell"><input type='hidden' name="shoppay" value='${board_ownerList.shoppay}'>${board_ownerList.shoppay}</div>
                             <div class="divTableCell"><input type='hidden' name="shopaddr" value='${board_ownerList.shopaddr}'>${board_ownerList.shopaddr}</div>
-                            <div class="divTableCell"><input type='Submit' value='데이터 삭제'></div></form>
                           </div>
                           </div>
-                          
                          </c:forEach>
-                         <div style="display: block; text-align: center;">		
+                         
+                       <div style="display: block; text-align: center;">		
 							<c:if test="${paging.startPage != 1 }">
 								<a href="/project1982/admin/admin_positing.do?nowPage=${paging.startPage - 1 }&cntPerPage=${paging.cntPerPage}">&lt;</a>
 							</c:if>
@@ -135,6 +107,7 @@
 								<a href="/project1982/admin/admin_positing.do?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}">&gt;</a>
 							</c:if>
 						</div>
+						
                         </div>
                         </div>
                 </div><!--중간 메뉴바 종료-->
@@ -142,21 +115,6 @@
             
             </div><!-- 페이지 컨테이너 종료--> 
         </main>
-        
-        
-        
-        
-        
-        
-        
-        
- 
-
-
-
-
-
-
 <!-- footer --------------------------------------------------------------------->
     <footer>
         <div id="footer">

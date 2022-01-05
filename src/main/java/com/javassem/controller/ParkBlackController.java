@@ -4,14 +4,17 @@ import com.javassem.domain.GraphVO;
 import com.javassem.domain.PagingVO;
 import com.javassem.domain.ParkBlackVO;
 import com.javassem.domain.ParkVO;
+import com.javassem.domain.VisitorVO;
 import com.javassem.service.GraphService;
 import com.javassem.service.ParkBlackService;
+import com.javassem.service.VisitService;
 
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -32,11 +35,15 @@ public class ParkBlackController {
     public GraphService graphService;
     @Autowired
 	private SqlSessionTemplate mybatis;
-    
+	@Autowired
+	public VisitService visitService;
+	
+	
     @RequestMapping("adminMain.do")
     public String main(Model m,Model m2,PagingVO vo1
 			,@RequestParam(value="nowPage", required=false)String nowPage
 			, @RequestParam(value="cntPerPage", required=false)String cntPerPage){
+    	
     	HashMap<Object, Object> map = new HashMap<>();
 		int total_black = parkBlackService.countBlacklist();
 		
@@ -97,21 +104,37 @@ public class ParkBlackController {
 		m.addAttribute("cumulYesterday3", total-joinToday-joinYesterday1-joinYesterday2);
 		m.addAttribute("cumulYesterday4", total-joinToday-joinYesterday1-joinYesterday2-joinYesterday3);
 		
+		//방문자 수
+		
+		List<VisitorVO> visitList=mybatis.selectList("visit.CntPerDay");
+		
+		m.addAttribute("visitToday",visitList.get(0).getToday());
+		m.addAttribute("visitYesterday1",visitList.get(0).getBefore1());
+		m.addAttribute("visitYesterday2",visitList.get(0).getBefore2());
+		m.addAttribute("visitYesterday3",visitList.get(0).getBefore3());
+		m.addAttribute("visitYesterday4",visitList.get(0).getBefore4());
+		
+		m.addAttribute("Total_visitor",visitService.countTotalVisit());
+		
 		return "admin/adminPage";
     }
 
     @RequestMapping("checkCnt.do")
-    public String checkCnt(ParkBlackVO vo, @RequestParam("userId") String userId,
+    public String checkCnt(ParkBlackVO vo, @RequestParam("userId") String userId,HttpServletRequest request,
     		@RequestParam("warnCnt") int warnCnt,
     		@RequestParam("userName") String userName,
     		@RequestParam("warnDate") String warnDate,
     		@RequestParam("reason") String reason,
+    		@RequestParam("userNum") String userNum,
+    		@RequestParam("ownerNum") String ownerNum,
     		Model m, HttpServletResponse response,RedirectAttributes redirect) throws Exception{
     	vo.setReason(reason);
     	vo.setUserId(userId);
     	vo.setUserName(userName);
     	vo.setWarnDate(warnDate);
     	vo.setWarnCnt(warnCnt);
+    	vo.setUserNum(userNum);
+    	vo.setOwnerNum(ownerNum);
     	
     	int cnt=parkBlackService.checkCnt(vo);
     	redirect.addAttribute("reason",vo.getReason());
@@ -119,8 +142,14 @@ public class ParkBlackController {
     	redirect.addAttribute("userName",vo.getUserName());
     	redirect.addAttribute("warnDate",vo.getWarnDate());
     	redirect.addAttribute("warnCnt",vo.getWarnCnt());
+    	redirect.addAttribute("userNum",vo.getUserNum());
+    	redirect.addAttribute("ownerNum",vo.getOwnerNum());
     	
     	if(cnt==3){
+    		response.setContentType("text/html; charset=UTF-8"); 
+    		PrintWriter writer = response.getWriter();
+    		writer.println("<script>alert('이미 경고횟수가 3입니다.'); location.href='admin/adminPage.do';</script>"); 
+    		writer.close();
             return "redirect:adminMain.do";
     	}else {
     		return "redirect:stopAccount.do";
@@ -133,20 +162,28 @@ public class ParkBlackController {
     		@RequestParam("userId") String userId,
     		@RequestParam("userName") String userName,
     		@RequestParam("warnDate") String warnDate,
-    		@RequestParam("reason") String reason){
+    		@RequestParam("reason") String reason,
+    		@RequestParam("userNum") String userNum,
+    		@RequestParam("ownerNum") String ownerNum){
    
     	vo.setReason(reason);
     	vo.setUserId(userId);
     	vo.setUserName(userName);
     	vo.setWarnDate(warnDate);
     	vo.setWarnCnt(warnCnt);
+    	vo.setUserNum(userNum);
+    	vo.setOwnerNum(ownerNum);
     	
     	HashMap<Object, Object> map = new HashMap<>();
-    	map.put("userId",vo.getUserId());
-    	map.put("warnDate",vo.getWarnDate());
-    	map.put("userName",vo.getUserName());
-    	map.put("warnCnt",vo.getWarnCnt());
-    	map.put("reason",vo.getReason());
+    	
+    	map.put("userId", userId);
+    	map.put("userName", userName);
+    	map.put("warnDate", warnDate);
+    	map.put("warnCnt", warnCnt);
+    	map.put("reason", reason);
+    	map.put("userNum", userNum);
+    	map.put("ownerNum", ownerNum);
+    	
     	
     	parkBlackService.stopAccount(map);
     	return "redirect:adminMain.do";

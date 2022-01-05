@@ -28,36 +28,24 @@
         <!--메뉴바  ------------------------------------------------->
         <header class="header" >
             <!-- 로고-->
-               <div>
-               <a href="/project1982/admin/main.do" class="logo">
-                   <h1>1982</h1>
-               </a>
-               </div>
-               <!--메뉴--> 
-             
-               
+            <div>
+                <a href="userMain.do" class="logo">
+                    <h1>1982</h1>
+                </a>
+                </div>
+               <!--메뉴-->   
+               <ul class="menu">
+                <li class="left_nav_text"><a href="adminPage.do">블랙리스트 현황</a></li>
+                <li class="left_nav_text"><a href="adminPage2.do">구독권 현황</a></li>
+                <li class="left_nav_text"><a href="admin_shopInfo.do">사업자 매장정보</a></li>
+                <li class="left_nav_text"><a href="admin_positing.do">구직자용</a></li>
+                <li class="left_nav_text"><a href="admin_storeClose.do">구인자용</a></li>
+                <li class="left_nav_text"><a href="Board.do">고객센터</a></li>
+                <li class="left_nav_text"><a href="/project1982/index.jsp">로그아웃</a></li>
+               </ul>
                <!-- 오른쪽 메뉴-->
                <div class="right-menu">
-                   
-                   <a href="/project1982/admin/storeClose.do" class="search">
-                   일자리찾기
-                   </a>
-                   <a href="/project1982/admin/job_positing.do" class="search">
-                    구인공고
-                   </a>
-                   
-                   <a href="/project1982/admin/adminPage.do" class="user">
-                   마이페이지
-                   </a>
-                   
-                   <a href="/project1982/admin/Board.do">
-                   고객센터
-                    
-                       
-                   </a>
-                   <a href="/project1982/index.jsp" class="logout">
-                    로그아웃
-                   </a>
+
                </div>
    
            </header>

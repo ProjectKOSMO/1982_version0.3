@@ -1,0 +1,375 @@
+@import url("https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Mulish:ital,wght@0,200;0,300;0,400;0,500;0,600;1,200;1,300&family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Outfit:wght@200;300;400&display=swap");
+
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 45px;
+  height: 150px;
+  width: 100%;
+  box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.05);
+  margin-bottom: 0px;
+}
+.logo {
+  font-size: 100px;
+  color: black;
+  
+  text-shadow: 2px 8px 6px rgba(0,0,0,0.2), 0px -3px 20px rgba(255,255,255,0.4);
+}
+.logo img {
+  height: 70px;
+}
+.menu {
+  display: flex;
+}
+.menu li {
+  position: relative;
+  margin: 20px;
+  display: flex;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.menu li a {
+  color: #555555;
+}
+.right-menu a {
+  padding-right: 60px;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  font-size: 1.5rem;
+  color: rgba(0, 0, 0, 0.7);
+}
+.menu a:hover,
+.right-menu a:hover,
+.search-cancel:hover,
+.form-cancel:hover {
+  color: #ebe717;
+  transition: all ease 0.3s;
+}
+.sale-lable {
+  width: 38px;
+  height: 17px;
+  background-color: #f76b6a;
+  color: #ffffff;
+  font-weight: 400;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  position: absolute;
+  top: -25px;
+  right: -10px;
+}
+.sale-lable:after {
+  content: "";
+  width: 0px;
+  height: 0px;
+  border-bottom: 5px solid transparent;
+  border-left: 3px solid transparent;
+  border-top: 7px solid #f76b6a;
+  border-right: 5px solid transparent;
+  position: absolute;
+  left: 10%;
+  top: 100%;
+}
+.fa-shopping-cart {
+  position: relative;
+}
+.num-cart-product {
+  position: absolute;
+  top: -17px;
+  right: -17px;
+  width: 25px;
+  height: 25px;
+  font-size: 0.8rem;
+  border-radius: 50%;
+  background-color: #0b9d8a;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 400;
+}
+
+/* footer ------------------------------------------------------------ */
+
+#footer {
+  background: #fafafa;
+  margin: 0px auto 0;
+  padding: 60px 0;
+  border: 1px solid #e4e4e4;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: "Outfit", sans-serif;
+
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+/* �쟾泥� 諛뺤뒪 ---------------------------------------------------------*/
+.wrap_inner {
+  display: flex;
+  justify-content: space-between;
+  margin: auto 300px;
+}
+
+/* �쇊履� �긽�옄 --------------------------------*/
+
+.main1 {
+  color: black;
+  padding-top: 100px;
+  position: relative;
+  width: 100%;
+  height: 220vh;
+  z-index: 1;
+}
+
+.main1::after {
+  content: "";
+  background: url("./");
+  background-size: cover;
+  overflow: hidden;
+  opacity: 0.6;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  z-index: -1;
+}
+
+.left_area {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.rap_inner_h4 {
+  margin-bottom: 50px;
+  font-size: 30px;
+}
+.left_text_margin h5 {
+  color: rgba(0, 0, 0, 0.7);
+  font-weight: 600;
+}
+.left_phone {
+  font-size: 25px;
+  margin: 20px auto;
+}
+
+.footer_icon {
+  margin-top: 20px;
+  display: flex;
+  color: rgba(0, 0, 0, 0.7);
+}
+.footer_icon div {
+  margin-right: 20px;
+}
+
+.searchLocation_y {
+  display: none;
+}
+.searchLocation_x {
+  display: none;
+}
+.NumIMG {
+  width: 25px;
+  height: auto;
+  padding: 0;
+  margin: 0;
+  vertical-align: top;
+}
+
+.main_right_Img {
+  width: 210px;
+  height: auto;
+  background-size: contain;
+  padding: 0;
+  margin: 0;
+}
+
+.main2 {
+  display: flex;
+  margin-top: 80px;
+  height: 100vh;
+}
+.main2 img {
+  width: 50%;
+  height: 80%;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
+  margin-left: 100px;
+  margin-bottom: 0px;
+}
+.main_wrap {
+  width: 50%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.main_wrap h2 {
+  font-size: 40px;
+  margin-bottom: 30px;
+}
+.main_wrap p {
+  font-size: 20px;
+  width: 70%;
+}
+.main2_button {
+  border: none;
+  border-radius: 5px;
+  width: 100px;
+  height: 50px;
+  margin-top: 50px;
+  transition: all 1s ease-in-out;
+  font-size: 15px;
+  cursor: pointer;
+}
+.main2_button:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+}
+
+/* �삤瑜몄そ �궗�뾽�옄 �벑濡앸쾲�샇 ------------------------------------*/
+.right_area {
+  margin-top: 30px;
+}
+.right_ul {
+  display: flex;
+  margin-bottom: 30px;
+  color: rgba(0, 0, 0, 0.7);
+}
+.right_ul p {
+  margin-right: 10px;
+}
+.right_address {
+  margin-bottom: 50px;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.7);
+}
+.right_address p {
+  margin-top: 10px;
+}
+.right_copyright {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+/* ------------------------------------硫붿씤 --------------------------------------*/
+
+.main_title {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  font-size: xx-large;
+}
+.main {
+  display: flex;
+  justify-content: center;
+}
+.main_left {
+  width: 500px;
+  height: 450px;
+  margin-top: 50px;
+  border: 5px solid rgb(204, 204, 29);
+}
+.main_right {
+  width: 250px;
+  height: 200px;
+  border: 5px solid lightcoral;
+  background-color: white;
+  margin-top: 50px;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  margin-left: 25px;
+  float: left;
+}
+
+table tr td {
+  border: 4px solid lightcoral;
+}
+table {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  font-size: 80px;
+}
+
+.main_article {
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+}
+
+#divPaging {
+  clear: both;
+  margin: 0 auto;
+  width: 220px;
+  height: 50px;
+}
+
+#divPaging > div {
+  float: left;
+  width: 30px;
+  margin: 0px;
+  text-align: center;
+}
+
+.nothing {
+  display: none;
+}
+
+#divPagingMap {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding: 10px;
+}
+
+#divPagingMap > div {
+  float: left;
+  width: 30px;
+  margin: 0px;
+  text-align: center;
+}
+
+.jb-box {
+  width: 100%;
+  height: 500px;
+  overflow: hidden;
+  margin: 0px auto;
+  position: relative;
+}
+video {
+  width: 100%;
+}
+.jb-text {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+}
+.jb-text p {
+  margin-top: -24px;
+  text-align: center;
+  font-size: 48px;
+  color: black;
+  font-weight: 600;
+}
+.jp-text span{
+  position: absolute;
+  top:100px;
+  left:50px;
+}

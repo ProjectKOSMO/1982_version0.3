@@ -11,13 +11,12 @@
     <title>adminPage2.jsp</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome@5.14.0/css/all.min.css">
-	<link type="text/css" href="/project1982/resources/style/style.css" rel="stylesheet"/>
-    <link type="text/css" href="/project1982/resources/style/header.css" rel="stylesheet"/>
+	<link type="text/css" href="/project1982/resources/style/style2.css" rel="stylesheet"/>
+    <link type="text/css" href="/project1982/resources/style/main.css" rel="stylesheet"/>
 <script src="/project1982/resources/js/Chart.min.js"></script>
 </head>
 <script src='../resources/js/reply.js' type="text/javascript"></script>
 <script>
-
 	function selChange() {
 		var sel = document.getElementById('cntPerPage').value;
 		location.href="/project1982/admin/adminPage2.do?nowPage=${paging.nowPage}&cntPerPage="+sel;
@@ -29,86 +28,45 @@
         <!--메뉴바  ------------------------------------------------->
 
         <header class="header" >
-         <!-- 로고-->
-            
-            <a href="#" class="logo">
-                <img src=""/>
-            </a>
-            
-            <!--메뉴-->   
-            <ul class="menu">
-                <li><a href="admin_positing.do">구직자용</a></li>
-                <li><a href="admin_storeClose.do">구인자용</a>
-                <!--쎄일 라벨 -->
-                    <span class="sale-lable">신규</span>
-                </li>
-                <li><a href="#">둘러보기</a></li>
-                <li><a href="#">FAQ</a></li>
-                <li><a href="#">고객센터</a></li>
-            </ul>
-            <!-- 오른쪽 메뉴-->
-            <div class="right-menu">
-                <!--검색 -->
-                <a href="#" class="search">
-                    <i class="fas fa-search"></i>
+            <!-- 로고-->
+            <div>
+                <a href="userMain.do" class="logo">
+                    <h1>1982</h1>
                 </a>
-                <!--유저 -->
-                <a href="#" class="user">
-                    <i class="far fa-user"></i>
-                </a>
-                <!--카트  -->
-                <a href="#">
-                    <i class="fas fa-shopping-cart">
-                    <!--카트 상품-->
-                    <span class="num-cart-product">0</span>
-                    </i>
-                </a>
-            </div>
+                </div>
+               <!--메뉴-->   
+               <ul class="menu">
+                <li class="left_nav_text"><a href="adminPage.do">블랙리스트 현황</a></li>
+                <li class="left_nav_text"><a href="adminPage2.do">구독권 현황</a></li>
+                <li class="left_nav_text"><a href="admin_shopInfo.do">사업자 매장정보</a></li>
+                <li class="left_nav_text"><a href="admin_positing.do">구직자용</a></li>
+                <li class="left_nav_text"><a href="admin_storeClose.do">구인자용</a></li>
+                <li class="left_nav_text"><a href="Board.do">고객센터</a></li>
+                <li class="left_nav_text"><a href="/project1982/index.jsp">로그아웃</a></li>
+               </ul>
+               <!-- 오른쪽 메뉴-->
+               <div class="right-menu">
 
-        </header>
+               </div>
+   
+           </header>
 
     <!-- 메인 ---------------------------------------------------------------->
         <main>
         <form>
-            <ul class="left_nav">
-                <li class="left_nav_text"><a class="home" href="#">홈</a></li>
-                <li class="left_nav_text"><a href="adminPage.do">회원 현황</a></li>
-                <li class="left_nav_text"><a href="admin_shopInfo.do">사업자 매장정보</a></li>
-                <li class="left_nav_text"><a href="#">회사</a></li>
-            </ul>
-
             <div class="body_container"> <!-- 페이지 컨테이너 시작-->
-         
                 <div class="body_container_center"> <!-- 중간 메뉴바 시작-->
-                   
-                    <div>서비스 이용 지표</div>
-                    <div class="body_container_center_services">
-                        <div class="service1">
-<!-- 여기2 -->                            
-                        </div>
-
-                    </div>
-
+                
                <!--  구독권 종류별 구매자 수  -->
                     <div class="body_container_center_members">   
-                    	<div class="member1">
-                        </div>
                         <div class="member2">
+                        <div class="title">구독권 별 구매자 수</div>
                        	 <canvas id="barChart" width="250" height="250"></canvas>
                         </div>
-       
                     </div>
-                    
-                    
-                    
-                    
-                    
-                    s
-                    
-                    
-                    
-<!-- 여기2 -->           
-                     <div>구독권 현황</div>
+
+      
+                     <div class="title">구독권 현황</div>
                      <div>
                         <div class="divTable minimalistBlack">
                             <div class="divTableHeading">

@@ -11,8 +11,8 @@
     <title>adminPage.jsp</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome@5.14.0/css/all.min.css">
-	<link type="text/css" href="/project1982/resources/style/style.css" rel="stylesheet"/>
-    <link type="text/css" href="/project1982/resources/style/header.css" rel="stylesheet"/>
+	<link type="text/css" href="/project1982/resources/style/style2.css" rel="stylesheet"/>
+    <link type="text/css" href="/project1982/resources/style/main.css" rel="stylesheet"/>
 <script src="/project1982/resources/js/Chart.min.js"></script>
 </head>
 <script src='../resources/js/reply.js' type="text/javascript"></script>
@@ -28,77 +28,51 @@
         <!--메뉴바  ------------------------------------------------->
 
         <header class="header" >
-         <!-- 로고-->
-            
-            <a href="#" class="logo">
-                <img src=""/>
-            </a>
-            
-            <!--메뉴-->   
-            <ul class="menu">
-                <li><a href="admin_positing.do">구직자용</a></li>
-                <li><a href="admin_storeClose.do">구인자용</a>
-                <!--쎄일 라벨 -->
-                    <span class="sale-lable">신규</span>
-                </li>
-                <li><a href="#">둘러보기</a></li>
-                <li><a href="#">FAQ</a></li>
-                <li><a href="/project1982/admin/Board.do">고객센터</a></li>
-            </ul>
-            <!-- 오른쪽 메뉴-->
-            <div class="right-menu">
-                <!--검색 -->
-                <a href="#" class="search">
-                    <i class="fas fa-search"></i>
+            <!-- 로고-->
+            <div>
+                <a href="userMain.do" class="logo">
+                    <h1>1982</h1>
                 </a>
-                <!--유저 -->
-                <a href="#" class="user">
-                    <i class="far fa-user"></i>
-                </a>
-                <!--카트  -->
-                <a href="#">
-                    <i class="fas fa-shopping-cart">
-                    <!--카트 상품-->
-                    <span class="num-cart-product">0</span>
-                    </i>
-                </a>
-            </div>
+                </div>
+               <!--메뉴-->   
+               <ul class="menu">
+                <li class="left_nav_text"><a href="adminPage.do">블랙리스트 현황</a></li>
+                <li class="left_nav_text"><a href="adminPage2.do">구독권 현황</a></li>
+                <li class="left_nav_text"><a href="admin_shopInfo.do">사업자 매장정보</a></li>
+                <li class="left_nav_text"><a href="admin_positing.do">구직자용</a></li>
+                <li class="left_nav_text"><a href="admin_storeClose.do">구인자용</a></li>
+                <li class="left_nav_text"><a href="Board.do">고객센터</a></li>
+                <li class="left_nav_text"><a href="/project1982/index.jsp">로그아웃</a></li>
+               </ul>
+               <!-- 오른쪽 메뉴-->
+               <div class="right-menu">
 
-        </header>
+               </div>
+   
+           </header>
 
     <!-- 메인 ---------------------------------------------------------------->
         <main>
-            <ul class="left_nav">
-                <li class="left_nav_text"><a class="home" href="#">홈</a></li>
-                <li class="left_nav_text"><a href="adminPage2.do">구독권 현황</a></li>
-                <li class="left_nav_text"><a href="admin_shopInfo.do">사업자 매장정보</a></li>
-                <li class="left_nav_text"><a href="#">회사</a></li>
-            </ul>
-
             <div class="body_container"> <!-- 페이지 컨테이너 시작-->
-         
                 <div class="body_container_center"> <!-- 중간 메뉴바 시작-->
                    
-                    <div>서비스 이용 지표</div>
+                    <div class="title">서비스 이용 지표</div>
                     <div class="body_container_center_services">
-                        <div class="service1">
-<!-- 여기2 -->                            
+                        <div class="service1">        
                             <!-- 매칭성공률 -->
                             <div class="service1_left">
                              <div class="matchPercent"> 매칭성공률 ${matching_success}% </div> 
                              <canvas id="matching" width="350" height="350" style="display: inline-block;"></canvas>
                             </div>                     
-                               
-       
-      
+
       						<!-- 재이용률 -->
                             <div class="service1_right">
                             <div class="reusePercent"> 재이용률 ${reusing_ratio}% </div>
                             <canvas id="reuse" width="350" height="350" style="display: inline-block;"></canvas>
                             </div>
-      
-                            
+
                         </div>
+                        <div class="body_container_center_members">
                         <div class="service2">
                             <div class="service2_left">
                             <span class="visit_value">${visitToday}</span><br/>
@@ -109,17 +83,10 @@
                        <!-- 방문자 현황 -->     
                             <div class="service2_right">
                        		   <canvas id="lineChart" width="250" height="250"></canvas>
-                            </div>
-           
-        
-                    </div>
-                    </div>
-                   
-                   
-                   
-               
+               		  	    </div>
+                  	   </div>
+                  	   
                <!--  회원가입 현황  -->
-                    <div class="body_container_center_members">
                         <div class="member1">
                         <span class="visit_value">${joinToday}</span><br/>
                             <span class="visit_label">Today joins</span>
@@ -127,10 +94,10 @@
                         <div class="member2">
                          <canvas id="barChart" width="250" height="250"></canvas>
                         </div>
-       
+       				</div>
                     </div>
 <!-- 여기2 -->           
-                     <div>블랙리스트 현황</div>
+                     <div class="title">블랙리스트 현황</div>
                      
                      <div>
                      <div class="divTable minimalistBlack">
@@ -141,6 +108,8 @@
                             <div class="divTableHead">경고 날짜</div>
                             <div class="divTableHead">구직자 이름</div>
                             <div class="divTableHead">사유</div>
+                            <div class="divTableHead">구직자 회원번호</div>
+                            <div class="divTableHead">사업자 회원번호</div>
                             <div class="divTableHead">이용 정지</div>    
                     </div>
                     </div>
@@ -152,6 +121,8 @@
                             <div class="divTableCell"><input type='hidden' name="warnDate" value='${blacklist.warnDate}'>${blacklist.warnDate}</div>
                             <div class="divTableCell"><input type='hidden' name="userName" value='${blacklist.userName}'>${blacklist.userName}</div>
                             <div class="divTableCell"><input type='hidden' name="reason" value='${blacklist.reason}'>${blacklist.reason}</div>
+                            <div class="divTableCell"><input type='hidden' name="userNum" value='${blacklist.userNum}'>${blacklist.userNum}</div>
+                            <div class="divTableCell"><input type='hidden' name="ownerNum" value='${blacklist.ownerNum}'>${blacklist.ownerNum}</div>
                             <div class="divTableCell"><input type='Submit' value='영구정지'></div></form>
                           </div>
                           </div>
@@ -178,13 +149,10 @@
                         </div>
                         </div>
                        <div>
-                        <li> 경고 1회 - 7일 정지 및 경고 알림 발송</li>
-                        <li> 경고 2회 - 30일 정지 및 경고 알림 발송</li>
                         <li> 경고 3회 - 영구 정지</li>
                     </div>
                     
                 </div><!--중간 메뉴바 종료-->
-               
             
             </div><!-- 페이지 컨테이너 종료--> 
         </main>

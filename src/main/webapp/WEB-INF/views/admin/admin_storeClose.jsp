@@ -8,11 +8,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>adminPage.jsp</title>
+    <title>admin_storeCLose.jsp</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome@5.14.0/css/all.min.css">
-	<link type="text/css" href="/project1982/resources/style/style.css" rel="stylesheet"/>
-    <link type="text/css" href="/project1982/resources/style/header.css" rel="stylesheet"/>
+	<link type="text/css" href="/project1982/resources/style/style2.css" rel="stylesheet"/>
+    <link type="text/css" href="/project1982/resources/style/main.css" rel="stylesheet"/>
 <script src="/project1982/resources/js/Chart.min.js"></script>
 </head>
 <script src='../resources/js/reply.js' type="text/javascript"></script>
@@ -28,75 +28,35 @@
         <!--메뉴바  ------------------------------------------------->
 
         <header class="header" >
-         <!-- 로고-->
-            
-            <a href="#" class="logo">
-                <img src=""/>
-            </a>
-            
-            <!--메뉴-->   
-            <ul class="menu">
-                <li><a href="admin_positing.do">구직자용</a></li>
-                <li><a href="#">둘러보기</a></li>
-                <li><a href="#">FAQ</a></li>
-                <li><a href="#">고객센터</a></li>
-            </ul>
-            <!-- 오른쪽 메뉴-->
-            <div class="right-menu">
-                <!--검색 -->
-                <a href="#" class="search">
-                    <i class="fas fa-search"></i>
+            <!-- 로고-->
+            <div>
+                <a href="userMain.do" class="logo">
+                    <h1>1982</h1>
                 </a>
-                <!--유저 -->
-                <a href="#" class="user">
-                    <i class="far fa-user"></i>
-                </a>
-                <!--카트  -->
-                <a href="#">
-                    <i class="fas fa-shopping-cart">
-                    <!--카트 상품-->
-                    <span class="num-cart-product">0</span>
-                    </i>
-                </a>
-            </div>
-
-        </header>
-
-    <!-- 메인 ---------------------------------------------------------------->
-        <main>
-            <ul class="left_nav">
-                <li class="left_nav_text"><a class="home" href="#">홈</a></li>
+                </div>
+               <!--메뉴-->   
+               <ul class="menu">
                 <li class="left_nav_text"><a href="adminPage.do">블랙리스트 현황</a></li>
                 <li class="left_nav_text"><a href="adminPage2.do">구독권 현황</a></li>
                 <li class="left_nav_text"><a href="admin_shopInfo.do">사업자 매장정보</a></li>
-            </ul>
+                <li class="left_nav_text"><a href="admin_positing.do">구직자용</a></li>
+                <li class="left_nav_text"><a href="admin_storeClose.do">구인자용</a></li>
+                <li class="left_nav_text"><a href="Board.do">고객센터</a></li>
+                <li class="left_nav_text"><a href="/project1982/index.jsp">로그아웃</a></li>
+               </ul>
+               <!-- 오른쪽 메뉴-->
+               <div class="right-menu">
 
+               </div>
+   
+           </header>
+
+    <!-- 메인 ---------------------------------------------------------------->
+        <main>
             <div class="body_container"> <!-- 페이지 컨테이너 시작-->
-         
                 <div class="body_container_center"> <!-- 중간 메뉴바 시작-->
-                   
-                    <div>서비스 이용 지표</div>
-                    <div class="body_container_center_services">
-                        <div class="service1">
-<!-- 여기2 -->                            
-                         
-
-                            
-                        </div>
-
-                    </div>
-                   
-                   
-                   
-               
-               <!--  회원가입 현황  -->
-                    <div class="body_container_center_members">
-       
-                    </div>
-<!-- 여기2 -->           
-                     <div>구직자 매칭 게시판</div>
+                     <div class="title">구직자 매칭 게시판</div>
                      
-                     <div>
                      <div class="divTable minimalistBlack">
                             <div class="divTableHeading">
                             <div class="divTableRow">
@@ -109,13 +69,12 @@
                             <div class="divTableHead">구직자 계정</div>
                             <div class="divTableHead">매장 연락처</div>
                             <div class="divTableHead">매칭 상태</div>
-                            <div class="divTableHead">데이터 삭제</div>
                     </div>
                     </div>
                            <c:forEach items="${supportList}" var="supportList">
                             <div class="divTableBody">
                             <div class="divTableRow">
-                            <div class="divTableCell"><form action='#' method='post'><input type='hidden' name="shopname" value='${supportList.shopname}'>${supportList.shopname}</div>
+                            <div class="divTableCell"><input type='hidden' name="shopname" value='${supportList.shopname}'>${supportList.shopname}</div>
                             <div class="divTableCell"><input type='hidden' name="normal_emergency" value='${supportList.normal_emergency}'>${supportList.normal_emergency}</div>
                             <div class="divTableCell"><input type='hidden' name="shopaddr" value='${supportList.shopaddr}'>${supportList.shopaddr}</div>
                             <div class="divTableCell"><input type='hidden' name="shoppay" value='${supportList.shoppay}'>${supportList.shoppay}</div>
@@ -124,7 +83,6 @@
                             <div class="divTableCell"><input type='hidden' name="userid" value='${supportList.userid}'>${supportList.userid}</div>
                             <div class="divTableCell"><input type='hidden' name="shoppn" value='${supportList.shoppn}'>${supportList.shoppn}</div>
                             <div class="divTableCell"><input type='hidden' name="maching" value='${supportList.maching}'>${supportList.maching}</div>
-                            <div class="divTableCell"><input type='Submit' value='데이터 삭제'></div></form>
                           </div>
                           </div>
                           
@@ -148,27 +106,13 @@
 							</c:if>
 						</div>
                         </div>
-                        </div>
+
                 </div><!--중간 메뉴바 종료-->
-               
-            
+
             </div><!-- 페이지 컨테이너 종료--> 
         </main>
         
         
-        
-        
-        
-        
-        
-        
- 
-
-
-
-
-
-
 <!-- footer --------------------------------------------------------------------->
     <footer>
         <div id="footer">
