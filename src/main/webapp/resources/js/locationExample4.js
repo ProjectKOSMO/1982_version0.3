@@ -241,7 +241,7 @@ function Test(){
 				        image : markerImage // 마커 이미지 
 				    });
 				    
-				    var iwContent = '<div id="infomation" style="padding:5px;">'+ result[i].shopName+'<br><a>'+result[i].shop_phone_number+'</a></div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+				    var iwContent = '<div id="infomation" style="padding:5px;">'+ result[i].shopName+'<br><a>'+result[i].shoppn+'</a></div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
 				        iwPosition = new kakao.maps.LatLng(result[i].location_y, result[i].location_x); //인포윈도우 표시 위치입니다
 
 				    // 인포윈도우를 생성합니다

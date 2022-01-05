@@ -4,7 +4,7 @@ public class SongLocationVO {
 	private double location_y;
 	private double location_x;
 	private String road_address;
-	private String shop_phone_number;
+	private String shoppn;
 	private String shopName;
 	private String shoppay;
 	private String si_realname;
@@ -24,6 +24,12 @@ public class SongLocationVO {
 	
 	
 	
+	public String getShoppn() {
+		return shoppn;
+	}
+	public void setShoppn(String shoppn) {
+		this.shoppn = shoppn;
+	}
 	public int getPostNum() {
 		return postNum;
 	}
@@ -84,12 +90,7 @@ public class SongLocationVO {
 	public void setRoad_address(String road_address) {
 		this.road_address = road_address;
 	}
-	public String getShop_phone_number() {
-		return shop_phone_number;
-	}
-	public void setShop_phone_number(String shop_phone_number) {
-		this.shop_phone_number = shop_phone_number;
-	}
+	
 	
 	public String getShopName() {
 		return shopName;

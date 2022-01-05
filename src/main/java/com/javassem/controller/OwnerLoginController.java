@@ -3,6 +3,7 @@
 // (powered by FernFlower decompiler)
 //
 package com.javassem.controller;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -21,6 +22,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.javassem.domain.OwnerBoardVO;
 import com.javassem.domain.OwnerVO;
 import com.javassem.domain.ShopVO;
+import com.javassem.domain.UserVO;
 import com.javassem.service.MemberSV;
 import com.javassem.service.OwnerService;
 import com.javassem.service.ParkBlackService;
@@ -103,64 +105,346 @@ public class OwnerLoginController {
         return "redirect:ownerList.do";
     }
     
-    //사업자 마이페이지에 DB에저장된 데이터를 가지고 보여주기만하는 컨트롤러
-    @RequestMapping({"ownerList.do"})
-    public String getList(OwnerVO vo,OwnerBoardVO vo1,ShopVO vo2, Model model, HttpServletRequest request) throws Exception {
-        HttpSession session = request.getSession();
-        Integer ownernum = (Integer)session.getAttribute("ownernum");
-        String ownerId = (String)session.getAttribute("ownerid");
-        
-        vo.setOwnernum(ownernum);
-        vo1.setOwnernum(ownernum);
-        
-        List<OwnerVO> list = this.ownerService.getList(vo);
-        
-        
-        List<OwnerBoardVO> list2 = this.ownerService.getOwnerBoardList(vo1);
-        System.out.println(list2);
-        
-        if (list2.isEmpty()){
-        	
-        	model.addAttribute("shopList", list);
-        	
-        	return "/owner/ownerViewPage";
-        	
-        }else {
-        	
-        	
-        	
-        	
+	// 사업자 마이페이지에 DB에저장된 데이터를 가지고 보여주기만하는 컨트롤러
+	@RequestMapping({ "ownerList.do" })
+	public String getList(OwnerVO vo, OwnerBoardVO vo1, ShopVO vo2, UserVO vo3, Model model, HttpServletRequest request)
+			throws Exception {
+
+		HttpSession session = request.getSession();
+		Integer ownernum = (Integer) session.getAttribute("ownernum");
+		String ownerId = (String) session.getAttribute("ownerid");
+
+		vo.setOwnernum(ownernum);
+		vo1.setOwnernum(ownernum);
+
+		List<OwnerVO> list = this.ownerService.getList(vo);
+		List<OwnerBoardVO> list2 = this.ownerService.getOwnerBoardList(vo1);
+
+		List<HashMap> list5 = ownerService.getUserList(ownerId);
+		List<HashMap> list6 = ownerService.machingList(ownerId);
+		List<HashMap> list7 = ownerService.endList(ownerId);
+		List<HashMap> black;
+		List<HashMap> black2;
+		List<HashMap> black_list = null;
+		boolean bool ;
+		
+//		// 회원들의 전체 정보 중 구직자넘버
+//		for (int i = 0; i < result.size(); i++) {
+//			System.out.println(result.get(i).getUsernum());
+//
+//		}
+
+		HashMap hashmap3 = new HashMap();
+		hashmap3.put("ownerNum", ownernum);
+		black2 = mybatis.selectList("owner.blackList2", hashmap3);
+		
+		
+		/*for (int i2 = 0; i2 < list5.size(); i2++) {
+				
+			String at = (String) list5.get(i2).get("userid");
+			
+			System.out.println(at);
+			
+			for (int j = 0; j < black2.size(); j++) {
+			String s2 = (String)black2.get(j).get("userId");
+			
+			
+			 bool = at.equals(s2);*/
+		
+		
+// 현재 대기중인 구직자 넘버
+		for (int i = 0; i < list5.size(); i++) {
+			System.out.println(list5.get(i).get("userNum"));
+			String test2 = list5.get(i).get("userNum").toString();
+		}
+		
+		
+		// 사업자가 구인공고를 등록한게 없을경우
+		
+		for (int i2 = 0; i2 < list5.size(); i2++) {
+			
+			String at = (String) list5.get(i2).get("userid");
+			
+			System.out.println(at);
+			
+			for (int j = 0; j < black2.size(); j++) {
+			String s2 = (String)black2.get(j).get("userId");
+			
+			
+			bool = at.equals(s2);
+			System.out.println(bool);
+			}
+			
+		}
+		
+		
+		
+		
+		if (list2.isEmpty() || list2 == null  ) {
+		
+
+			model.addAttribute("shopList", list);
+
+			return "/owner/ownerViewPage";
+
+			// 대기중인 지원자가 없을 경우
+		}
+		
+		
+		
+
+		//-------------------------------------------------------------------------------------
+		
+		if (list5.isEmpty() || list5 == null  ) {
+			
+			System.out.println("대기중인 지원자가 없습니다.");
+
+		HashMap hashmap2 = new HashMap();
+
+		List userNum_List = new ArrayList();
+		userNum_List.add("00");
+		// List<HashMap> list5_new = list5;
+		for (int i = 0; i < list7.size(); i++) {
+			System.out.println(list7.get(i).get("userNum"));
+			String test = list7.get(i).get("userNum").toString();
+
+			hashmap2.put("ownerNum", ownernum);
+			hashmap2.put("userNum", test);
+			
+
+			black = mybatis.selectList("owner.blackList", hashmap2);
+
+			int flag = 0;
+			
+			for (int k = 0; k < userNum_List.size(); k++){
+				if (userNum_List.get(k).equals(test))
+					flag = 1;
+			}
+			userNum_List.add(test);
+			System.out.println(userNum_List);
+
+			if (flag == 0){
+				if (i == 0)
+					black_list = black;
+				else
+					black_list.addAll(black);
+			}
+					
+			
+			
+
+		} 
+
+		model.addAttribute("shopList", list);
+		// model.addAttribute("userInfo",list5);
+		// model.addAttribute("userInfo",list5);
+		model.addAttribute("machingList", list6);
+		model.addAttribute("endList", list7);
+		model.addAttribute("blackList", black_list);
+
+		return "/owner/ownerViewPage";
+	}
+			
+			 
+	 // 대기중인 지원자가 없을 경우
+			// 조건식 결과가 참인경우
+		
+		//-------------------------------------------------------------------------------------
+		else {
+			
+			 
+			// 조건식 결과가 true인 경우
+			// 대기중인 지원자가 없을 경우
+			System.out.println("대기중인 지원자가 있는 경우");
+
+			//==================================================================================
+			HashMap hashmap1 = new HashMap();			
+			List userNum_List = new ArrayList();
+			userNum_List.add("00");			
+			// 종료된 아이디 블랙리스트 게시판에 추가 =========================================================
+			for (int i = 0; i < list7.size(); i++) {
+				System.out.println(list7.get(i).get("userNum"));
+				String test = list7.get(i).get("userNum").toString();
+
+				hashmap1.put("ownerNum", ownernum);
+				hashmap1.put("userNum", test);
+				
+
+				black = mybatis.selectList("owner.blackList", hashmap1);
+
+				int flag = 0;
+				
+				for (int k = 0; k < userNum_List.size(); k++){
+					if (userNum_List.get(k).equals(test))
+						flag = 1;
+				}
+				userNum_List.add(test);
+				System.out.println(userNum_List);
+
+				if (flag == 0){
+					if (i == 0)
+						black_list = black;
+					else
+						black_list.addAll(black);
+				}
+				System.out.println(black_list);
+			} 
+			
+			// =========================================================
+
+			
+			
+			HashMap hashmap2 = new HashMap();
+			List<HashMap> list5_new = list5;
+			for (int i = 0; i < list5.size(); i++) {
+				System.out.println(list5.get(i).get("userNum"));
+				String test = list5.get(i).get("userNum").toString();
+
+				hashmap2.put("ownerNum", ownernum);
+				hashmap2.put("userNum", test);
+
+				
+				black = mybatis.selectList("owner.blackList", hashmap2);
+				
+				
+				// =================================================
+				userNum_List.add(test);
+				System.out.println(userNum_List);
+				
+				int flag = 0;
+				
+				for (int k = 0; k < userNum_List.size(); k++){
+					if (userNum_List.get(k).equals(test))
+						flag = 1;
+				}
+				// =================================================
+				
+				
+				
+				if (black == null || black.isEmpty()) {
+					System.out.println("black null");
+					
+					model.addAttribute("shopList", list);
+					model.addAttribute("userInfo",list5);
+//					model.addAttribute("userInfo", list5_new);
+					model.addAttribute("machingList", list6);
+					model.addAttribute("endList", list7);
+					model.addAttribute("blackList", black_list);
+
+					return "/owner/ownerViewPage";
+
+				} else {
+					if (i == 0) {
+						
+						if (flag == 0)
+							black_list.addAll(black);
+						
+						System.out.println("if 안쪽");
+						System.out.println(black);
+						
+						if (black == null || black.isEmpty()) {
+
+							model.addAttribute("shopList", list);
+							// model.addAttribute("userInfo",list5);
+							model.addAttribute("userInfo", list5_new);
+							model.addAttribute("machingList", list6);
+							model.addAttribute("endList", list7);
+							// model.addAttribute("blackList", black_list);
+
+						} else {
+
+							for (int j2 = 0; j2 < black.size(); j2++) {
+								System.out.println(list5_new.get(i).get("userNum") );
+								System.out.println(black.get(j2).get("userNum"));
+								
+								System.out.println("//==============================================");
+								
+								//=========================================
+								int it =  (Integer)list5_new.get(i).get("userNum");
+								String a1 = Integer.toString(it);
+								String a2 = (String)black.get(j2).get("userNum");
+								//=========================================
+								if (a1.equals(a2))
+									list5_new.remove(i);
+							}
+							model.addAttribute("shopList", list);
+							// model.addAttribute("userInfo",list5);
+							model.addAttribute("userInfo", list5_new);
+							model.addAttribute("machingList", list6);
+							model.addAttribute("endList", list7);
+
+						}
+					} else {
+						
+						if (flag == 0)
+							black_list.addAll(black);
+						
+						System.out.println("else 안쪽");
+						System.out.println(black);
+
+						if (black == null || black.isEmpty()) {
+
+							model.addAttribute("shopList", list);
+							// model.addAttribute("userInfo",list5);
+							model.addAttribute("userInfo", list5_new);
+							model.addAttribute("machingList", list6);
+							model.addAttribute("endList", list7);
+							// model.addAttribute("blackList", black_list);
+
+						} else {
+
+							for (int j3 = 0; j3 < black.size(); j3++) {
+								System.out.println(list5_new.get(i).get("userNum") );
+								System.out.println(black.get(j3).get("userNum"));
+								//=========================================
+								int it =  (Integer)list5_new.get(i).get("userNum");
+								String a1 = Integer.toString(it);
+								String a2 = (String)black.get(j3).get("userNum");
+								//=========================================
+								if (a1.equals(a2))
+									list5_new.remove(i);
+									
+							}
+							model.addAttribute("shopList", list);
+							// model.addAttribute("userInfo",list5);
+							model.addAttribute("userInfo", list5_new);
+							model.addAttribute("machingList", list6);
+							model.addAttribute("endList", list7);
+
+						}
+
+					}
+
+				}
+
+			}
+			model.addAttribute("shopList", list);
+			model.addAttribute("userInfo",list5);
+			// model.addAttribute("userInfo", list5_new);
+			model.addAttribute("machingList", list6);
+			model.addAttribute("endList", list7);
+			model.addAttribute("blackList", black_list);
+
+			return "/owner/ownerViewPage";
+
+		
+		}// 지원자가 있는 케이스-------------------------------------------------------------------------------------
+
+	}
+		
+
+//		model.addAttribute("shopList", list);
+//		// model.addAttribute("userInfo",list5);
+//		model.addAttribute("userInfo", list5_new);
+//		model.addAttribute("machingList", list6);
+//		model.addAttribute("endList", list7);
+//		model.addAttribute("blackList", black_list);
+
+
             
-            
-            List<HashMap> list5 = ownerService.getUserList(ownerId);
-            List<HashMap> list6 = ownerService.machingList(ownerId);
-            List<HashMap> list7 = ownerService.endList(ownerId);
-            
-            String test = list5.get(0).get("userNum").toString();
-            
-            HashMap hashmap2= new HashMap();
-        	
-        	hashmap2.put("ownerNum",ownernum);
-        	hashmap2.put("userNum", test);
-        	
-        	System.out.println(test);
-        	
-        	List<HashMap> black =  mybatis.selectList("owner.blackList", hashmap2);
-            
-        	System.out.println(black);
-        	
-            model.addAttribute("shopList", list);
-            model.addAttribute("userInfo",list5);
-            model.addAttribute("machingList",list6);
-            model.addAttribute("endList",list7);
-            model.addAttribute("blackList",black);
-            
-            
-            return "/owner/ownerViewPage"; 
-        }
-  
-    }
     
+  
+
     //사업자 회원가입 컨트롤러
     @RequestMapping({"ownerInsert.do"})
     public String ownerInsert(OwnerVO vo) {

@@ -26,6 +26,21 @@ a {
   font-size: 40px;
   font-family: "Gowun Dodum", sans-serif;
   margin-bottom: 20px;
+  margin-left:10%;
+}
+#cntPerPage{
+	width:5%;
+	font-size:15px;
+	display:block;
+	margin-left:85%;
+	margin-bottom:1%;
+}
+.openboard{
+  width:10%;
+  display:block;
+  font-size: 20px;
+  margin-left:82.7%;
+  margin-bottom: 10px;
 }
 
 form {
@@ -37,11 +52,17 @@ form {
 input {
   margin: 0 5px;
 }
+
+#outer{
+	display:flex;
+	justify-content: center;
+}
 /*-------------------------게시판 -----------------------------*/
 div.minimalistBlack {
-  width: 100%;
+  width: 80%;
   text-align: center;
   border-collapse: collapse;
+  
 }
 .divTableCell,
 .divTable.minimalistBlack .divTableHead {
@@ -53,7 +74,7 @@ div.minimalistBlack {
   font-size: 13px;
 }
 .divTable.minimalistBlack .divTableHeading {
-  background: #cfcfcf;
+  background: #CFCFCF;
   background: -moz-linear-gradient(top, #dbdbdb 0%, #d3d3d3 66%, #cfcfcf 100%);
   background: -webkit-linear-gradient(
     top,

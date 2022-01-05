@@ -29,7 +29,7 @@
 	
 	<div style="margin:10px; margin-left:16%;">
 		<input type="submit" value="로그인하기" onclick="window.close();"/>
-		<input type="submit" value="비밀번호찾기" onclick="window.close();"/>
+		<input type="submit" value="비밀번호찾기" onClick="location.href='searchPassword.do'"/>
 	</div>
 </div>
 </div>

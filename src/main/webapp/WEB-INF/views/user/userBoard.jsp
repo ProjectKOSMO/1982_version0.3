@@ -58,23 +58,9 @@
 <!-- -----------메인---------------- -->
 
 <main>
-         
-            
-<form action='/project1982/user/userBoard.do' method='get'>
-    <select name="searchCondition" id="" >
-        <option value="b_title">제목</option>
-        <option value="b_content">내용</option>
-        <option value="b_name">작성자</option>
-     </select>
-     <input type='text' name='searchKeyword'>
-     <input type='submit' value='검색'>
- </form>
-
-
-    <div class="main_title">고객센터</div> <!-- 게시판 시작 ---------------->
-	<br> <a href="#" onclick="window.open('insertBoard.do', '새글등록','width=500;, height=500, resizable = no, scrollbars = no'); return false">새글 등록</a>
-	
-    <div style="float: right; margin-bottom:10px;">
+<div>
+	<div class="main_title">고객센터</div> 
+	  <div margin-bottom:10px;">
         <select id="cntPerPage" name="sel" onchange="selChange()">
             <option value="5"
                 <c:if test="${paging.cntPerPage == 5}">selected</c:if>>5줄 보기</option>
@@ -86,8 +72,14 @@
                 <c:if test="${paging.cntPerPage == 20}">selected</c:if>>20줄 보기</option>
         </select>
     </div>
+	</div>
+	<div id="outer">
+   <!-- 게시판 시작 ---------------->
+
+	
+  
     
-                    
+          
     <div class="divTable minimalistBlack">
             <div class="divTableHeading"><!-- 제목 전체 -->
                 <div class="divTableRow"><!-- 제목 내부 -->
@@ -123,10 +115,12 @@
             </div>
             </c:forEach>
             </div>
+            
           
 </div>
 </main>
- <div style="display: block; text-align: center; margin-bottom: 100px;">		
+</div>
+ <div style="display: block; text-align: center; margin-bottom: 100px; margin-top:20px;">		
     <c:if test="${paging.startPage != 1 }">
         <a href="/project1982/user/userBoard.do?nowPage=${paging.startPage - 1 }&cntPerPage=${paging.cntPerPage}">&lt;</a>
     </c:if>
@@ -143,7 +137,21 @@
     <c:if test="${paging.endPage != paging.lastPage}">
         <a href="/project1982/user/userBoard.do?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}">&gt;</a>
     </c:if>
+    <br> <a class="openboard" href="#" onclick="window.open('insertBoard.do', '새글등록','width=500;, height=500, resizable = no, scrollbars = no'); return false">새글 등록</a>
 </div>
+
+
+            
+<form action='/project1982/user/userBoard.do' method='get'>
+    <select name="searchCondition" id="" >
+        <option value="b_title">제목</option>
+        <option value="b_content">내용</option>
+        <option value="b_name">작성자</option>
+     </select>
+     <input type='text' name='searchKeyword'>
+     <input type='submit' value='검색'>
+ </form>
+
 
 		<!-- footer --------------------------------------------------------------------->
     <footer>

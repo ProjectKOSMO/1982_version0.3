@@ -6,8 +6,12 @@
 </head>
 <body>
 <% 
-	String userId = (String)session.getAttribute("userId");
-	out.println(userId);
+	//String userId = (String)session.getAttribute("userId");
+	//out.println(userId);
+	
+	String ownerid = (String)session.getAttribute("ownerid");
+	out.println(ownerid);
+	
 %>
 
 		<h1>글 등록</h1>		
@@ -21,7 +25,7 @@
 				<tr>
 
 					<td bgcolor="orange">작성자</td>
-					<td align="left"><input type="text" name="b_name" size="10" value='${userId}'/></td>
+					<td align="left"><input type="text" name="b_name" size="10" value='${ownerid}'/></td>
 				</tr>
 				<tr>
 					<td bgcolor="orange">내용</td>
