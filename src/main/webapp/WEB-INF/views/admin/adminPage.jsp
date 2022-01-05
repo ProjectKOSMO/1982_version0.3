@@ -43,7 +43,7 @@
                 </li>
                 <li><a href="#">둘러보기</a></li>
                 <li><a href="#">FAQ</a></li>
-                <li><a href="#">고객센터</a></li>
+                <li><a href="/project1982/admin/Board.do">고객센터</a></li>
             </ul>
             <!-- 오른쪽 메뉴-->
             <div class="right-menu">

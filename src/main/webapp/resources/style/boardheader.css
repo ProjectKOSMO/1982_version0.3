@@ -1,0 +1,212 @@
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 45px;
+  height: 150px;
+  width: 100%;
+  box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.05);
+  margin-bottom: 100px;
+}
+.logo {
+  font-size: 100px;
+  color: black;
+  text-shadow: 3px 3px 7px rgba(0, 0, 0, 0.5);
+}
+.logo img {
+  height: 70px;
+}
+.menu {
+  display: flex;
+}
+.menu li {
+  position: relative;
+  margin: 20px;
+  display: flex;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.menu li a {
+  color: #555555;
+}
+.right-menu a {
+  padding-right: 60px;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  font-size: 1.5rem;
+  color: rgba(0, 0, 0, 0.7);
+}
+.menu a:hover,
+.right-menu a:hover,
+.search-cancel:hover,
+.form-cancel:hover {
+  color: #ebe717;
+  transition: all ease 0.3s;
+}
+.sale-lable {
+  width: 38px;
+  height: 17px;
+  background-color: #f76b6a;
+  color: #ffffff;
+  font-weight: 400;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  position: absolute;
+  top: -25px;
+  right: -10px;
+}
+.sale-lable:after {
+  content: "";
+  width: 0px;
+  height: 0px;
+  border-bottom: 5px solid transparent;
+  border-left: 3px solid transparent;
+  border-top: 7px solid #f76b6a;
+  border-right: 5px solid transparent;
+  position: absolute;
+  left: 10%;
+  top: 100%;
+}
+.fa-shopping-cart {
+  position: relative;
+}
+.num-cart-product {
+  position: absolute;
+  top: -17px;
+  right: -17px;
+  width: 25px;
+  height: 25px;
+  font-size: 0.8rem;
+  border-radius: 50%;
+  background-color: #0b9d8a;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 400;
+}
+
+/* footer ------------------------------------------------------------ */
+
+#footer {
+  background: #fafafa;
+  margin: 20px auto 0;
+  padding: 60px 0;
+  border: 1px solid #e4e4e4;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: "Outfit", sans-serif;
+
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+/* 전체 박스 ---------------------------------------------------------*/
+.wrap_inner {
+  display: flex;
+  justify-content: space-between;
+  margin: auto 300px;
+}
+
+/* 왼쪽 상자 --------------------------------*/
+.left_area {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.rap_inner_h4 {
+  margin-bottom: 50px;
+  font-size: 30px;
+}
+.left_text_margin h5 {
+  color: rgba(0, 0, 0, 0.7);
+  font-weight: 600;
+}
+.left_phone {
+  font-size: 25px;
+  margin: 20px auto;
+}
+
+.footer_icon {
+  margin-top: 20px;
+  display: flex;
+  color: rgba(0, 0, 0, 0.7);
+}
+.footer_icon div {
+  margin-right: 20px;
+}
+
+/* 오른쪽 사업자 등록번호 ------------------------------------*/
+.right_area {
+  margin-top: 30px;
+}
+.right_ul {
+  display: flex;
+  margin-bottom: 30px;
+  color: rgba(0, 0, 0, 0.7);
+}
+.right_ul p {
+  margin-right: 10px;
+}
+.right_address {
+  margin-bottom: 50px;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.7);
+}
+.right_address p {
+  margin-top: 10px;
+}
+.right_copyright {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+/*-----------------------------왼쪽 네비바 -----------------------*/
+
+.left_nav {
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px;
+  width: 11%;
+  background: rgba(0, 0, 0, 0.07);
+  box-shadow: 10px 10px 10px 0 rgba(0, 0, 0, 0.2);
+  height: 25%;
+  font-family: "Gowun Dodum", sans-serif;
+  font-size: 22px;
+  position: fixed;
+  border-radius: 8px;
+  margin-left: 35px;
+}
+
+.left_nav_text {
+  padding: 15px;
+  display: block;
+
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.left_nav_text:hover {
+  transform: scale(1.1);
+}
+
+.left_nav_text a {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.home {
+  color: rgb(44, 44, 44);
+  font-family: "Gamja Flower", cursive;
+  font-size: 25px;
+}

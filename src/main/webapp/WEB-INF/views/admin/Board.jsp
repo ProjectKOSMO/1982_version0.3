@@ -9,34 +9,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css"> -->
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome@5.14.0/css/all.min.css"> -->
-  	<!-- <link type="text/css" href="/project1982/resources/style/style.css" rel="stylesheet"/> -->
-    <link type="text/css" href="/project1982/resources/style/header.css" rel="stylesheet"/>
-	<title>글 목록</title>
+    <link type="text/css" href="/project1982/resources/css/reset.min.css" rel="stylesheet">
+    <link type="text/css" href="/project1982/resources/css/all.min.css" rel="stylesheet">
+  	<link type="text/css" href="/project1982/resources/style/board.css" rel="stylesheet"/>
+    <link type="text/css" href="/project1982/resources/style/boardheader.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome@5.14.0/css/all.min.css">
+    <script type="text/javascript" src="/project1982/resources/js/userview.js"></script>
+	<title>adminBoard</title>
 </head>
-<style>
-	h2 {
-		text-align: center;
-	}
-	table {
-		width: 100%;
-	}
-	#outter {
-		display: block;
-		width: 60%;
-		margin: auto;
-	}
-	a {
-		text-decoration: none;
-	}
-	.chart{
-	display:flex;
-	flex-direction:column;
-	justify-content:center;
-	align-items:center;
-	}
-</style>
 <script>
 	function selChange() {
 		var sel = document.getElementById('cntPerPage').value;
@@ -82,81 +62,93 @@
    
            </header>
 <!-- -----------메인---------------- -->
-		                   <!-- 검색부분 추가 -->
-		        <div class="chart">
-		        <h1>게시글 목록</h1>
-                   <form action='/project1982/admin/Board.do' method='get'>
-                       <select name="searchCondition" id="" >
-                           <option value="b_title">제목</option>
-                           <option value="b_content">내용</option>
-                           <option value="b_name">작성자</option>
-                        </select>
-						<input type='text' name='searchKeyword'>
-						<input type='submit' value='검색'>
-					</form>
-				</div>
-                   
- 			<div id="outter">
-				   <div style="float: right;">
-						<select id="cntPerPage" name="sel" onchange="selChange()">
-							<option value="5"
-								<c:if test="${paging.cntPerPage == 5}">selected</c:if>>5줄 보기</option>
-							<option value="10"
-								<c:if test="${paging.cntPerPage == 10}">selected</c:if>>10줄 보기</option>
-							<option value="15"
-								<c:if test="${paging.cntPerPage == 15}">selected</c:if>>15줄 보기</option>
-							<option value="20"
-								<c:if test="${paging.cntPerPage == 20}">selected</c:if>>20줄 보기</option>
-						</select>
-					</div>
-					
-	<table border="1">
-			<tr>
-				<th bgcolor="orange" width="100" >번호</th>
-				<th bgcolor="orange" width="200" >제목</th>
-				<th bgcolor="orange" width="150" >작성자</th>
-				<th bgcolor="orange" width="150" >등록일</th>
-				<th bgcolor="orange" width="100" >조회수</th>
-				<!-- 추가 -->
-			</tr>
-			<c:forEach items="${boardList}" var="board">
-				<!-- 프라퍼티이름 변경 -->
-				<tr>
-					<td>${board.b_id }</td>
-					<td align="left"><a href="getBoard.do?b_id=${board.b_id }">
-							${board.b_title }</a></td>
-					<td>${board.b_name }</td>
-					<td>${board.b_date }</td>
-					<td>${board.b_count }</td>
-					<!-- 추가 -->
-				</tr>
-			</c:forEach>
-		</table>
-		<br> <a href="insertBoard.do">새글 등록</a>
-		
-		
-	<div style="display: block; text-align: center;">		
-		<c:if test="${paging.startPage != 1 }">
-			<a href="/project1982/admin/Board.do?nowPage=${paging.startPage - 1 }&cntPerPage=${paging.cntPerPage}">&lt;</a>
-		</c:if>
-		<c:forEach begin="${paging.startPage }" end="${paging.endPage }" var="p">
-			<c:choose>
-				<c:when test="${p == paging.nowPage }">
-					<b>${p}</b>
-				</c:when>
-				<c:when test="${p != paging.nowPage }">
-					<a href="/project1982/admin/Board.do?nowPage=${p }&cntPerPage=${paging.cntPerPage}">${p }</a>
-				</c:when>
-			</c:choose>
-		</c:forEach>
-		<c:if test="${paging.endPage != paging.lastPage}">
-			<a href="/project1982/admin/Board.do?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}">&gt;</a>
-		</c:if>
-	</div>
-</div>	
-		
-		
-		
+<main>
+            
+<form action='/project1982/admin/Board.do' method='get'>
+    <select name="searchCondition" id="" >
+        <option value="b_title">제목</option>
+        <option value="b_content">내용</option>
+        <option value="b_name">작성자</option>
+     </select>
+     <input type='text' name='searchKeyword'>
+     <input type='submit' value='검색'>
+ </form>
+
+
+    <div class="main_title">고객센터</div> <!-- 게시판 시작 ---------------->
+	<br> <a href="#" onclick="window.open('insertBoard.do', '새글등록','width=500;, height=500, resizable = no, scrollbars = no'); return false">새글 등록</a>
+	
+    <div style="float: right; margin-bottom:10px;">
+        <select id="cntPerPage" name="sel" onchange="selChange()">
+            <option value="5"
+                <c:if test="${paging.cntPerPage == 5}">selected</c:if>>5줄 보기</option>
+            <option value="10"
+                <c:if test="${paging.cntPerPage == 10}">selected</c:if>>10줄 보기</option>
+            <option value="15"
+                <c:if test="${paging.cntPerPage == 15}">selected</c:if>>15줄 보기</option>
+            <option value="20"
+                <c:if test="${paging.cntPerPage == 20}">selected</c:if>>20줄 보기</option>
+        </select>
+    </div>
+    
+                    
+    <div class="divTable minimalistBlack">
+            <div class="divTableHeading"><!-- 제목 전체 -->
+                <div class="divTableRow"><!-- 제목 내부 -->
+                    <div class="divTableHead">번호</div>
+                    <div class="divTableHead">제목</div>
+                    <div class="divTableHead">작성자</div>
+                    <div class="divTableHead">등록일</div>
+                    <div class="divTableHead">조회수</div>
+                    <div class="divTableHead">파일이름</div>
+                    <div class="divTableHead">파일용량</div>
+
+              </div><!-- 제목내부 -->
+            </div><!-- 제목 전체 -->
+            <div class="divTableBody">
+                <c:forEach items="${boardList}" var="board">
+                <div class="divTableRow">   
+                    <div class="divTableCell">${board.b_id }</div>
+                    <div class="divTableCell" algin="left"><a href="#" onclick="window.open('getBoard.do?b_id=${board.b_id}', '상세글보기','width=500;, height=500, resizable = no, scrollbars = no'); return false">
+                        ${board.b_title }</a></div>
+                    <div class="divTableCell">${board.b_name }</div>
+                    <div class="divTableCell">${board.b_date }</div>
+                    <div class="divTableCell">${board.b_count }</div>
+                    <div class="divTableCell">
+                        <c:choose>
+                        <c:when test="${board.b_fsize==0}">첨부파일 없음</c:when>
+                        <c:otherwise>
+                                <img src="resources/images/disk.gif">${board.b_fname}
+                        </c:otherwise>
+                        </c:choose>
+                    </div>
+                    <div class="divTableCell">${board.b_fsize}byte</div>
+           
+            </div>
+            </c:forEach>
+            </div>
+          
+</div>
+</main>
+ <div style="display: block; text-align: center; margin-bottom: 100px;">		
+    <c:if test="${paging.startPage != 1 }">
+        <a href="/project1982/admin/Board.do?nowPage=${paging.startPage - 1 }&cntPerPage=${paging.cntPerPage}">&lt;</a>
+    </c:if>
+    <c:forEach begin="${paging.startPage }" end="${paging.endPage }" var="p">
+        <c:choose>
+            <c:when test="${p == paging.nowPage }">
+                <b>${p}</b>
+            </c:when>
+            <c:when test="${p != paging.nowPage }">
+                <a href="/project1982/admin/Board.do?nowPage=${p }&cntPerPage=${paging.cntPerPage}">${p }</a>
+            </c:when>
+        </c:choose>
+    </c:forEach>
+    <c:if test="${paging.endPage != paging.lastPage}">
+        <a href="/project1982/admin/Board.do?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}">&gt;</a>
+    </c:if>
+</div>
+
 		<!-- footer --------------------------------------------------------------------->
     <footer>
         <div id="footer">

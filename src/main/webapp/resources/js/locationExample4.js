@@ -118,6 +118,72 @@ function Test(){
 		dataType:'json',
 		success:function(result){
 			
+			for(var i=0;i<result.length;i++){
+				if(result[i].si_realname==null){
+					result[i].si_realname="sample.jpg";
+				}
+				
+				console.log(result[i].si_realname);
+			}
+			
+			var searchPost=document.getElementById('searchPost'); //붙일 div
+			
+			//searchPost.remove();
+			
+			$("#searchPost *").remove();
+			
+			for(var i=0;i<result.length; i++){
+			var z = i+1;
+			var newNumIMG = document.createElement("img");
+			newNumIMG.setAttribute("class","NumIMG");
+			newNumIMG.src="../resources/images/"+z+".png";
+			
+			var newDIV = document.createElement("div");	//새로 생성된 div
+			newDIV.setAttribute("class","main_right");
+			newDIV.setAttribute("id",i);
+			
+			var newIMG = document.createElement("img");
+			newIMG.setAttribute("class","main_right_Img");
+			newIMG.src="../resources/upload/"+result[i].si_realname;
+			
+			var newDIV2 = document.createElement("div");	//새로 생성된 div
+			newDIV2.setAttribute("class","shopName")
+			
+			var nameShop=result[i].shopName;
+			
+			if(result[i].shopName.length>7){
+				nameShop=result[i].shopName.substr(0,6)+"...";
+			}
+			
+			newDIV2.innerHTML="가게 이름 : "+nameShop;
+			
+			var newDIV3 = document.createElement("div");
+			newDIV3.innerHTML="알바 수당 : "+result[i].shoppay+" 원";
+			
+			var newDIV4 = document.createElement('a');
+			var AText= document.createTextNode("자세히 보기");
+			newDIV4.setAttribute('href', "userSupport.do?board_owner_seq="+result[i].board_owner_seq);
+			newDIV4.appendChild(AText);
+			
+			var newDIV5 = document.createElement("div");
+			newDIV5.setAttribute("class","searchLocation_y");
+			newDIV5.innerHTML=result[i].location_y;
+			
+			var newDIV6 = document.createElement("div");
+			newDIV6.setAttribute("class","searchLocation_x");
+			newDIV6.innerHTML=result[i].location_x;
+			
+			searchPost.appendChild(newDIV);
+			newDIV.appendChild(newNumIMG);
+			newDIV.appendChild(newIMG);
+			newDIV.appendChild(newDIV2);
+			newDIV.appendChild(newDIV3);
+			newDIV.appendChild(newDIV4);
+			newDIV.appendChild(newDIV5);
+			newDIV.appendChild(newDIV6);
+			}
+			
+			
 			for (var i = 0; i < result.length; i ++) {
 				var confirm_y = result[i].location_y;
 				var confirm_x = result[i].location_x;
@@ -132,7 +198,7 @@ function Test(){
 						if(confirm_y.toFixed(20)==confirm_y2.toFixed(20) && confirm_x.toFixed(20)==confirm_x2.toFixed(20)){
 							console.log("같은 값"+y+"번째"+result[y].location_y);
 
-							result[i].location_x=result[i].location_x+0.00005;
+							result[i].location_x=result[i].location_x+0.0001;
 							console.log("이후 값"+i+"번째"+result[i].location_y);
 						}
 					}else{continue;}
@@ -195,56 +261,7 @@ function Test(){
 			    	markers[i].setMap(map);
 				}
 				
-				var searchPost=document.getElementById('searchPost'); //붙일 div
 				
-				
-				//searchPost.remove();
-				
-				$("#searchPost *").remove();
-				
-				for(var i=0;i<result.length; i++){
-				var z = i+1;
-				var newNumIMG = document.createElement("img");
-				newNumIMG.setAttribute("class","NumIMG");
-				newNumIMG.src="../resources/images/"+z+".png";
-				
-				var newDIV = document.createElement("div");	//새로 생성된 div
-				newDIV.setAttribute("class","main_right");
-				newDIV.setAttribute("id",i);
-				
-				var newIMG = document.createElement("img");
-				newIMG.setAttribute("class","main_right_Img");
-				newIMG.src="../resources/upload/"+result[i].si_realname;
-				
-				var newDIV2 = document.createElement("div");	//새로 생성된 div
-				newDIV2.setAttribute("class","shopName")
-				newDIV2.innerHTML="가게 이름 : "+result[i].shopName;
-				
-				var newDIV3 = document.createElement("div");
-				newDIV3.innerHTML="알바 수당 : "+result[i].shoppay+" 원";
-				
-				var newDIV4 = document.createElement('a');
-				var AText= document.createTextNode("자세히 보기");
-				newDIV4.setAttribute('href', "userSupport.do?board_owner_seq="+result[i].board_owner_seq);
-				newDIV4.appendChild(AText);
-				
-				var newDIV5 = document.createElement("div");
-				newDIV5.setAttribute("class","searchLocation_y");
-				newDIV5.innerHTML=result[i].location_y;
-				
-				var newDIV6 = document.createElement("div");
-				newDIV6.setAttribute("class","searchLocation_x");
-				newDIV6.innerHTML=result[i].location_x;
-				
-				searchPost.appendChild(newDIV);
-				newDIV.appendChild(newNumIMG);
-				newDIV.appendChild(newIMG);
-				newDIV.appendChild(newDIV2);
-				newDIV.appendChild(newDIV3);
-				newDIV.appendChild(newDIV4);
-				newDIV.appendChild(newDIV5);
-				newDIV.appendChild(newDIV6);
-				}
 		},
 		 error:function(request,status,error){
              alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);

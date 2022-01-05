@@ -1,5 +1,7 @@
 package com.javassem.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -7,7 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.javassem.domain.UserVO;
@@ -43,6 +47,21 @@ public class UserLoginController {
     public String userinsert(UserVO vo) {
         this.userService.userInsert(vo);
         return "redirect:user_login.do";
+    }
+    
+    @RequestMapping(value = {"findId.do"})
+    public String findId(UserVO vo, UserVO vo1, Model m, HttpServletRequest request){
+    	this.userService.findId(vo);
+    	List<UserVO> list = this.userService.findId(vo1);
+    	m.addAttribute("msg", "가입하신 아이디가 존재하지 않습니다");
+    	m.addAttribute("url", "missId.do");
+    	if(list.isEmpty()){
+    		return "user/errorPage";
+    	}
+    	else{
+    		m.addAttribute("userfindid", list);
+    		return "user/findUserId";
+    	}
     }
 
     @RequestMapping({"login.do"})

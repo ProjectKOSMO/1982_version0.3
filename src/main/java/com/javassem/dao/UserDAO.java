@@ -17,6 +17,8 @@ public interface UserDAO {
   
   UserVO userLogin(UserVO paramUserVO);
   
+  List<UserVO> findId(UserVO paramUserVO);
+  
 
   void insertUserInfoView(UserVO paramUserVO);
   

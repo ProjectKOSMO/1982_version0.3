@@ -33,6 +33,10 @@ public class UserDAOImpl implements UserDAO {
     	System.out.println("===> UserMapper idCheck");
     	return (UserVO)this.mybatis.selectOne("user.idCheck", vo);
     }
+    
+    public List<UserVO> findId(UserVO vo){
+    	return this.mybatis.selectList("user.findId", vo);
+    }
   
     public String userDate(UserVO vo) {
     	return (String)this.mybatis.selectOne("sample.getDate", vo);

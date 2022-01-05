@@ -8,8 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link type="text/css" href="/project1982/resources/css/2_login.css" rel="stylesheet"/>
-    <script src="https://code.jquery.com/jquery-3.6.0.js" type="text/javascript"></script>
-
 </head>
 <script>
 		window.onload = function(){
@@ -40,12 +38,6 @@
 		} */
 		document.loginform.submit();//전송
 	}
-		$(function(){
-		$("#searchPassword").click(function(){
-			window.open("searchPassword.do","childForm","width=520, height=700, resizable = no, scrollbars = no");
-		})
-		
-		})
 </script>
 
 <body>
@@ -56,8 +48,8 @@
         <input name="userpass" type="password" placeholder="Password" />
         <input type="submit" id="Submit" name="Submit" value="로그인" />
         <div class="login_article">
-            <a href="#">아이디 |</a>
-            <a id="searchPassword">비밀번호찾기 |</a>
+            <a href="#" onclick="window.open('missId.do', '아이디찾기','width=500;, height=500, resizable = no, scrollbars = no'); return false">아이디 |</a>
+            <a href="#">비밀번호찾기 |</a>
             <a href="user_register.do">회원가입</a>
         </div>    
     </form>

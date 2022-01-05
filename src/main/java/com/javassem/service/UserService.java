@@ -14,6 +14,8 @@ public interface UserService {
   
   int userInsert(UserVO paramUserVO);
   
+  List<UserVO> findId(UserVO paramUserVO);
+  
   // 구직자 마이페이지 서비스
   void insertUserInfoView(UserVO paramUserVO);
   

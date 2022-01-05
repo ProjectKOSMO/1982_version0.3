@@ -34,7 +34,10 @@
                
                <!-- 오른쪽 메뉴-->
                <div class="right-menu">
-           
+              
+            		<a href="/project1982/owner/job_positing.do" class="search">
+                   구인공고
+      		    	</a>
                    <!--유저 -->
                    <a href="/project1982/owner/ownerMypage.do" id="s2">
                    마이페이지

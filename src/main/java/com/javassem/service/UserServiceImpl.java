@@ -24,6 +24,10 @@ public class UserServiceImpl implements UserService {
 	public int userInsert(UserVO vo) {
 	  return this.userDAO.userInsert(vo);
 	}
+	
+	public List<UserVO> findId(UserVO vo){
+		return this.userDAO.findId(vo);
+	}
 	  
 	// 구직자 이력서 서비스단
 	public void insertUserInfoView(UserVO vo) {

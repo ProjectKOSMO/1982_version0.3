@@ -14,8 +14,8 @@
 <body>
 
 <% 
-   String userId = (String)session.getAttribute("userId");
-   String userPass = (String)session.getAttribute("userPass");
+	String userId = (String)session.getAttribute("userId");
+	String userPass = (String)session.getAttribute("userPass");
 %>
 
         <!-- 메뉴바  ------------------------------------------------->
@@ -40,18 +40,29 @@
                    <a href="userBoard.do?userid=${userId}">
                    고객센터                       
                    </a>
-                 <a href="/project1982/index.jsp" class="logout">
+		           <a href="/project1982/index.jsp" class="logout">
                     로그아웃
                    </a>
                </div>
    
            </header>
     <!-- 메인 ---------------------------------------------------------------->
+    <div class="jb-box">
+        <video muted autoplay loop>
+          <source src="/project1982/resources/images/map.mp4" type="video/mp4">
+          <strong>Your browser does not support the video tag.</strong>
+        </video>
+        <div class="jb-text">
+          <p id="jb-title">일자리 찾기</p>
+          <p id="jb-subtitle">내 주변 일자리를 찾아보세요</p>
+        </div>
+        
+    </div>
         <main class="main1">
             <div>
-                <div class="main_title">내 주변 일자리</div>
+                <div class="main_title"></div>
                 <div  class="main">
-                  <div id="map" style="width:1400px;height:500px;margin-top: 50px;border: 1px solid black;"></div>
+                  <div id="map" style="width:1400px;height:500px;margin-top: 50px;border: none;"></div>
                   
     <script src="https://code.jquery.com/jquery-3.6.0.js" type="text/javascript"></script>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=eb66f18ab68f4698ad06cb4444bfc896&libraries=services"></script>
@@ -61,7 +72,7 @@
                   
                 </div>
                 
-                <div id="searchPost" style="width:1430px;height:250px; display:flex; margin-left:auto; margin-right:auto;">  
+                <div id="searchPost" style="width:1430px;height:300px; display:flex; margin-left:auto; margin-right:auto;">  
                        <div class="main_right"></div>
                        <div class="main_right"></div>
                        <div class="main_right"></div>
@@ -77,26 +88,27 @@
                 </div>
                
             </div>
-<div style="display:flex; justify-content:center; margin-bottom:20px;">
-<form name="search-form" method='get'>
-      <input type='text' name='CenterLocation_y' id='CenterLocation_y' style="display:none" >
-      <input type='text' name='CenterLocation_x' id='CenterLocation_x' style="display:none" >
-      <input type= 'text' name='pageNum' id='pageNum'style="display:none" >
-      <select name='searchCondition'>
-         <option value='I.shopName'>가게이름</option>
-         <option value='I.content'>업무내용</option>
-      </select>
-      <input type='text' name='searchKeyword'>
-      <input type='button' id="em" value='검색'>
+<div style="display:flex; justify-content:center; margin-bottom:20px; ">
+<form name="search-form" method='get' style="position:relative;">
+		<input type='text' name='CenterLocation_y' id='CenterLocation_y' style="display:none" >
+		<input type='text' name='CenterLocation_x' id='CenterLocation_x' style="display:none" >
+		<input type= 'text' name='pageNum' id='pageNum'style="display:none" >
+		<select name='searchCondition'>
+			<option value='I.shopName'>가게이름</option>
+			<option value='I.content'>업무내용</option>
+		</select>
+		
+		<input type='text' name='searchKeyword'>
+		<input type='button' id="em" value='검색'>
 </form>
 </div>
 
 <div style="display:flex; justify-content:center;">
-<button id="mapPanTo">검색 중심 좌표로 이동하기</button>
-<button id="moveCenterLocation">검색 중심 위치 변경하기</button>
+<button id="mapPanTo" style="font-size:15px">검색 중심 좌표로 이동하기</button>&nbsp;&nbsp;&nbsp;&nbsp;
+<button id="moveCenterLocation" style="font-size:15px">검색 중심 위치 변경하기</button>
 </div>
 
-         <div class="main2">
+			<div class="main2">
                 <img src="/project1982/resources/images/main1.jpg" alt="">
                 <div class="main_wrap">
                     <h2>언제나 365일</h2>
