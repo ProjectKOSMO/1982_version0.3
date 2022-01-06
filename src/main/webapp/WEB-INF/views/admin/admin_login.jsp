@@ -31,6 +31,7 @@
 	}
 </script>
 <body>
+<section class="section1" id="section1">
 	<form action="adminPage.do" method="post" id="login-form">
         <h1>1982 관리자</h1>
         <input name="supervisorId" type="text" placeholder="Username" />
@@ -40,5 +41,6 @@
             <a href="../main.do">1982 홈페이지</a>           
         </div>    
     </form>
+    </section>
 </body>
 </html>

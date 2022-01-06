@@ -22,88 +22,84 @@
 	<link type="text/css" href="/project1982/resources/style/useStyle.css" rel="stylesheet"/>
     <link type="text/css" href="/project1982/resources/style/header.css" rel="stylesheet"/>
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-    <script src="/project1982/resources/js/chat.js" type="text/javascript"/>
 </head>
 
-
 <script type="text/javascript">
+
 $(document).ready(function(){
- 
- $("a#supportdetail").on("click", function(){
-     
-     var teo = {"shopname" : $(this).text()}
-     
-     console.log($(this).text());
-     
-     $.ajax({
-         type : 'post',
-         url : '../user/shopInfoView.do',
-         contentType : "application/json",
-         data : JSON.stringify(teo),
-         dataType : 'json',
-         success : function(shop){
-             console.log(shop)
-             var image = "<img src=" + "/project1982/resources/upload/" + shop.si_realname + " style='width: 100%;'/>";
-             $(".body_container_center_shop_contanier_info_ta1").html(image)
-             $("#shopname").html(shop.shopname)
-             $("#shopaddr").html(shop.shopaddr)
-             $("#shoppn").html(shop.shoppn)
-         },
-         error:function(request,status,error){
-             alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
-         }
-     })
- });
+	
+	$("a#supportdetail").on("click", function(){
+		
+		var teo = {"shopname" : $(this).text()}
+		
+		console.log($(this).text());
+		
+		$.ajax({
+			type : 'post',
+			url : '../user/shopInfoView.do',
+			contentType : "application/json",
+			data : JSON.stringify(teo),
+			dataType : 'json',
+			success : function(shop){
+				console.log(shop)
+				var image = "<img src=" + "/project1982/resources/upload/" + shop.si_realname + " style='width: 100%;'/>";
+				$(".body_container_center_shop_contanier_info_ta1").html(image)
+				$("#shopname").html(shop.shopname)
+				$("#shopaddr").html(shop.shopaddr)
+				$("#shoppn").html(shop.shoppn)
+			},
+			error:function(request,status,error){
+			    alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+			   }
+		})
+	});
+	
 });
 </script>
 <body>
 <% 
- String userId = (String)session.getAttribute("userId");
+	String userId = (String)session.getAttribute("userId");
 %>
-     <!--메뉴바(헤더)  ------------------------------------------------->
-     <header class="header" >
-     
-         <!-- 로고-->
-            <div>
-                <a href="userMain.do" class="logo">
-                    <h1>1982</h1>
-                </a>
-            </div>
-            
-            <!--유저 메뉴--> 
-            <div class="right-menu">
-            
-                <!--검색 -->
-                <a href="storeClose.do?userid=${userId}" class="search">
-                        일자리찾기
-                </a>
-                <a href="userMypage.do?userid=${userId}" class="user">
-                        마이페이지
-                </a>
-                <a href="userBoard.do?userid=${userId}">
-                        고객센터                       
-                </a>
-                <a href="/project1982/index.jsp" class="logout">
-                     로그아웃
-                </a>
-            </div>
-            
-        </header>
+        <!--메뉴바(헤더)  ------------------------------------------------->
+        <header class="header" >
         
- <!-- 메인 ---------------------------------------------------------------->
+            <!-- 로고-->
+               <div>
+	               <a href="userMain.do" class="logo">
+	                   <h1>1982</h1>
+	               </a>
+               </div>
+               
+               <!--유저 메뉴--> 
+               <div class="right-menu">
+               
+                   <!--검색 -->
+                   <a href="storeClose.do?userid=${userId}" class="search">
+                  		 일자리찾기
+                   </a>
+                   <a href="userMypage.do?userid=${userId}" class="user">
+                   		마이페이지
+                   </a>
+                   <a href="userBoard.do?userid=${userId}">
+                 		  고객센터                       
+                   </a>
+                   <a href="/project1982/index.jsp" class="logout">
+                    	로그아웃
+                   </a>
+               </div>
+               
+           </header>
+           
+    <!-- 메인 ---------------------------------------------------------------->
      <main>
-     
-           <!-- 왼쪽 네비게이션 -->
-         <ul class="left_nav">
-            <li class="left_nav_text"><a href="#actor"></a></li>
-             
-             <li class="left_nav_text" id="left_margin"><a href="#actor">프로필 수정</a></li>
-             
-             <li class="left_nav_text" id="left_margin1"><a href="#actor1">업체지원현황</a></li>
-             
-             <li class="left_nav_text" id="left_margin2"><a href="#" onclick="window.open('userInfoView.do?userid=${userId}', '간단한 이력서','width=700;, height=500, resizable = no, scrollbars = no'); return false">간단한이력서</a></li>  
-         </ul>
-         
+        
+      		<!-- 왼쪽 네비게이션 -->
+            <ul class="left_nav">
+                <li class="left_nav_text"><a href="#actor">프로필 수정</a></li>
+                <li class="left_nav_text"><a href="#actor1">업체지원현황</a></li>
+                <li class="left_nav_text"><a href="#" onclick="window.open('userInfoView.do?userid=${userId}', '간단한 이력서','width=700;, height=500, resizable = no, scrollbars = no'); return false">간단한이력서</a></li>  
+            </ul>
+            
      <!-- 프로필 수정 -->
      <form action="updateMypage.do" method="post" enctype="multipart/form-data">
          <input name="userid" type="hidden" value="${userId}" />
@@ -132,34 +128,34 @@ $(document).ready(function(){
                                     </div>                              
                          </div>
                      </div>
-                 
               </div> <!-- 중간 메뉴바 종료-->
          </div><!-- 페이지 컨테이너 종료--> 
      </form>
      </main>
-     
-     <!-- 업체지원현황 -->
-     <main>
-          <div class="body_container1"> <!-- 페이지 컨테이너 시작-->
-              <div class="body_container_center"> <!-- 중간 메뉴바 시작-->
-                 <div id="actor1">업체 지원 현황</div>
-                 <hr/>
-                     <div class="body_container_center_shop_contanier">
-                         <div class="body_container_center_shop_contanier_img1">
-                         
-                             <!-- 검색부분 추가 -->
-                             <div class="chart">
-                                <form action='/project1982/user/userBoard.do' method='get'>
-                                    <select name="searchCondition" id="" style="width:100px;">
-                                        <option value="b_title">업체명</option>
-                                        <option value="b_content">매칭여부</option>
-                                        <option value="b_name">일자</option>
-                                     </select>
-                                     <input type='text' name='searchKeyword' style="width:530px;">
-                                     <input type='submit' value='검색' >
-                                 </form>
-                             </div>
-
+        
+        <!---------------------- 업체지원현황 ------------------------------------------->
+        <main>
+        	 <div class="body_container1"> <!-- 페이지 컨테이너 시작-->
+        	 	<div class="body_container_center"> <!-- 중간 메뉴바 시작-->
+                	<div id="actor1">업체 지원 현황</div>
+                	<hr/>
+                        <div class="body_container_center_shop_contanier">
+                            <div class="body_container_center_shop_contanier_img1">
+                            
+                                <!-- 검색부분 추가 -->
+						        <div class="chart">
+				                   <form action='/project1982/user/userMypage.do' method='post'>
+				                   	 <input name="userid" type="hidden" value="${userId}" />
+				                       <select name="searchCondition" id="" style="width:100px;">
+				                           <option value="shopname">업체명</option>
+				                           <option value="maching">매칭여부</option>
+				                           <option value="jobDate">일자</option>
+				                        </select>
+										<input type='text' name='searchKeyword' style="width:530px;">
+										<input type='submit' value='검색' >
+									</form>
+								</div>
+		                	
         <!-------------------------- 테이블 ------------------------->     
                         <div class="divTable minimalistBlack"><!-- 출근현황 시작 -->
                             <div class="divTableHeading"><!-- 제목 전체 -->
@@ -170,12 +166,12 @@ $(document).ready(function(){
                                     <div class="divTableHead">업체명</div>
                                     <div class="divTableHead">급여</div>
                                     <div class="divTableHead">매칭 여부</div>
-                            
-                                   
-                
-                              </div><!-- 제목내부 -->
+                                    <div class="divTableHead">업체와 대화</div>
+                                </div><!-- 제목내부 -->
                             </div><!-- 제목 전체 -->
+                            
                             <div class="divTableBody">
+                            <c:forEach items="${support}" var="sup">
                                 <div class="divTableRow">
                                     <div class="divTableCell">${sup.jobDate }</div>
                                     <div class="divTableCell">${sup.jobTime_start }</div>
@@ -184,71 +180,16 @@ $(document).ready(function(){
                                         <a href="#" id="supportdetail">${sup.shopname}</a>
                                     </div>
                                     <div class="divTableCell">${sup.shoppay }</div>
-                                    <div class="divTableCell">
-                                        ${sup.maching }
-                                    </div>
-                                    
-                               </div> <!-- 첫행 -->
-                                <div class="divTableRow">
-                                    <div class="divTableCell">${sup.jobDate }</div>
-                                    <div class="divTableCell">
-                                        ${sup.jobTime_start }
-                                    </div>
-                                    <div class="divTableCell">${sup.jobTime_end }</div>
-                                    <div class="divTableCell">
-                                        <a href="#" id="supportdetail">${sup.shopname}</a>
-                                    </div>
-                                    <div class="divTableCell">${sup.shoppay }</div>
-                                    <div class="divTableCell">
-                                        ${sup.maching }
-                                    </div>
-                                    
-                                </div>
+                                    <div class="divTableCell"> ${sup.maching }</div>
+                                    <div class="divTableCell"><button onclick="window.open('http://localhost:5000', '네이버새창', 'width=500, height=500, toolbar=no, menubar=no, scrollbars=no, resizable=yes');">대화하기</button></div> 
+                                </div> <!-- 첫행 -->	
+                               </c:forEach>
                                 
-                              
-                    
+                            </div>  
+                   		 </div> 
+                                <!------------------------ 테이블 종료---------------> 
                             </div>
-                    
-                
-                
-                    </div><!--  출근현황 종료 -->    
-
-
-
-             <!------------------------ 테이블 종료--------------->
-
-
-                         <table id="mypageTable">
-                             <tr >
-                                 <th bgcolor="#dee2e6" width="150" >일자</th>
-                                 <th bgcolor="#dee2e6" width="110" >시작시간</th>
-                                 <th bgcolor="#dee2e6" width="110" >종료시간</th>
-                                 <th bgcolor="#dee2e6" width="250" >업체명</th>
-                                 <th bgcolor="#dee2e6" width="110" >급여</th>
-                                 <th bgcolor="#dee2e6" width="150" >매칭 여부</th>
-                               
-                                 <!-- 추가 -->
-                             </tr>
-                             <c:forEach items="${support}" var="sup">
-                                 <tr>
-                                     <td>${sup.jobDate }</td>
-                                     <td>${sup.jobTime_start }</td>
-                                     <td>${sup.jobTime_end }</td>
-                                     <td id="shopnames"><a href="#" id="supportdetail">${sup.shopname}</a></td>
-                                     <td>${sup.shoppay }</td>
-                                     <td>${sup.maching }</td>
-                                     
-                                     
-                                     
-                                     <!-- 추가 -->
-                                 </tr>
-                             </c:forEach>
-                         </table> 
-
-
-
-                         </div>
-                        
+                           
                          <div class= "body_container_center_shop_contanier_info1">
                              <div class="body_container_center_shop_contanier_info_ta1" style="width:95%;">
                                      
@@ -275,110 +216,74 @@ $(document).ready(function(){
 
              </div> <!-- 중간 메뉴바 종료-->
          </div><!-- 페이지 컨테이너 종료-->
-     </main>  
+     </main>   
 
-     <!-- 추가 표 ->     
-<%--
-      <main>
-          <div class="body_container"> <!-- 페이지 컨테이너 시작-->
-             <div class="body_container_center"> <!-- 중간 메뉴바 시작-->
-                 <table border="1">
-                     <tr>
-                         <th bgcolor="orange" width="100" >번호</th>
-                         <th bgcolor="orange" width="200" >제목</th>
-                         <th bgcolor="orange" width="150" >작성자</th>
-                         <th bgcolor="orange" width="150" >등록일</th>
-                         <th bgcolor="orange" width="100" >조회수</th>
-                         <!-- 추가 -->
-                     </tr>
-                     <c:forEach items="${boardList}" var="board">
-                         <!-- 프라퍼티이름 변경 -->
-                         <tr>
-                             <td>${board.b_id }</td>
-                             <td align="left"><a href="getBoard.do?b_id=${board.b_id }">
-                                     ${board.b_title }</a></td>
-                             <td>${board.b_name }</td>
-                             <td>${board.b_date }</td>
-                             <td>${board.b_count }</td>
-                             <!-- 추가 -->
-                         </tr>
-                     </c:forEach>
-                 </table>
-              <div> <!-- 중간 메뉴바 종료-->
-         </div><!-- 페이지 컨테이너 종료-->
-     </main>  
---%>        
-     
-     
 
-     
-     
-     
 <!-- footer --------------------------------------------------------------------->
- <footer>
-     <div id="footer">
-         <div class="wrap_inner">
-             <div class="left_area">
-                 <h4 class="rap_inner_h4">
-                     일구하자 1982
-                 </h4>
-                 <div class="left_text">
-                     <div class="left_text_margin">
-                         <h5>고객센터</h5>
-                         <p class="left_phone">1566-1982</p>
-                         <p> 
-                             <div>평일 AM 09:00 ~ PM 05:30</div>
-                             <div>점심 PM 12:00 ~ PM 01:00</div>
-                         </p>
-                     </div>
-                 </div>
-                 <div class="footer_icon">
-                     <div><a href="#"><i class="fab fa-facebook-f fa-2x" style="color:rgba(0,0,0,0.5)"></i></a></div>
-                     <div><a href="#"><i class="fab fa-twitter fa-2x" style="color:rgba(0,0,0,0.5)"></i></a></div>
-                     <div><a href="#"><i class="fab fa-youtube fa-2x" style="color:rgba(0,0,0,0.5)"></i></a></div>
-                     <div><a href="#"><i class="fab fa-instagram fa-2x" style="color:rgba(0,0,0,0.5)"></i></a></div>
-                 </div>
-             </div>
+    <footer>
+        <div id="footer">
+            <div class="wrap_inner">
+                <div class="left_area">
+                    <h4 class="rap_inner_h4">
+                        일구하자 1982
+                    </h4>
+                    <div class="left_text">
+                        <div class="left_text_margin">
+                            <h5>고객센터</h5>
+                            <p class="left_phone">1566-1982</p>
+                            <p> 
+                                <div>평일 AM 09:00 ~ PM 05:30</div>
+                                <div>점심 PM 12:00 ~ PM 01:00</div>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="footer_icon">
+                        <div><a href="#"><i class="fab fa-facebook-f fa-2x" style="color:rgba(0,0,0,0.5)"></i></a></div>
+                        <div><a href="#"><i class="fab fa-twitter fa-2x" style="color:rgba(0,0,0,0.5)"></i></a></div>
+                        <div><a href="#"><i class="fab fa-youtube fa-2x" style="color:rgba(0,0,0,0.5)"></i></a></div>
+                        <div><a href="#"><i class="fab fa-instagram fa-2x" style="color:rgba(0,0,0,0.5)"></i></a></div>
+                    </div>
+                </div>
 
 
-             <div class="right_area">
-                 <div class="right_ul">
-                     <p>이용약관 | </p>
-                     <p>개인정보처리방침 | </p>
-                     <p>일구하자 이용안내 | </p>
-                     <p>고객요청</p>
-                 </div>
-                 <div class="right_address">
-                     <p>
-                         <span>주식회사 1982 |</span>
-                         <a href="#">
+                <div class="right_area">
+                    <div class="right_ul">
+                        <p>이용약관 | </p>
+                        <p>개인정보처리방침 | </p>
+                        <p>일구하자 이용안내 | </p>
+                        <p>고객요청</p>
+                    </div>
+                    <div class="right_address">
+                        <p>
+                            <span>주식회사 1982 |</span>
+                            <a href="#">
 
-                             <span>대표이사 : 한세호 |</span>
-                         </a>
-                             <span>사업자등록번호 : 123-12-12345</span>
-                         </p>
-                     <p>
-                         <span>통신판매업신고 : 2021-서울가산-1982 |</span>
-                         <span>WEBMASTER : 한세호</span>
-                     </p>
-                     <p>
-                         <span>주소 : 00000 서울 금천구 벚꽃로 309 </span>
-                     </p>
-                     <p>
-                         <span>TEL : 1566-1982</span>
-                         <span>E - mail : 1982@seho.co.kr</span>
-                         <span>호스팅제공자 : 코스모(주)</span>
-                     </p>
-                 </div>
-                 <p class="right_copyright">
-                     Copyright by
-                     <span>일구하자 1982</span>
-                     all rights reserved.
-                 </p>
-             </div>        
-         </div>
-     </div>
+                                <span>대표이사 : 한세호 |</span>
+                            </a>
+                                <span>사업자등록번호 : 123-12-12345</span>
+                            </p>
+                        <p>
+                            <span>통신판매업신고 : 2021-서울가산-1982 |</span>
+                            <span>WEBMASTER : 한세호</span>
+                        </p>
+                        <p>
+                            <span>주소 : 00000 서울 금천구 벚꽃로 309 </span>
+                        </p>
+                        <p>
+                            <span>TEL : 1566-1982</span>
+                            <span>E - mail : 1982@seho.co.kr</span>
+                            <span>호스팅제공자 : 코스모(주)</span>
+                        </p>
+                    </div>
+                    <p class="right_copyright">
+                        Copyright by
+                        <span>일구하자 1982</span>
+                        all rights reserved.
+                    </p>
+                </div>        
+            </div>
+        </div>
 
- </footer>
+    </footer>
 </body>
 </html>

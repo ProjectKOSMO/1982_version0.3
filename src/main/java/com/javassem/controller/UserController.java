@@ -43,6 +43,7 @@ public class UserController {
     @PostMapping(value = {"/user/shopInfoView.do"}, produces="application/json")
     @ResponseBody
     public ShopInfoVO getshop(@RequestBody ShopInfoVO vo){
+    	System.out.println("구직자 마이페이지 ajax 실행");
     	System.out.println(vo.getShopName());
     	ShopInfoVO shop = this.userService.getShopView(vo);
       return shop;

@@ -91,9 +91,9 @@
 <div style="display:flex; justify-content:center; margin-bottom:20px; ">
 <form name="search-form" method='get' style="position:relative;">
       <p>검색 거리
-      <label><input type="radio" name="kilometer" value="1" checked>1 kilo</label>
-      <label><input type="radio" name="kilometer" value="3">3 kilo</label>
-      <label><input type="radio" name="kilometer" value="5">5 kilo</label></p>
+      <label><input type="radio" name="kilometer" value="1" checked>1 km</label>
+      <label><input type="radio" name="kilometer" value="3">3 km</label>
+      <label><input type="radio" name="kilometer" value="5">5 km</label></p>
       <input type='text' name='CenterLocation_y' id='CenterLocation_y' style="display:none" >
       <input type='text' name='CenterLocation_x' id='CenterLocation_x' style="display:none" >
       <input type= 'text' name='pageNum' id='pageNum'style="display:none" >

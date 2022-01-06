@@ -52,44 +52,7 @@
         <div class="lorem">일자리 지원 아무때나 어디에서나 하세요. 365일 24시간 원하는 일자리를 찾아보세요.</div>
     </section>
 
-    <article class="section2" id="section2">
-        <div class="title1">운영진</div>
-        <div class="title_wrap">
-            <div>
-                <div class="circle"></div>
-                <p class="small">한세호</p>
-            </div>
-            <div>
-                <div class="circle"></div>
-                <p class="small">이성대</p>
-            </div>
-            <div>
-                <div class="circle"></div>
-                <p class="small">송현석</p>
-            </div>
-            <div>
-                <div class="circle"></div>
-                <p class="small">이혁철</p>
-            </div>
-            <div>
-                <div class="circle"></div>
-                <p class="small">고성훈</p>
-            </div>
-            <div>
-                <div class="circle"></div>
-                <p class="small">박준배</p>
-            </div>
-            <div>
-                <div class="circle"></div>
-                <p class="small">최혜정</p>
-            </div>
-            <div>
-                <div class="circle"></div>
-                <p class="small">백강현</p>
-            </div>
-            
-        </div>
-    </article>
+   
 
 
 

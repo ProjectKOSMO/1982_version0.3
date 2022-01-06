@@ -33,30 +33,34 @@
 </script>
 </head>
 <body>
+
+	<section class="section1" id="section1">
    <form action="ownerInsert.do" method="get" name="ownerinput" class="login-form">
         <h1>1982 사업자 - 회원가입</h1>
-        <div>
+        
            <input class="id_input" id="ownerid" name="ownerid" type="text" placeholder="아이디를 입력하세요" />
            <span id="idCheckResult" style="width:150px;color:red"></span>
-        </div>
+        
            <input name="ownerpass" id="ownerpass" type="password" placeholder="비밀번호를 입력하세요" />
            <input name="ownerpass2" id="ownerpass2" type="password" placeholder="비밀번호 확인" onkeyup="passConfirm()"/>
            <span id ="confirmMsg"></span>
-        <div>
+        
              <input class="ownername" name="ownername" id="ownername" type="text" placeholder="이름을 입력하세요" />
            <input class="id_input" name="ownerpn" id="ownerpn" type="text" placeholder="핸드폰 번호를 입력하세요" />
-        </div>
-           <div class="mail_check_wrap">
+        
+           
            <input name="ownermail" class="mail_input" type="email" placeholder="이메일" />
            <input type="button" class="mail_check_button" value="인증요청" />
            <input name="phoneid" class="mail_check_input" disabled="disabled" type="text" placeholder="인증번호" />
-           <div class="clearfix"></div>
-           <div id="mail_check_input_box_warn">인증을 요청하세요</div> 
+          
+           
 
-        </div>
-        <br/>
+        
+        
            <input type="submit" id="confirm" name="confirm" disabled="disabled" value="가입" />
 
       </form>
+      <div id="mail_check_input_box_warn">인증을 요청하세요</div> 
+      </section>
 </body>
 </html>

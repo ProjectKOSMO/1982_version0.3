@@ -45,6 +45,7 @@
 	})
 </script>
 <body>
+<section class="section1" id="section1">
     <form action="login.do" method="post" id="login-form" name="loginform">
         <h1>1982 사업자</h1>
         <input name="ownerid" type="text" placeholder="OwnerId" />
@@ -62,5 +63,6 @@
             <a href="owner_register.do">회원가입</a>
         </div>           
     </form>
+    </section>
 </body>
 </html>

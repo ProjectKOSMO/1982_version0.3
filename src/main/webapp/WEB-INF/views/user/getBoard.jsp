@@ -44,8 +44,8 @@
 
     }
     .button1{
-        width: 70px;
-        height: 50px;
+        width: 60px;
+        height: 40px;
         background-color: rgb(89, 168, 236);
         border-radius: 5px;
         display: flex;
@@ -54,8 +54,8 @@
         
     }
     .button2{
-        width: 70px;
-        height: 50px;
+        width: 60px;
+        height: 40px;
         background-color: rgb(89, 168, 236);
         border-radius: 5px;
         display: flex;
