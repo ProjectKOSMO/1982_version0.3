@@ -30,7 +30,7 @@ public interface UserDAO {
   
   UserVO getUserInfoView(UserVO paramUserVO);
   
-  List<SupportVO> getSupportView(SupportVO paramSupportVO);
+  List<SupportVO> getSupportView(HashMap map);
   
   ShopInfoVO getShopView(ShopInfoVO paramShopInfoVO);
 }

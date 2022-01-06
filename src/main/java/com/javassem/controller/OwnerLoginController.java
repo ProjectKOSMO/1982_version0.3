@@ -54,6 +54,25 @@ public class OwnerLoginController {
         return "/owner/" + step;
     }
     
+    // 비밀번호 찾기, 아이디 찾기
+    @RequestMapping(value = {"findId.do"})
+    public String findId(OwnerVO  vo, Model m, HttpServletRequest request){
+    	List<OwnerVO> list = this.ownerService.findId(vo);
+    	System.out.println(vo.getOwnername());
+    	System.out.println(vo.getOwnermail());
+    	System.out.println(vo.getOwnerpn());
+    	System.out.println(list);
+    	
+    	m.addAttribute("msg", "가입하신 아이디가 존재하지 않습니다");
+    	m.addAttribute("url", "missId.do");
+    	if(list.isEmpty()){
+    		return "owner/errorPage";
+    	}
+    	else{
+    		m.addAttribute("ownerfindid", list);
+    		return "owner/findUserId";
+    	}
+    }
     
     //사업자 회원가입후 첫 로그인시 DB에 데이터가없으면 Mypage로 이동 / 데이터가있으면 ViewPage로 이동하는 컨트롤러
     @RequestMapping({"ownerMypage.do"})

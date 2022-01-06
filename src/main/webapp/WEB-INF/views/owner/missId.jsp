@@ -14,27 +14,21 @@
 	
 	function findId(){
 	
-	if(document.findidform.username.value==""){
+	if(document.findidform.ownername.value==""){
 		alert("이름을 입력하세요.")
-		document.findidform.username.focus();
+		document.findidform.ownername.focus();
 		return false;
 	}
 	
-	if(document.findidform.userbirth.value==""){
-		alert("생년월일을 입력하세요.")
-		document.findidform.userbirth.focus();
-		return false;
-	}
-	
-	if(document.findidform.usermail.value==""){
+	if(document.findidform.ownermail.value==""){
 		alert("이메일을 입력하세요.")
-		document.findidform.usermail.focus();
+		document.findidform.ownermail.focus();
 		return false;
 	}
 	
-	if(document.findidform.userpn.value==""){
+	if(document.findidform.ownerpn.value==""){
 		alert("가입시 저장한 휴대폰 번호를 입력하세요.")
-		document.findidform.userpn.focus();
+		document.findidform.ownerpn.focus();
 		return false;
 	}
 	document.findidform.action="findId.do";
@@ -48,19 +42,15 @@
 		<table border="1" cellpadding="0" cellspacing="0" style="text-align: center;font-weight:bolder;font-family:italic;">
 			<tr>
 				<td bgcolor="#dee2e6" width="100">가입자이름</td>
-				<td align="center"><input name="username" id="username" type="text"/></td>
-			</tr>
-			<tr>
-				<td bgcolor="#dee2e6">생년월일</td>
-				<td align="center"><input name="userbirth" id="userbirth" type="text""/></td>
+				<td align="center"><input name="ownername" id="ownername" type="text"/></td>
 			</tr>
  			<tr>
 				<td bgcolor="#dee2e6">이메일</td>
-				<td align="center"><input name="usermail" id="usermail" type="text"/></td>
+				<td align="center"><input name="ownermail" id="ownermail" type="text"/></td>
 			</tr>
 			<tr>
 				<td bgcolor="#dee2e6">휴대폰번호</td>
-				<td align="center"><input name="userpn" id="userpn" type="text"/></td>
+				<td align="center"><input name="ownerpn" id="ownerpn" type="text"/></td>
 			</tr>
 		</table>
 		<div style="margin:10px; margin-left:14%;">

@@ -116,6 +116,9 @@ public class songEmailController {
 		return "a";
 		}
 	}
+	
+	
+	
 	@RequestMapping(value="/passwordSend", method=RequestMethod.POST,produces="text/plain;charset=UTF-8")
 	@ResponseBody
 	public String passwordsend(@RequestParam("userId") String userId,@RequestParam("userMail") String userMail,UserVO vo) throws Exception{
@@ -161,6 +164,7 @@ public class songEmailController {
 		return "아이디나 이메일이 바뀌었습니다. 다시 확인해 주세요";
 		}
 	}
+	
 	@RequestMapping(value="/OwnpasswordSearch", method=RequestMethod.POST)
 	@ResponseBody
 	public String Ownpasswordsearch(@RequestParam("userId") String userId,@RequestParam("userMail") String userMail,OwnerVO vo) throws Exception{
@@ -209,6 +213,7 @@ public class songEmailController {
 		return "a";
 		}
 	}
+	
 	@RequestMapping(value="/OwnpasswordSend", method=RequestMethod.POST,produces="text/plain;charset=UTF-8")
 	@ResponseBody
 	public String ownpasswordsend(@RequestParam("userId") String userId,@RequestParam("userMail") String userMail,OwnerVO vo) throws Exception{

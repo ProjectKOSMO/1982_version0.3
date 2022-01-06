@@ -1,6 +1,7 @@
 package com.javassem.service;
 
 
+import java.util.HashMap;
 import java.util.List;
 
 import com.javassem.domain.ShopInfoVO;
@@ -27,7 +28,7 @@ public interface UserService {
   
   UserVO getUserInfoView(UserVO paramUserVO);
   
-  List<SupportVO> getSupportView(SupportVO paramSupportVO);
+  List<SupportVO> getSupportView(HashMap map);
   
   ShopInfoVO getShopView(ShopInfoVO paramShopInfoVO);
 }

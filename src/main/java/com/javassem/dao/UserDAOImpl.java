@@ -1,15 +1,14 @@
 package com.javassem.dao;
 
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.javassem.domain.BoardVO;
 import com.javassem.domain.ShopInfoVO;
-import com.javassem.domain.ShopVO;
 import com.javassem.domain.SupportVO;
 import com.javassem.domain.UserVO;
 
@@ -59,8 +58,8 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
-	public List<SupportVO> getSupportView(SupportVO vo) {
-		return this.mybatis.selectList("user.getSupportView", vo);
+	public List<SupportVO> getSupportView(HashMap map) {
+		return this.mybatis.selectList("user.getSupportView", map);
 	}
 
 	@Override

@@ -2,6 +2,7 @@ package com.javassem.dao;
 
 import com.javassem.domain.OwnerBoardVO;
 import com.javassem.domain.OwnerVO;
+import com.javassem.domain.UserVO;
 
 import java.util.HashMap;
 import java.util.List;
@@ -13,7 +14,12 @@ import org.springframework.stereotype.Repository;
 public class OwnerDAOImpl implements OwnerDAO {
   @Autowired
   private SqlSessionTemplate mybatis;
-  
+
+  public List<OwnerVO> findId(OwnerVO vo){
+	  System.out.println("owner.findId 실행");
+  	return this.mybatis.selectList("owner.findId", vo);
+  }
+
   public OwnerVO idCheck(OwnerVO vo) {
     System.out.println("===> OwnerMapper idCheck");
     return (OwnerVO)this.mybatis.selectOne("owner.idCheck", vo);

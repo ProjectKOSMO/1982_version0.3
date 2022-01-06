@@ -30,4 +30,6 @@ public interface OwnerService {
   List<HashMap> machingList(String ownerId);
   
   List<HashMap> endList(String ownerId);
+
+List<OwnerVO> findId(OwnerVO vo);
 }

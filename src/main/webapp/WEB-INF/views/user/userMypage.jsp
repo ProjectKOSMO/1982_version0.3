@@ -90,53 +90,49 @@ $(document).ready(function(){
            </header>
            
     <!-- 메인 ---------------------------------------------------------------->
-        <main>
+     <main>
         
       		<!-- 왼쪽 네비게이션 -->
             <ul class="left_nav">
-            	<br/>
                 <li class="left_nav_text"><a href="#actor">프로필 수정</a></li>
-                <br/>
                 <li class="left_nav_text"><a href="#actor1">업체지원현황</a></li>
-                <br/>
                 <li class="left_nav_text"><a href="#" onclick="window.open('userInfoView.do?userid=${userId}', '간단한 이력서','width=700;, height=500, resizable = no, scrollbars = no'); return false">간단한이력서</a></li>  
             </ul>
             
-        <!-- 프로필 수정 -->
-		<form action="updateMypage.do" method="post" enctype="multipart/form-data">
-			<input name="userid" type="hidden" value="${userId}" />
-            <div class="body_container"> <!-- 페이지 컨테이너 시작-->
-                <div class="body_container_center"> <!-- 중간 메뉴바 시작-->
-                
-                    <div id="actor">프로필 수정</div>
-                    <hr/>
-                        <div class="body_container_center_shop_contanier">
-                            <div class="body_container_center_shop_contanier_img">
-                           		<div class="body_container_center_shop_contanier_img_ta1">                          
-                                	<div class="body_container_center_shop_contanier_img_ta2">
-                                		<c:if test="${user.userimg1 != null}">             			
-                            				<img src="/project1982/resources/upload/${user.userimg1}" style="height: 240px;width: 180px;">
-                            			</c:if>
-                                	</div>
-                                	<input type="file" name='file' maxlength="60" size="40" value="${user.userimg1}" style=" margin-left:10px;">
-                                </div>
-                                	<div style="flex:10;">
-                               		<p style="margin-left:4%;width:92%;margin-rigth:4%;margin-top:10px;font-size:20px;font-weight:bolder;border-bottom:solid 2px black;font-family:italic;">회원정보수정<p><br/>                 
-                               		<p style="margin-left:4%;font-weight:bolder;font-family:italic;">- 이&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 름 :<input id="dia" name="username" type="text" value="${user.username}"/><p><br/>
-                               		<p style="margin-left:4%;font-weight:bolder;font-family:italic;">- 비밀번호 :<input id="dia" name="userpass" type="password" value="${user.userpass}"/><p><br/>
-                               		<p style="margin-left:4%;font-weight:bolder;font-family:italic;">- 자기소개<p><br/>
-                               		<input id="dia1" name="userself" type="text" placeholder="자신을 소개해보세요" value="${user.userself}"/>
-                               		<input type="submit" value="수정완료" style="margin-left:4%;">
-                               		</div>                              
-                            </div>
-                        </div>
-                    
-                 </div> <!-- 중간 메뉴바 종료-->
-            </div><!-- 페이지 컨테이너 종료--> 
-        </form>
-        </main>
+     <!-- 프로필 수정 -->
+     <form action="updateMypage.do" method="post" enctype="multipart/form-data">
+         <input name="userid" type="hidden" value="${userId}" />
+         <div class="body_container"> <!-- 페이지 컨테이너 시작-->
+             <div class="body_container_center"> <!-- 중간 메뉴바 시작-->
+             
+                 <div id="actor">프로필 수정</div>
+                 <hr/>
+                     <div class="body_container_center_shop_contanier">
+                         <div class="body_container_center_shop_contanier_img">
+                                <div class="body_container_center_shop_contanier_img_ta1">                          
+                                 <div class="body_container_center_shop_contanier_img_ta2">
+                                     <c:if test="${user.userimg1 != null}">             			
+                                         <img src="/project1982/resources/upload/${user.userimg1}" style="height: 240px;width: 180px;">
+                                     </c:if>
+                                 </div>
+                                 <input type="file" name='file' maxlength="60" size="40" value="${user.userimg1}" style=" margin-left:10px;">
+                             </div>
+                                 <div style="flex:10;">
+                                    <p style="margin-left:4%;width:92%;margin-rigth:4%;margin-top:10px;font-size:20px;font-weight:bolder;border-bottom:solid 2px black;font-family: 'Gowun Dodum', sans-serif;">회원정보수정<p><br/>                 
+                                    <p style="margin-left:4%;font-weight:bolder;font-family: 'Gowun Dodum', sans-serif;">- 이&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 름 :<input id="dia" name="username" type="text" value="${user.username}"/><p><br/>
+                                    <p style="margin-left:4%;font-weight:bolder;font-family: 'Gowun Dodum', sans-serif;">- 비밀번호 :<input id="dia" name="userpass" type="password" value="${user.userpass}"/><p><br/>
+                                    <p style="margin-left:4%;font-weight:bolder;font-family: 'Gowun Dodum', sans-serif;">- 자기소개<p><br/>
+                                    <input id="dia1" name="userself" type="text" placeholder="자신을 소개해보세요" value="${user.userself}"/>
+                                    <input type="submit" value="수정완료" style="margin-left:4%;">
+                                    </div>                              
+                         </div>
+                     </div>
+              </div> <!-- 중간 메뉴바 종료-->
+         </div><!-- 페이지 컨테이너 종료--> 
+     </form>
+     </main>
         
-        <!-- 업체지원현황 -->
+        <!---------------------- 업체지원현황 ------------------------------------------->
         <main>
         	 <div class="body_container1"> <!-- 페이지 컨테이너 시작-->
         	 	<div class="body_container_center"> <!-- 중간 메뉴바 시작-->
@@ -147,106 +143,78 @@ $(document).ready(function(){
                             
                                 <!-- 검색부분 추가 -->
 						        <div class="chart">
-				                   <form action='/project1982/user/userBoard.do' method='get'>
+				                   <form action='/project1982/user/userMypage.do' method='post'>
+				                   	 <input name="userid" type="hidden" value="${userId}" />
 				                       <select name="searchCondition" id="" style="width:100px;">
-				                           <option value="b_title">업체명</option>
-				                           <option value="b_content">매칭여부</option>
-				                           <option value="b_name">일자</option>
+				                           <option value="shopname">업체명</option>
+				                           <option value="maching">매칭여부</option>
+				                           <option value="jobDate">일자</option>
 				                        </select>
 										<input type='text' name='searchKeyword' style="width:530px;">
 										<input type='submit' value='검색' >
 									</form>
 								</div>
 		                	
-		                	<table id="mypageTable">
-								<tr >
-									<th bgcolor="#dee2e6" width="150" >일자</th>
-									<th bgcolor="#dee2e6" width="110" >시작시간</th>
-									<th bgcolor="#dee2e6" width="110" >종료시간</th>
-									<th bgcolor="#dee2e6" width="250" >업체명</th>
-									<th bgcolor="#dee2e6" width="110" >급여</th>
-									<th bgcolor="#dee2e6" width="150" >매칭 여부</th>
-									<!-- 추가 -->
-								</tr>
-								<c:forEach items="${support}" var="sup">
-									<tr>
-										<td>${sup.jobDate }</td>
-										<td>${sup.jobTime_start }</td>
-										<td>${sup.jobTime_end }</td>
-										<td id="shopnames"><a href="#" id="supportdetail">${sup.shopname}</a></td>
-										<td>${sup.shoppay }</td>
-										<td>${sup.maching }</td>
-										<!-- 추가 -->
-									</tr>
-								</c:forEach>
-							</table> 
+        <!-------------------------- 테이블 ------------------------->     
+                        <div class="divTable minimalistBlack"><!-- 출근현황 시작 -->
+                            <div class="divTableHeading"><!-- 제목 전체 -->
+                                <div class="divTableRow"><!-- 제목 내부 -->
+                                    <div class="divTableHead">일자</div>
+                                    <div class="divTableHead">시작시간</div>
+                                    <div class="divTableHead">종료시간</div>
+                                    <div class="divTableHead">업체명</div>
+                                    <div class="divTableHead">급여</div>
+                                    <div class="divTableHead">매칭 여부</div>
+                                </div><!-- 제목내부 -->
+                            </div><!-- 제목 전체 -->
+                            
+                            <div class="divTableBody">
+                            <c:forEach items="${support}" var="sup">
+                                <div class="divTableRow">
+                                    <div class="divTableCell">${sup.jobDate }</div>
+                                    <div class="divTableCell">${sup.jobTime_start }</div>
+                                    <div class="divTableCell">${sup.jobTime_end }</div>
+                                    <div class="divTableCell">
+                                        <a href="#" id="supportdetail">${sup.shopname}</a>
+                                    </div>
+                                    <div class="divTableCell">${sup.shoppay }</div>
+                                    <div class="divTableCell"> ${sup.maching }</div> 
+                                </div> <!-- 첫행 -->
+                               </c:forEach> 
+                            </div>  
+                   		 </div> 
+                                <!------------------------ 테이블 종료---------------> 
                             </div>
                            
-                            <div class= "body_container_center_shop_contanier_info1">
-                            	<div class="body_container_center_shop_contanier_info_ta1" style="width:95%;">
-                            			
-                            	</div>
-                            	<!-- 업체 미리보기 -->
-                            	<div style="margin-left:5%;margin-right:5%;">
-                            		<ul style="font-size:18px;font-weight:bolder;font-family:italic;">
-                            			<br/>
-                            			<li>- 업체이름 : <span id="shopname"></span></li>
-                            			<br/>
-	                            		<hr/>
-	                            		<br/>
-                            			<li>- 업체주소 : <span id="shopaddr"></span></li>
-                            			<br/>
-	                            		<hr/>
-	                            		<br/>
-	                            		<li>- 업체 전화번호 : <span id="shoppn"></span></li>
-	                            		<br/>
-	                            		<hr/>
-                            		</ul>
-                            	</div>
-                            </div>
-                        </div>
+                         <div class= "body_container_center_shop_contanier_info1">
+                             <div class="body_container_center_shop_contanier_info_ta1" style="width:95%;">
+                                     
+                             </div>
+                             <!-- 업체 미리보기 -->
+                             <div style="margin-left:5%;margin-right:5%;">
+                                 <ul style="font-size:18px;font-weight:bolder;font-family: 'Gowun Dodum', sans-serif;">
+                                     <br/>
+                                     <li>- 업체이름 : <span id="shopname"></span></li>
+                                     <br/>
+                                     <hr/>
+                                     <br/>
+                                     <li>- 업체주소 : <span id="shopaddr"></span></li>
+                                     <br/>
+                                     <hr/>
+                                     <br/>
+                                     <li>- 업체 전화번호 : <span id="shoppn"></span></li>
+                                     <br/>
+                                     <hr/>
+                                 </ul>
+                             </div>
+                         </div>
+                     </div>
 
-                </div> <!-- 중간 메뉴바 종료-->
-            </div><!-- 페이지 컨테이너 종료-->
-        </main>  
+             </div> <!-- 중간 메뉴바 종료-->
+         </div><!-- 페이지 컨테이너 종료-->
+     </main>   
 
-        <!-- 추가 표 ->     
-<%--
-         <main>
-        	 <div class="body_container"> <!-- 페이지 컨테이너 시작-->
-                <div class="body_container_center"> <!-- 중간 메뉴바 시작-->
-                	<table border="1">
-						<tr>
-							<th bgcolor="orange" width="100" >번호</th>
-							<th bgcolor="orange" width="200" >제목</th>
-							<th bgcolor="orange" width="150" >작성자</th>
-							<th bgcolor="orange" width="150" >등록일</th>
-							<th bgcolor="orange" width="100" >조회수</th>
-							<!-- 추가 -->
-						</tr>
-						<c:forEach items="${boardList}" var="board">
-							<!-- 프라퍼티이름 변경 -->
-							<tr>
-								<td>${board.b_id }</td>
-								<td align="left"><a href="getBoard.do?b_id=${board.b_id }">
-										${board.b_title }</a></td>
-								<td>${board.b_name }</td>
-								<td>${board.b_date }</td>
-								<td>${board.b_count }</td>
-								<!-- 추가 -->
-							</tr>
-						</c:forEach>
-					</table>
-                 <div> <!-- 중간 메뉴바 종료-->
-            </div><!-- 페이지 컨테이너 종료-->
-        </main>  
- --%>        
-        
-        
 
-        
-        
-        
 <!-- footer --------------------------------------------------------------------->
     <footer>
         <div id="footer">

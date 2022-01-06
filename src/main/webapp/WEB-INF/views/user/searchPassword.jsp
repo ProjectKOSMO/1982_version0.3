@@ -25,6 +25,7 @@
 	</form>
 	<div style="margin:10px; margin-left:5%;">
 		<button id="passwordSearch">인증번호 보내기</button>
+		<button onclick="window.close();">취소</button>
 	</div>
 	<div style="width:90%;margin-left:5%;margin-rigth:5%;">
 		<table border="1" cellpadding="0" cellspacing="0" style="text-align: center;font-weight:bolder;font-family:italic;">

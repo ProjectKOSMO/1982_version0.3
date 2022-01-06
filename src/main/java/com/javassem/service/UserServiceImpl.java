@@ -1,5 +1,6 @@
 package com.javassem.service;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,8 +54,8 @@ public class UserServiceImpl implements UserService {
 	}
 
 	// 구직자 지원현황 서비스단
-	public List<SupportVO> getSupportView(SupportVO vo) {
-		return this.userDAO.getSupportView(vo);
+	public List<SupportVO> getSupportView(HashMap map) {
+		return this.userDAO.getSupportView(map);
 	}
 
 

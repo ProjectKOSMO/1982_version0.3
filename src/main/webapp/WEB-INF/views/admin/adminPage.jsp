@@ -30,7 +30,7 @@
         <header class="header" >
             <!-- 로고-->
             <div>
-                <a href="userMain.do" class="logo">
+                <a href="adminPage.do" class="logo">
                     <h1>1982</h1>
                 </a>
                 </div>

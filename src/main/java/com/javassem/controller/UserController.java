@@ -1,6 +1,7 @@
 package com.javassem.controller;
 
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,9 +25,17 @@ public class UserController {
     public UserService userService;
     
     @RequestMapping({"/user/userMypage.do"})
-    public void getuser(UserVO vo, SupportVO vo1, Model m) {
+    public void getuser(UserVO vo, String searchCondition, String searchKeyword, Model m) {
       UserVO result = this.userService.getUserInfoView(vo);
-      List<SupportVO> support = this.userService.getSupportView(vo1);
+      
+      HashMap map = new HashMap();
+      map.put("searchCondition", searchCondition);
+      map.put("searchKeyword", searchKeyword);
+      map.put("userid", vo.getUserid());
+      
+      
+      List<SupportVO> support = this.userService.getSupportView(map);
+      System.out.println(support.indexOf(support));
       m.addAttribute("user", result);
       m.addAttribute("support", support);
     }

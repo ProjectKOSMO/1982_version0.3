@@ -148,7 +148,9 @@ public class ParkBlackController {
     	if(cnt==3){
     		response.setContentType("text/html; charset=UTF-8"); 
     		PrintWriter writer = response.getWriter();
-    		writer.println("<script>alert('이미 경고횟수가 3입니다.'); location.href='admin/adminPage.do';</script>"); 
+    		writer.println("<script>alert('이미 경고횟수가 3입니다.');"); 
+    		writer.println("location.href='admin/adminPage.do';"); 
+    		writer.println("</script>"); 
     		writer.close();
             return "redirect:adminMain.do";
     	}else {

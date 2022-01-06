@@ -10,7 +10,7 @@ $(function(){
 			dataType:'text',
 			success:function(data){
 				if(data!="a"){
-				alert(data);
+				// alert(data);
 				
 				$("#confirmNum").attr("disabled",false);
 				

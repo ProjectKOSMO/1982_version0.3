@@ -9,12 +9,18 @@ import org.springframework.stereotype.Service;
 import com.javassem.dao.OwnerDAOImpl;
 import com.javassem.domain.OwnerBoardVO;
 import com.javassem.domain.OwnerVO;
+import com.javassem.domain.UserVO;
 
 @Service("ownerService")
 public class OwnerServiceImpl implements OwnerService {
 	
   @Autowired
   private OwnerDAOImpl ownerDAO;
+  
+  
+  public List<OwnerVO> findId(OwnerVO vo){
+		return this.ownerDAO.findId(vo);
+	}
   
   public OwnerVO idCheck_Login(OwnerVO vo) {
     return this.ownerDAO.idCheck(vo);

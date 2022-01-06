@@ -30,7 +30,7 @@
         <header class="header" >
             <!-- 로고-->
             <div>
-                <a href="userMain.do" class="logo">
+                <a href="adminPage.do" class="logo">
                     <h1>1982</h1>
                 </a>
                 </div>
@@ -63,7 +63,7 @@
                             <div class="divTableHeading">
                             <div class="divTableRow">
                             <div class="divTableHead">매장명</div>
-                            <div class="divTableHead">구인 상태(?)</div>
+                            <div class="divTableHead">구인 상태</div>
                             <div class="divTableHead">등록일</div>
                             <div class="divTableHead">근무 시간</div>
                             <div class="divTableHead">구인 인원</div>

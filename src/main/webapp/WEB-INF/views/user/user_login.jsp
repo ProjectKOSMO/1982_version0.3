@@ -47,6 +47,7 @@
         <input name="userid" type="text" placeholder="Username" />
         <input name="userpass" type="password" placeholder="Password" />
         <input type="submit" id="Submit" name="Submit" value="로그인" />
+        
         <div class="login_article">
             <a href="#" onclick="window.open('missId.do', '아이디찾기','width=500;, height=500, resizable = no, scrollbars = no'); return false">아이디 |</a>
             <a href="#" onclick="window.open('searchPassword.do', '비밀번호찾기','width=500;, height=500, resizable = no, scrollbars = no'); return false">비밀번호찾기 |</a>

@@ -57,6 +57,8 @@ public class ShopController {
 		map.put("start", vo.getStart());
 		map.put("end", vo.getEnd());
 		
+		
+		
 		List<ShopVO> list = this.shopService.getShopList(map);
 		m.addAttribute("paging", vo);
 		m.addAttribute("ShopList", list);
