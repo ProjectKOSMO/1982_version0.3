@@ -8,6 +8,63 @@
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="/project1982/resources/js/userview.js"></script>
 </head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Cute+Font&family=Gamja+Flower&family=Gowun+Dodum&family=Noto+Sans:ital@0;1&family=Noto+Serif+KR:wght@400;500;600&family=Single+Day&display=swap');
+
+    h1{
+        font-family: 'Gowun Dodum', sans-serif;
+    }
+
+    label{
+        font-weight: 700;
+        font-family: 'Gowun Dodum', sans-serif;
+        font-size: 20px;
+        margin:5px 0;
+    }
+    .wrap{
+        display: flex;
+        flex-direction: column;   
+    }
+    input{
+        border: 1px solid rgba(0,0,0,0.3);
+        border-radius: 5px;
+        height: 30px;
+    }
+    textarea{
+        border: 1px solid rgba(0,0,0,0.3);
+        border-radius: 5px;
+    }
+    a{
+        text-decoration: none;
+        color: white;
+    }
+    .wrap_button{
+        display: flex;
+        justify-content: center;
+
+    }
+    .button1{
+        width: 70px;
+        height: 50px;
+        background-color: rgb(89, 168, 236);
+        border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+    }
+    .button2{
+        width: 70px;
+        height: 50px;
+        background-color: rgb(89, 168, 236);
+        border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        margin-left: 20px;
+    }
+</style>
 <script>
 	$(document).ready(function(){
 		
@@ -42,27 +99,29 @@
 		<form id="updateform" name="update" method="put">
 			<input name="b_id" type="hidden" value="${board.b_id}" />
 			<table border="1" cellpadding="0" cellspacing="0">
-				<tr>
-					<td bgcolor="#dee2e6" width="70">제목</td>
-					<td align="left"><input name="b_title" type="text"
-						value="${board.b_title }" /></td>
-				</tr>
-				<tr>
-					<td bgcolor="#dee2e6">작성자</td>
-					<td align="left">${board.b_name }</td>
-				</tr>
-				<tr>
-					<td bgcolor="#dee2e6">내용</td>
-					<td align="left"><textarea name="b_content" cols="40" rows="10">${board.b_content }</textarea></td>
-				</tr>
-				<tr>
-					<td bgcolor="#dee2e6">등록일</td>
-					<td align="left">${board.b_date }</td>
-				</tr>
-				<tr>
-					<td bgcolor="#dee2e6">조회수</td>
-					<td align="left">${board.b_count }</td>
-				</tr>
+                <div class="wrap">
+                    <label for="">제목</label>
+                    <input name="b_title" type="text" value="${board.b_title }" />
+                </div>
+                <div class="wrap">
+                    <label for="">작성자</label>
+                    <input name="b_title" type="text" value="${board.b_name }" />
+                </div>
+                <div class="wrap">
+                    <label for="">내용</label>
+                    <textarea name="b_content" cols="40" rows="10">${board.b_content }</textarea>
+                </div>
+                <div class="wrap">
+                    <label for="">등록일</label>
+                    <input name="b_title" type="text" value="${board.b_date }" />
+                </div>
+                <div class="wrap">
+                    <label for="">조회수</label>
+                    <input name="b_title" type="text" value="${board.b_count }" />
+                </div>
+                
+			
+			
 				<!-- #### 첨부파일을 보여주고자 한다면 -->
 				<c:if test="${board.b_realfname != null}">
 				<tr>
@@ -79,14 +138,20 @@
 						<td colspan="2" align="center"><input type="submit" id="update1" value="글 수정" /></td>
 					</c:if>
 				</tr>
-				
-				
 			</table>
 		</form>
 		<hr>
-		<a href="#" onclick="window.open('insertBoard.do', '새글등록','width=500;, height=500, resizable = no, scrollbars = no'); return false">글 등록</a>&nbsp;&nbsp;&nbsp; 
-		<c:if test="${board.b_name == userId}">
-		<a href="#" id="delete">글삭제</a>&nbsp;&nbsp;&nbsp;
-		</c:if>
+        <div class="wrap_button">
+            <div class="button1">
+		        <a href="#" onclick="window.open('insertBoard.do', '새글등록','width=500;, height=500, resizable = no, scrollbars = no'); return false">등록</a>
+            </div>
+            <div class="button2">    
+		        <c:if test="${board.b_name == userId}">
+		        <a href="#" id="delete">삭제</a>
+		        </c:if>
+            </div>
+        </div>
+
+
 </body>
 </html>

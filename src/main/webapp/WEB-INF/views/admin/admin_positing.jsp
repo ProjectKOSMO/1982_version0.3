@@ -30,7 +30,7 @@
         <header class="header" >
             <!-- 로고-->
             <div>
-                <a href="adminPage.do" class="logo">
+                <a href="userMain.do" class="logo">
                     <h1>1982</h1>
                 </a>
                 </div>
@@ -63,7 +63,7 @@
                             <div class="divTableHeading">
                             <div class="divTableRow">
                             <div class="divTableHead">매장명</div>
-                            <div class="divTableHead">구인 상태</div>
+                            <div class="divTableHead">구인 상태(?)</div>
                             <div class="divTableHead">등록일</div>
                             <div class="divTableHead">근무 시간</div>
                             <div class="divTableHead">구인 인원</div>
@@ -89,7 +89,11 @@
                           </div>
                          </c:forEach>
                          
-                       <div style="display: block; text-align: center;">		
+                       
+						
+                        </div>
+                        <!-- 페이징 시작 -->
+                         <div class="pageing">		
 							<c:if test="${paging.startPage != 1 }">
 								<a href="/project1982/admin/admin_positing.do?nowPage=${paging.startPage - 1 }&cntPerPage=${paging.cntPerPage}">&lt;</a>
 							</c:if>
@@ -107,8 +111,7 @@
 								<a href="/project1982/admin/admin_positing.do?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}">&gt;</a>
 							</c:if>
 						</div>
-						
-                        </div>
+                        
                         </div>
                 </div><!--중간 메뉴바 종료-->
                

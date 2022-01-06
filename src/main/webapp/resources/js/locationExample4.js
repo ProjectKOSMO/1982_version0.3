@@ -413,8 +413,9 @@ setTimeout(function(){
       centerloc_y=$("#CenterLocation_y").val();
       centerloc_x=$("#CenterLocation_x").val();
       
+      alert(event.target.tagName);
       if(event.target.tagName=="BUTTON"){
-         window.open("roadView3.do","childForm","width=1500, height=510, resizable = no, scrollbars = no");
+         window.open("roadView3.do","childForm","width=1500, height=530, resizable = no, scrollbars = no");
       }else{
       if(ThisDIV != $(this).attr('id')){
       
@@ -463,7 +464,19 @@ setTimeout(function(){
       
    });
    
+   $("input:radio[name=kilometer]").click(function(){
+      if($("input:radio[name=kilometer]:checked").val()!=searchkilometer){
+           
+           searchkilometer=$("input:radio[name=kilometer]:checked").val()
+           Test2();
+           Test();
+       }
+
+
+   })
+   
 })
 var forlocation_y;
 var forlocation_x;
+var searchkilometer=1;
 // 마커 이미지의 이미지 주소입니다

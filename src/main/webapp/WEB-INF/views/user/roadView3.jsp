@@ -54,9 +54,13 @@
     <div id="rvWrapper" style="width:50%;height:500px;float:left">
         <div id="roadview" style="width:100%;height:100%"></div> <!-- 로드뷰를 표시할 div 입니다 -->
     </div>
+    
 </div>
+<button> 길찾기 이동하기 </button>
 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=eb66f18ab68f4698ad06cb4444bfc896&libraries=services"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.js" type="text/javascript"></script>
+
 <script>
 //지도위에 현재 로드뷰의 위치와, 각도를 표시하기 위한 map walker 아이콘 생성 클래스
 
@@ -217,7 +221,12 @@ kakao.maps.event.addListener(roadview, 'init', function() {
     Label2.open(map,Marker2);
 });
 
-
+$(function(){
+   $('button').click(function(){
+      str="   https://map.kakao.com/link/to/"+forshopname+","+forlocation_y+","+forlocation_x
+      location.href=str
+   })
+})
 
 </script>
 </body>

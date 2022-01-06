@@ -59,7 +59,7 @@
     <main>
       
         <form action="shopUpdate.do" method='post' enctype="multipart/form-data"> 
-            <ul class="left_nav" id="left_nav1">
+            <ul style="display:none;" class="left_nav" id="left_nav1">
                 <li class="left_nav_text"><a class="home" href="#"></a></li>
                 <li class="left_nav_text"><a href="#">새소식</a></li>
                 <li class="left_nav_text"><a href="#">상품</a></li>
@@ -75,24 +75,30 @@
                             <div class="body_container_center_shop_contanier_img">
                                 <div >
                                     <img class="img_box" src="/project1982/resources/upload/${shopInfo[0].si_realname }">
-					                <input class="img_button" type="file" name="file" maxlength="60" size="40">
+					                <input type="file" name="file" maxlength="60" size="40">
                                     
                                 </div>
                  
                             </div>
                             <div class= "body_container_center_shop_contanier_info">
                                 <div class="main_font salary">업체이름 :
-                                    <input class="input_box" type="text" value="${shopInfo[0].shopname }">
+                                    <input class="input_box" type="text" name="shopname" value="${shopInfo[0].shopname }">
+                                    
                                 </div>
-                                <div class="main_font">업체주소 :
-                                    <input class="input_box" type="text" value="${shopInfo[0].shopaddr }">
-                                </div>
+                                <div class="main_font" >
+                                	업체주소 :<input style="width:200px;" class="input_box" type="text" name="shopaddr" id="shopaddr" value="${shopInfo[0].shopaddr }"><br><br>
+									<div id="locationConfirm">주소확인</div> 	
+                               		 
+                               	 </div>   
+                               	                             
+                                <div class="hide">location_y: <input type="text" name="location_y" id="location_y" ></div>
+                                <div class="hide">location_x: <input type="text" name="location_x" id="location_x" ></div>
                                 <div class="main_font">전화번호 :
-                                    <input class="input_box" type="text" value="${shopInfo[0].shoppn }">
+                                    <input class="input_box" type="text" name="shoppn" value="${shopInfo[0].shoppn }">
                                 </div>          
                                 <div class="main_font">업체소개 :
                                     
-                                    <textarea name="" id="" cols="30" rows="10">
+                                    <textarea name="shopcontent" id="" cols="30" rows="10" style="resize:none">
                                         ${shopInfo[0].shopcontent }
                                     </textarea>
                                 </div>                              
@@ -166,7 +172,7 @@
                     <div class="right_address">
                         <p>
                             <span>주식회사 1982 |</span>
-                            <a href="#">
+                            
 
                                 <span>대표이사 : 한세호 |</span>
                             </a>

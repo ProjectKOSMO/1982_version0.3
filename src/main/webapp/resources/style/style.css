@@ -333,6 +333,16 @@ ul, li{
 }
 
 /*-------------------------- main 수정 -----------------------  */
+#locationConfirm{
+	padding-left:auto;
+	padding-right:auto;
+	border:none;
+	border-radius:3px;
+	width:120px;
+	test-align:center;
+	background-color:#D5D5D5;
+	color:white;
+	}
 .img_box{
   width:100%;
   height: 100%;

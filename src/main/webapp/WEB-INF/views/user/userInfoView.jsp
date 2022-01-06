@@ -38,8 +38,8 @@
     <main class="main">
         <div class="main_container">
             <div>
-            <form id="userUpdateForm" method="put" enctype="multipart/form-data">
-           		<input name="userid" type="hidden" value="${userId}" />
+            <form id="" method="" enctype="multipart/form-data">
+           		<input name="userid" type="hidden" value="${userId}" disabled />
 			    <table border="1" width="800">
 			    <tr>
 			        <td width = "85" height="113">
@@ -52,24 +52,24 @@
 			    </tr>
 			    <tr>
 			        <th colspan = "2" bgcolor="D5D5D5">한글</th>
-			        <td width="90" align="left"><input name="username" type="text" value="${infoview.username}"/></td>
+			        <td width="90" align="left"><input name="username" type="text" value="${infoview.username}" disabled/></td>
 			        <th bgcolor="D5D5D5">생 년 월 일</th>
 			        <th colspan="2" width = "80" bgcolor="D5D5D5">E-mail</th>
 			    </tr>
 			
 			    <tr>
 			        <th colspan = "2" bgcolor="D5D5D5"> 한문</th>
-			        <td align="left"><input name="username2" type="text" value="${infoview.username2}"/></td>
-			        <td align="left"><input name="userbirth" type="text" value="${infoview.userbirth}"/></td>
-			        <td colspan="2"><input name="usermail" type="text" value="${infoview.usermail}"/></td>
+			        <td align="left"><input name="username2" type="text" value="${infoview.username2}" disabled/></td>
+			        <td align="left"><input name="userbirth" type="text" value="${infoview.userbirth}" disabled/></td>
+			        <td colspan="2"><input name="usermail" type="text" value="${infoview.usermail}" disabled/></td>
 			    </tr>
 			    <tr>
 			        <th bgcolor="D5D5D5">연락처</th>
-			        <td colspan="8" align="left" ><input name="userpn" type="text" value="${infoview.userpn}"/></td>
+			        <td colspan="8" align="left" ><input name="userpn" type="text" value="${infoview.userpn}" disabled/></td>
 			    </tr>
 			    <tr>
 			        <th bgcolor="D5D5D5">현주소</th>
-			        <td colspan="8" align="left"><input name="useraddr" type="text" value="${infoview.useraddr}"/></td>
+			        <td colspan="8" align="left"><input name="useraddr" type="text" value="${infoview.useraddr}" disabled/></td>
 			    </tr>
 			    </table>
 			    <table border="1">
@@ -84,18 +84,18 @@
 			<th bgcolor = "D5D5D5"> 비고</th>
 			</tr>
 			<tr>
-				<td><input name="userschool_date" type="text" value="${infoview.userschool_date}"/></td>
-				<td align ="center"><input name="userschool" type="text" value="${infoview.userschool}"/></td> 
-				<td><input name="userschool_subject" type="text" value="${infoview.userschool_subject}"/></td> 
-				<td><input name="userschool_end" type="text" value="${infoview.userschool_end}"/></td>
-				<td><input name="userschool_bigo" type="text" value="${infoview.userschool_bigo}"/></td>
+				<td><input name="userschool_date" type="text" value="${infoview.userschool_date}" disabled/></td>
+				<td align ="center"><input name="userschool" type="text" value="${infoview.userschool}" disabled/></td> 
+				<td><input name="userschool_subject" type="text" value="${infoview.userschool_subject}" disabled/></td> 
+				<td><input name="userschool_end" type="text" value="${infoview.userschool_end}" disabled/></td>
+				<td><input name="userschool_bigo" type="text" value="${infoview.userschool_bigo}" disabled/></td>
 			</tr>
 			<tr>
-			    <td><input name="userschool_date1" type="text" value="${infoview.userschool_date1}"/></td>
-			    <td align="center"><input name="userschool1" type="text" value="${infoview.userschool1}"/></td>
-			    <td><input name="userschool_subject1" type="text" value="${infoview.userschool_subject1}"/></td>
-			    <td><input name="userschool_end1" type="text" value="${infoview.userschool_end1}"/></td>
-			    <td><input name="userschool_bigo1" type="text" value="${infoview.userschool_bigo1}"/></td>
+			    <td><input name="userschool_date1" type="text" value="${infoview.userschool_date1}" disabled/></td>
+			    <td align="center"><input name="userschool1" type="text" value="${infoview.userschool1}" disabled/></td>
+			    <td><input name="userschool_subject1" type="text" value="${infoview.userschool_subject1}" disabled/></td>
+			    <td><input name="userschool_end1" type="text" value="${infoview.userschool_end1}" disabled/></td>
+			    <td><input name="userschool_bigo1" type="text" value="${infoview.userschool_bigo1}" disabled/></td>
 			</tr>
 			<tr>
 			    <th colspan = "6" bgcolor = "D5D5D5"> 경력사항</th>
@@ -108,25 +108,25 @@
 			    <th colspan = "2" width  = "70" bgcolor="D5D5D5"> 비고</th>
 			</tr>
 			<tr>
-			    <td align="center"><input name="careerdate" type="text" value="${infoview.careerdate}"/></td>
-			    <td align="center"><input name="departmentname" type="text" value="${infoview.departmentname}"/></td>
-			    <td><input name="careerspot" type="text" value="${infoview.careerspot}"/></td>
-			    <td><input name="usercareerlist" type="text" value="${infoview.usercareerlist}"/></td>
-			    <td colspan ="2"><input name="careerbigo" type="text" value="${infoview.careerbigo}"/></td>
+			    <td align="center"><input name="careerdate" type="text" value="${infoview.careerdate}" disabled/></td>
+			    <td align="center"><input name="departmentname" type="text" value="${infoview.departmentname}" disabled/></td>
+			    <td><input name="careerspot" type="text" value="${infoview.careerspot}" disabled/></td>
+			    <td><input name="usercareerlist" type="text" value="${infoview.usercareerlist}" disabled/></td>
+			    <td colspan ="2"><input name="careerbigo" type="text" value="${infoview.careerbigo}" disabled/></td>
 			</tr>
 			<tr>
-			    <td align="center"><input name="careerdate1" type="text" value="${infoview.careerdate1}"/></td>
-			    <td align="center"><input name="departmentname1" type="text" value="${infoview.departmentname1}"/></td>
-			    <td><input name="careerspot1" type="text" value="${infoview.careerspot1}"/></td>
-			    <td><input name="usercareerlist1" type="text" value="${infoview.usercareerlist1}"/></td>
-			    <td colspan = "2"><input name="careerbigo1" type="text" value="${infoview.careerbigo1}"/></td>
+			    <td align="center"><input name="careerdate1" type="text" value="${infoview.careerdate1}" disabled/></td>
+			    <td align="center"><input name="departmentname1" type="text" value="${infoview.departmentname1}" disabled/></td>
+			    <td><input name="careerspot1" type="text" value="${infoview.careerspot1}" disabled/></td>
+			    <td><input name="usercareerlist1" type="text" value="${infoview.usercareerlist1}" disabled/></td>
+			    <td colspan = "2"><input name="careerbigo1" type="text" value="${infoview.careerbigo1}" disabled/></td>
 			</tr>
 			<tr>
-			    <td align="center"><input name="careerdate2" type="text" value="${infoview.careerdate2}"/></td>
-			    <td align="center"><input name="departmentname2" type="text" value="${infoview.departmentname2}"/></td>
-			    <td><input name="careerspot2" type="text" value="${infoview.careerspot2}"/></td>
-			    <td><input name="usercareerlist2" type="text" value="${infoview.usercareerlist2}"/></td>
-			    <td colspan = "2"><input name="careerbigo2" type="text" value="${infoview.careerbigo2}"/></td>
+			    <td align="center"><input name="careerdate2" type="text" value="${infoview.careerdate2}" disabled/></td>
+			    <td align="center"><input name="departmentname2" type="text" value="${infoview.departmentname2}" disabled/></td>
+			    <td><input name="careerspot2" type="text" value="${infoview.careerspot2}" disabled/></td>
+			    <td><input name="usercareerlist2" type="text" value="${infoview.usercareerlist2}" disabled/></td>
+			    <td colspan = "2"><input name="careerbigo2" type="text" value="${infoview.careerbigo2}" disabled/></td>
 			</tr>
 			</table>
 			<table border="1">
@@ -139,19 +139,19 @@
 			    <th width="33%" bgcolor="D5D5D5"> 발행기관</th>
 			</tr>
 			<tr>
-				<td align ="center"><input name="certficatedate" type="text" value="${infoview.certficatedate}"/></td>
-				<td align = "center"><input name="certficatename" type="text" value="${infoview.certficatename}"/></td>
-				<td align = "center"><input name="certficate_company" type="text" value="${infoview.certficate_company}"/></td>
+				<td align ="center"><input name="certficatedate" type="text" value="${infoview.certficatedate}"/ disabled></td>
+				<td align = "center"><input name="certficatename" type="text" value="${infoview.certficatename}" disabled/></td>
+				<td align = "center"><input name="certficate_company" type="text" value="${infoview.certficate_company}" disabled/></td>
 			</tr>
 			<tr>
-				<td align ="center"><input name="certficatedate1" type="text" value="${infoview.certficatedate1}"/></td>
-				<td align = "center"><input name="certficatename1" type="text" value="${infoview.certficatename1}"/></td>
-				<td align = "center"><input name="certficate_company1" type="text" value="${infoview.certficate_company1}"/></td>
+				<td align ="center"><input name="certficatedate1" type="text" value="${infoview.certficatedate1}" disabled/></td>
+				<td align = "center"><input name="certficatename1" type="text" value="${infoview.certficatename1}" disabled/></td>
+				<td align = "center"><input name="certficate_company1" type="text" value="${infoview.certficate_company1}" disabled/></td>
 			</tr>
 			<tr>
-				<td align ="center"><input name="certficatedate2" type="text" value="${infoview.certficatedate2}"/></td>
-				<td align = "center"><input name="certficatename2" type="text" value="${infoview.certficatename2}"/></td>
-				<td align = "center"><input name="certficate_company2" type="text" value="${infoview.certficate_company2}"/></td>
+				<td align ="center"><input name="certficatedate2" type="text" value="${infoview.certficatedate2}" disabled/></td>
+				<td align = "center"><input name="certficatename2" type="text" value="${infoview.certficatename2}" disabled /></td>
+				<td align = "center"><input name="certficate_company2" type="text" value="${infoview.certficate_company2}" disabled/></td>
 			</tr>
 			<td colspan="6">
 			
@@ -165,7 +165,7 @@
 			</td>
 			</tr>
 			</table>
-			구직신청서 저장 :<input type="submit" id="userUpdate" value="저장" style="width:73px;border:solid 1px;"/>
+			
           </form>
         </div>  
     </main>

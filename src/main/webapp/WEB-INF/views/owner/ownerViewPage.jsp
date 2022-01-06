@@ -10,8 +10,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome@5.14.0/css/all.min.css">
 	<link type="text/css" href="/project1982/resources/style/style.css" rel="stylesheet"/>
     <link type="text/css" href="/project1982/resources/style/header.css" rel="stylesheet"/>
+    <script src="/project1982/resources/js/chat.js" type="text/javascript"></script>
 </head>
-<script src="/project1982/resources/js/chat.js" type="text/javascript"></script>
+
 <body>
 <% 
 	String ownerid = (String)session.getAttribute("ownerid");
@@ -19,7 +20,7 @@
 %>
 
 
-        < <!--메뉴바  ------------------------------------------------->
+         <!--메뉴바  ------------------------------------------------->
         <header class="header" >
             <!-- 로고-->
                <div>
@@ -57,7 +58,7 @@
         <main>
       
         	<form action="ownerUpdate.do" method='post' enctype="multipart/form-data"> 
-            <ul class="left_nav" id="left_nav1">
+            <ul style="display:none;"class="left_nav" id="left_nav1">
                 <li class="left_nav_text"><a class="home" href="#"></a></li>
                 <li class="left_nav_text"><a href="#">새소식</a></li>
                 <li class="left_nav_text"><a href="#">상품</a></li>
@@ -108,7 +109,7 @@
                         <div class="divTable minimalistBlack">
                             <div class="divTableHeading">
                             <div class="divTableRow">
-                            <div class="divTableHead">번호</div>
+                            <div class="divTableHead">업체 번호</div>
                             <div class="divTableHead">업체 이름</div>
                             <div class="divTableHead">매니저 이름</div>
                             <div class="divTableHead">업체 주소</div>
@@ -149,7 +150,7 @@
                         <div class="divTable minimalistBlack"><!-- 구직자 신청 현황 시작 -->
                             <div class="divTableHeading">
                             	<div class="divTableRow">
-                            		<div class="divTableHead">번호</div>
+                            		<div class="divTableHead">구인공고 번호</div>
                           	 		<div class="divTableHead">구직자 이름</div>
                           	 		<div class="divTableHead">구직자 아이디</div>
                            	 		<div class="divTableHead">근무 예정 일자</div>
@@ -168,7 +169,9 @@
                             				 <div class="divTableCell">${info.userId }</div>
                             				 <div class="divTableCell">${info.jobDate}</div>
                             
-                           					 <div class="divTableCell">${info.shopaddr }</div>
+                           					 <div class="divTableCell">
+         										<a href="#" onclick="window.open('userInfoView.do?userid=${info.userId }', '간단한 이력서','width=1000;, height=700, resizable = no, scrollbars = no'); return false">이력서</a>
+											</div>
                            					 <div class="divTableCell">
                            						<div style="display:flex; justify-content:center;"> <!-- 고용,거절 -->
                            					 	<form action="accept.do">                           					 	
@@ -402,7 +405,7 @@
                     <div class="right_address">
                         <p>
                             <span>주식회사 1982 |</span>
-                            <a href="#">
+                          
     
                                 <span>대표이사 : 한세호 |</span>
                             </a>

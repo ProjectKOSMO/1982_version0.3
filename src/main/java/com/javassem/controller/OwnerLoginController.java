@@ -54,25 +54,6 @@ public class OwnerLoginController {
         return "/owner/" + step;
     }
     
-    // 비밀번호 찾기, 아이디 찾기
-    @RequestMapping(value = {"findId.do"})
-    public String findId(OwnerVO  vo, Model m, HttpServletRequest request){
-    	List<OwnerVO> list = this.ownerService.findId(vo);
-    	System.out.println(vo.getOwnername());
-    	System.out.println(vo.getOwnermail());
-    	System.out.println(vo.getOwnerpn());
-    	System.out.println(list);
-    	
-    	m.addAttribute("msg", "가입하신 아이디가 존재하지 않습니다");
-    	m.addAttribute("url", "missId.do");
-    	if(list.isEmpty()){
-    		return "owner/errorPage";
-    	}
-    	else{
-    		m.addAttribute("ownerfindid", list);
-    		return "owner/findUserId";
-    	}
-    }
     
     //사업자 회원가입후 첫 로그인시 DB에 데이터가없으면 Mypage로 이동 / 데이터가있으면 ViewPage로 이동하는 컨트롤러
     @RequestMapping({"ownerMypage.do"})
@@ -102,7 +83,25 @@ public class OwnerLoginController {
         return "redirect:ownerList.do";
     }
     
-    
+    // 비밀번호 찾기, 아이디 찾기
+    @RequestMapping(value = {"findId.do"})
+    public String findId(OwnerVO  vo, Model m, HttpServletRequest request){
+    	List<OwnerVO> list = this.ownerService.findId(vo);
+    	System.out.println(vo.getOwnername());
+    	System.out.println(vo.getOwnermail());
+    	System.out.println(vo.getOwnerpn());
+    	System.out.println(list);
+    	
+    	m.addAttribute("msg", "가입하신 아이디가 존재하지 않습니다");
+    	m.addAttribute("url", "missId.do");
+    	if(list.isEmpty()){
+    		return "owner/errorPage";
+    	}
+    	else{
+    		m.addAttribute("ownerfindid", list);
+    		return "owner/findUserId";
+    	}
+    }
     
     //ownerViewPage에서 사업자가 정보 수정하는페이지로 넘어갈때 DB데이터를 가져오는 컨트롤러
     @RequestMapping({"ownerUpdate.do"})
@@ -118,9 +117,16 @@ public class OwnerLoginController {
     // ownerUpdatePage에서 "수정" 버튼클릭시 기존 내용을 업데이트하는 컨트롤러
     @RequestMapping({"shopUpdate.do"})
     public String shopUpdate(OwnerVO vo, Model model, HttpServletRequest request) throws Exception {
+    	HttpSession session = request.getSession();
+		Integer ownernum = (Integer) session.getAttribute("ownernum");
+		
+		vo.setOwnernum(ownernum);
+		
+    	
         this.ownerService.updateShopInfo(vo);
         this.ownerService.getList(vo);
-        Thread.sleep(5000L);
+
+        
         return "redirect:ownerList.do";
     }
     
@@ -697,4 +703,14 @@ public class OwnerLoginController {
         }
         return message;
     }
+    
+    @RequestMapping({"userInfoView.do"})
+    public void getuserinfoview(UserVO vo,@RequestParam String userid, Model m){
+    	String id =userid;
+    	vo.setUserid(userid);
+    	UserVO user = this.userService.getUserInfoView(vo);
+    	m.addAttribute("infoview", user);
+    	
+    }
+    
 }

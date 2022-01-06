@@ -30,7 +30,7 @@
         <header class="header" >
             <!-- 로고-->
             <div>
-                <a href="adminPage.do" class="logo">
+                <a href="userMain.do" class="logo">
                     <h1>1982</h1>
                 </a>
                 </div>
@@ -61,7 +61,7 @@
                             <div class="divTableHeading">
                             <div class="divTableRow">
                             <div class="divTableHead">매장명</div>
-                            <div class="divTableHead">구인 상태</div>
+                            <div class="divTableHead">구인 상태(?)</div>
                             <div class="divTableHead">매장 주소</div>
                             <div class="divTableHead">급여</div>
                             <div class="divTableHead">등록일</div>
@@ -87,9 +87,11 @@
                           </div>
                           
                          </c:forEach>
-                         <div style="display: block; text-align: center;">		
+                           </div>
+                        <!-- 페이징 시작 -->
+                         <div class="pageing">		
 							<c:if test="${paging.startPage != 1 }">
-								<a href="/project1982/admin/admin_storeClose.do?nowPage=${paging.startPage - 1 }&cntPerPage=${paging.cntPerPage}">&lt;</a>
+								<a href="/project1982/admin/admin_positing.do?nowPage=${paging.startPage - 1 }&cntPerPage=${paging.cntPerPage}">&lt;</a>
 							</c:if>
 							<c:forEach begin="${paging.startPage }" end="${paging.endPage }" var="p">
 								<c:choose>
@@ -97,14 +99,15 @@
 										<b>${p }</b>
 									</c:when>
 									<c:when test="${p != paging.nowPage }">
-										<a href="/project1982/admin/admin_storeClose.do?nowPage=${p }&cntPerPage=${paging.cntPerPage}">${p }</a>
+										<a href="/project1982/admin/admin_positing.do?nowPage=${p }&cntPerPage=${paging.cntPerPage}">${p }</a>
 									</c:when>
 								</c:choose>
 							</c:forEach>
 							<c:if test="${paging.endPage != paging.lastPage}">
-								<a href="/project1982/admin/admin_storeClose.do?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}">&gt;</a>
+								<a href="/project1982/admin/admin_positing.do?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}">&gt;</a>
 							</c:if>
 						</div>
+                        
                         </div>
 
                 </div><!--중간 메뉴바 종료-->

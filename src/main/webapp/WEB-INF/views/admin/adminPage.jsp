@@ -30,7 +30,7 @@
         <header class="header" >
             <!-- 로고-->
             <div>
-                <a href="adminPage.do" class="logo">
+                <a href="userMain.do" class="logo">
                     <h1>1982</h1>
                 </a>
                 </div>
@@ -62,21 +62,20 @@
                             <!-- 매칭성공률 -->
                             <div class="service1_left">
                              <div class="matchPercent"> 매칭성공률 ${matching_success}% </div> 
-                             <canvas id="matching" width="350" height="350" style="display: inline-block;"></canvas>
+                             <canvas id="matching"></canvas>
                             </div>                     
 
       						<!-- 재이용률 -->
                             <div class="service1_right">
                             <div class="reusePercent"> 재이용률 ${reusing_ratio}% </div>
-                            <canvas id="reuse" width="350" height="350" style="display: inline-block;"></canvas>
+                            <canvas id="reuse"></canvas>
                             </div>
 
                         </div>
                         <div class="body_container_center_members">
                         <div class="service2">
                             <div class="service2_left">
-                            <span class="visit_value">${visitToday}</span><br/>
-                            <span class="visit_label">Today visits</span>
+                            <span class="visit_label">금일 방문자 수: ${visitToday} 명</span>
                             </div>
                             
                             
@@ -88,8 +87,7 @@
                   	   
                <!--  회원가입 현황  -->
                         <div class="member1">
-                        <span class="visit_value">${joinToday}</span><br/>
-                            <span class="visit_label">Today joins</span>
+                             <span class="visit_label">금일 신규 가입자 수 : ${joinToday} 명</span>
                         </div>
                         <div class="member2">
                          <canvas id="barChart" width="250" height="250"></canvas>
@@ -97,7 +95,7 @@
        				</div>
                     </div>
 <!-- 여기2 -->           
-                     <div class="title">블랙리스트 현황</div>
+                     <div class="visit_label">블랙리스트 현황 (경고 3회시 - 영구정지)</div>
                      
                      <div>
                      <div class="divTable minimalistBlack">
@@ -123,14 +121,16 @@
                             <div class="divTableCell"><input type='hidden' name="reason" value='${blacklist.reason}'>${blacklist.reason}</div>
                             <div class="divTableCell"><input type='hidden' name="userNum" value='${blacklist.userNum}'>${blacklist.userNum}</div>
                             <div class="divTableCell"><input type='hidden' name="ownerNum" value='${blacklist.ownerNum}'>${blacklist.ownerNum}</div>
-                            <div class="divTableCell"><input type='Submit' value='영구정지'></div></form>
+                            <div class="divTableCell"><input class="blackButton" type='Submit' value='영구정지'></div></form>
                           </div>
                           </div>
                           
                          </c:forEach>
-                         <div style="display: block; text-align: center;">		
+                           </div>
+                        <!-- 페이징 시작 -->
+                         <div class="pageing">		
 							<c:if test="${paging.startPage != 1 }">
-								<a href="/project1982/admin/adminPage.do?nowPage=${paging.startPage - 1 }&cntPerPage=${paging.cntPerPage}">&lt;</a>
+								<a href="/project1982/admin/admin_positing.do?nowPage=${paging.startPage - 1 }&cntPerPage=${paging.cntPerPage}">&lt;</a>
 							</c:if>
 							<c:forEach begin="${paging.startPage }" end="${paging.endPage }" var="p">
 								<c:choose>
@@ -138,20 +138,17 @@
 										<b>${p }</b>
 									</c:when>
 									<c:when test="${p != paging.nowPage }">
-										<a href="/project1982/admin/adminPage.do?nowPage=${p }&cntPerPage=${paging.cntPerPage}">${p }</a>
+										<a href="/project1982/admin/admin_positing.do?nowPage=${p }&cntPerPage=${paging.cntPerPage}">${p }</a>
 									</c:when>
 								</c:choose>
 							</c:forEach>
 							<c:if test="${paging.endPage != paging.lastPage}">
-								<a href="/project1982/admin/adminPage.do?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}">&gt;</a>
+								<a href="/project1982/admin/admin_positing.do?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}">&gt;</a>
 							</c:if>
 						</div>
+                     
                         </div>
-                        </div>
-                       <div>
-                        <li> 경고 3회 - 영구 정지</li>
-                    </div>
-                    
+                      
                 </div><!--중간 메뉴바 종료-->
             
             </div><!-- 페이지 컨테이너 종료--> 
@@ -341,8 +338,8 @@ var ctx = document.getElementById('lineChart').getContext('2d');
                 xAxes: [{
                     display: true,
                     scaleLabel: {
-                        display: true,
-                        labelString: '날짜'
+                        display: true
+                      
                     }
                 }],
                 yAxes: [{
@@ -410,8 +407,8 @@ var ctx = document.getElementById('lineChart').getContext('2d');
                 xAxes: [{
                     display: true,
                     scaleLabel: {
-                        display: true,
-                        labelString: '날짜'
+                        display: true
+                        
                     }
                 }],
                 yAxes: [{

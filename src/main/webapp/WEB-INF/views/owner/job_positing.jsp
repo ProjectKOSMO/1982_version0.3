@@ -91,7 +91,7 @@
 
         <!-- 메인 ---------------------------------------------------------------->
         <main>
-            <ul class="left_nav">
+            <ul style="display:none;" class="left_nav">
                 <li class="left_nav_text"><a class="home" href="#"></a></li>
                 <li class="left_nav_text"><a href="#" class="home">프로필 수정</a></li>
                 <li class="left_nav_text"><a href="#" class="home">업체지원현황</a></li>
@@ -251,7 +251,7 @@
                     <div class="right_address">
                         <p>
                             <span>주식회사 1982 |</span>
-                            <a href="#">
+                           
 
                                 <span>대표이사 : 한세호 |</span>
                             </a>

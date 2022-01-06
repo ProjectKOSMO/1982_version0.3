@@ -130,8 +130,7 @@
     <c:if test="${paging.endPage != paging.lastPage}">
         <a href="/project1982/admin/Board.do?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}">&gt;</a>
     </c:if>
-    <br> <a class="openboard" href="#" onclick="window.open('insertBoard.do', '새글등록','width=500;, height=500, resizable = no, scrollbars = no'); return false">새글 등록</a>
-</div>
+    </div>
 
 
             
@@ -142,7 +141,7 @@
         <option value="b_name">작성자</option>
      </select>
      <input type='text' name='searchKeyword'>
-     <input type='submit' value='검색'>
+     <input style="border:none; border-radius:5px;" type='submit' value='검색'>
  </form>
 
 		<!-- footer --------------------------------------------------------------------->

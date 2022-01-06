@@ -82,6 +82,19 @@
    
            </header>
  <!-- 메인 ---------------------------------------------------------------->
+     	<!-- 왼쪽 네비게이션 -->
+            <ul class="left_nav">
+            	<br/>
+                <li class="left_nav_text"><a>자주 묻는 질문</a></li>
+                <br/>
+                <li class="left_nav_text"><a href="#" onclick="window.open('userpay.do','주휴 수당 이란?', 'width=1000px;, height=800px, resizable = no, scrollbars = no'); return false">주휴 수당이란?</a></li>
+                <br/>
+                <li class="left_nav_text"><a href="#" onclick="window.open('userpay2.do','적용 대상 ', 'width=800px;, height=700px, resizable = no, scrollbars = no'); return false">최저 임금 적용 대상</a></li>
+                <br/>
+                <li class="left_nav_text"><a href="#" onclick="window.open('userpay3.do', '최저 임금 Q&A', 'width=1000px;, height=700, resizable = no, scrollbars = no'); return false">최저 임금 Q&A</a></li>
+                <br/> 
+            </ul>
+            
      	<form class="search-form" action="/project1982/user/storeClose.do" autocomplete="off" method="get">
      		<select name="searchCondition">
      			<option value="shopaddr">주소</option>
@@ -141,6 +154,8 @@
 						</c:forEach>                            
                   </ul>
               </li>
+              
+             <!-- 게시판 페이징 영역  -->
   			<div style="display: block; text-align: center;">		
 				<c:if test="${paging.startPage != 1 }">
 					<a href="/project1982/user/storeClose.do?nowPage=${paging.startPage - 1 }&cntPerPage=${paging.cntPerPage}">&lt;</a>
@@ -159,15 +174,14 @@
 					<a href="/project1982/user/storeClose.do?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}">&gt;</a>
 				</c:if>
 			</div>
-		</div>	
+		
+		<div id=pay>
+       	<img src="/project1982/resources/images/pay.PNG"/>
+       	<img src="/project1982/resources/images/pay2.PNG"/>
+        </div>
+        </div>
        
           </section>
-              <!-- 게시판 페이징 영역 -->
-
-
-
- 
-        <!-- 검색 폼 영역 -->
 
 
 <!-- footer --------------------------------------------------------------------->

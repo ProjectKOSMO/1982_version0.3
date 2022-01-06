@@ -7,15 +7,22 @@
 }
 .service1{
 	display:flex;
+	margin-bottom:50px;
+	justify-content: center;
 }
 .service1_left{
+	display:flex;
+	justify-content: center;
 	flex:5;
-	margin-left:200px;
-	position:relative;
+	flex-direction: column;
+	margin:auto;
 }
 .service1_right{
+	display:flex;
 	flex:5;
-	margin-right: 180px;
+	justify-content: center;
+	flex-direction: column;
+	margin:auto;
 }
 .hide{
    display:none;
@@ -351,6 +358,78 @@ ul, li{
 }
 
 /*-------------------------- main 수정 -----------------------  */
+{
+	border:none;
+	border-radius:5px;
+}
+
+.blackButton{
+	border:none;
+	border-radius:5px;
+	font-family: "Gowun Dodum", sans-serif;
+}
+.title{
+	font-size:30px;
+	font-family: "Gowun Dodum", sans-serif;
+	font-weight:bold;
+	margin-bottom:20px;
+}
+
+.matchPercent{
+	font-size:12px;
+	font-family: "Gowun Dodum", sans-serif;
+	font-weight:bold;
+	margin-left:auto;
+	margin-right:auto;
+		
+}
+.reusePercent{
+	font-size:12px;
+	font-family: "Gowun Dodum", sans-serif;
+	font-weight:bold;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+.visit_label{
+	font-size:18px;
+	font-family: "Gowun Dodum", sans-serif;
+	font-weight:bold;
+	margin-bottom:10px;
+}
+#matching{
+	display:flex;
+	justify-content: center;
+	width:300px;
+	height:300px;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+#reuse{
+	display:flex;
+	justify-content: center;
+	width:300px;
+	height:300px;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+#lineChart{
+	margin-bottom:50px;
+}
+
+.pageing{
+	display: flex;
+	justify-content: center;
+	margin-top:30px;
+}
+
+.pageing a{
+	margin-left:5px;
+	margin-right:5px;
+}
+
 .img_box{
   width:100%;
   height: 100%;
@@ -366,6 +445,7 @@ main{
   font-size: 60px;
   font-family: 'Cute Font', cursive;
   padding-bottom: 25px;
+  
 }
 .section_main{
   margin-top: 150px;
@@ -498,6 +578,7 @@ textarea {
   
   .title{
     margin-top: 10px;
+
   }
   .title_wrap{
     margin-left: 50px;
