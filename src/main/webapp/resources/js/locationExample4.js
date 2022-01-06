@@ -413,7 +413,7 @@ setTimeout(function(){
       centerloc_y=$("#CenterLocation_y").val();
       centerloc_x=$("#CenterLocation_x").val();
       
-      alert(event.target.tagName);
+      
       if(event.target.tagName=="BUTTON"){
          window.open("roadView3.do","childForm","width=1500, height=530, resizable = no, scrollbars = no");
       }else{
@@ -471,10 +471,11 @@ setTimeout(function(){
            Test2();
            Test();
        }
-
-
    })
-   
+   $("#divPagingMap").on("mouseover",".numberPage",function(){
+      
+      $(".numberPage").css('cursor','pointer');
+   })
 })
 var forlocation_y;
 var forlocation_x;
