@@ -44,8 +44,10 @@ public class UserBoardController {
   }
   
   @PostMapping({"/user/saveBoard.do"})
-  public void insertBoard(BoardVO vo){
+  public String insertBoard(BoardVO vo, Model m){
     this.boardService.insertBoard(vo);
+    m.addAttribute("msg", "글 등록이 완료되었습니다");
+    return "user/saveOK";
   }
   
   

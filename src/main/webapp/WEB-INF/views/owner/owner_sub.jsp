@@ -17,7 +17,7 @@
 </head>
 	<% 
 	Integer ownernum = (Integer)session.getAttribute("ownernum");
-	out.println("현재 번호 : " + ownernum);
+	//out.println("현재 번호 : " + ownernum);
 %>
 
 	

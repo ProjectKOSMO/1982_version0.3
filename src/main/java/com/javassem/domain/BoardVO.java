@@ -16,7 +16,8 @@ public class BoardVO {
   private String b_fname; // 업로드파일 이름
   private String b_realfname; // 업로드파일 수정된 이름
   private long b_fsize; // 업로드파일 사이즈
-  MultipartFile file; // 파일관련 업로드관련
+  private MultipartFile file; // 파일관련 업로드관련
+  
   
   public MultipartFile getFile() {
     return this.file;
@@ -30,7 +31,8 @@ public class BoardVO {
       UUID uuid = UUID.randomUUID(); 
       this.b_realfname = String.valueOf(uuid.toString()) + "_" + this.b_fname; // 중복되지 않는 파일 이름 생성
       // 경로지정
-      File f = new File("C:\\Programing\\git\\project1982\\src\\main\\webapp\\resources\\upload\\" + this.b_realfname);
+      //File f = new File("/home/temp/tomcat8.5/webapps/project1982/resources/upload/" + this.b_realfname);
+      File f = new File("C:\\Users\\Kosmo\\Desktop\\git\\project1982\\src\\main\\webapp\\resources\\upload\\" + this.b_realfname);
       try {
         file.transferTo(f);
       } catch (IllegalStateException e) {

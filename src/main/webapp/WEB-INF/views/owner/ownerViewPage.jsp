@@ -16,7 +16,7 @@
 <body>
 <% 
 	String ownerid = (String)session.getAttribute("ownerid");
-	out.println(ownerid + " 님 환영합니다.");
+	//out.println(ownerid + " 님 환영합니다.");
 %>
 
 

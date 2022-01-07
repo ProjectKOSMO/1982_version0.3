@@ -221,7 +221,7 @@
                     <div class="right_address">
                         <p>
                             <span>주식회사 1982 |</span>
-                            <a href="#">
+              
 
                                 <span>대표이사 : 한세호 |</span>
                             </a>

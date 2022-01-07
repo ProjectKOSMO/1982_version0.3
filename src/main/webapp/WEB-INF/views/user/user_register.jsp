@@ -50,7 +50,7 @@
 	                type="text" 
 	                placeholder="아이디를 입력하세요" 
 	                onkeyup="IDConfirm()"/>
-		        <span id="idCheckResult" style="width:150px; color:red"></span>
+		        <span id="idCheckResult" style="width:250px; color:red"></span>
 	        
 	         
 		        <input 
@@ -95,6 +95,7 @@
 	                disabled="disabled" 
 	                type="text" 
 	                placeholder="인증번호" />
+	                	        <div id="mail_check_input_box_warn">인증을 요청하세요</div> <br/>
 		        <div class="clearfix"></div>
 		       
 	            
@@ -104,7 +105,7 @@
 	            
 	            
 	        </form>
-	        <div id="mail_check_input_box_warn">인증을 요청하세요</div> 
+
 
 	    </section>
 	</body>

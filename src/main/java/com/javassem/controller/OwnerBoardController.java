@@ -11,6 +11,10 @@ import com.javassem.util.PagingVO;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,14 +29,20 @@ public class OwnerBoardController {
     private BoardService boardService;
 
     public OwnerBoardController() {
+    	
+    }
+    
+    @RequestMapping({"/insertBoard.do"})
+    public void insert(HttpServletRequest request, Model m){
+    	HttpSession session = request.getSession();
+        m.addAttribute("ownerId",session.getAttribute("ownerid"));
     }
 
     @RequestMapping({"/saveBoard.do"})
-    public String insertBoard(BoardVO vo) throws IOException {
-        System.out.println(vo);
-        System.out.println(vo.getB_name());
+    public String insertBoard(BoardVO vo, Model m) throws IOException {
         this.boardService.insertBoard(vo);
-        return "redirect:ownerBoard.do";
+        m.addAttribute("msg", "글 등록이 완료되었습니다");
+        return "owner/saveOK";
     }
 
     @RequestMapping(
@@ -63,7 +73,10 @@ public class OwnerBoardController {
     }
 
     @RequestMapping({"/getBoard.do"})
-    public void getBoard(BoardVO vo, Model m) {
+    public void getBoard(BoardVO vo, Model m, HttpServletRequest request) {
+    	this.boardService.updatecount(vo);
+    	HttpSession session = request.getSession();
+        m.addAttribute("ownerId",session.getAttribute("ownerid"));
         BoardVO result = this.boardService.getBoard(vo);
         m.addAttribute("board", result);
     }

@@ -29,7 +29,7 @@
 #boardcss_list_add_button_table .boardcss_list_add_button ul { width: 100%; overflow: hidden; height: 10px;}
 
 /* boardcss_list 에서 사용하는 글 목록 테이블 크기*/
-.boardcss_list_table { width: 100%; }
+.boardcss_list_table { width: 80%; }
 
 /* 화면에 보여지는 글 목록 테이블 */
 .list_table { width: 100%; }
@@ -50,8 +50,8 @@
  <% 
 	String ownerid = (String)session.getAttribute("ownerid");
 	int ownernum = (int)session.getAttribute("ownernum");
-	out.println(ownerid + " 님 환영합니다.");
-	out.println(ownernum + " 님 환영합니다.");
+	//out.println(ownerid + " 님 환영합니다.");
+	//out.println(ownernum + " 님 환영합니다.");
 	
 %>
 

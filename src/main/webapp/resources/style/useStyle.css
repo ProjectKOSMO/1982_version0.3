@@ -12,7 +12,7 @@
     margin-right: 10%;
     /* border:solid 1px #444444; */
     display: flex;
-    margin-bottom:250px;
+    margin-bottom:300px;
   
   }
   
@@ -88,17 +88,25 @@
     overflow: hidden;
     position: fixed;
     border-radius: 8px;
-    
-  
+  }
+  ul.left_nav{
+  background:rgb(25, 177, 126);
+  text-align:center;
   }
   
   .left_nav_text {
-    text-decoration: none;
-    display: block;
-    color: #000;
+   text-decoration: none;
+    display: flex;
     font-weight: bold;
-    
+    text-align:center;
+    justify-content:center;
+    flex-direction:center;
+    margin-top : 10px;
   }
+  li.left_nav_text a{
+  color: rgb(238, 247, 255);
+  }
+  
   
   .left_nav_text:hover {
     
@@ -142,7 +150,6 @@
     border-collapse: collapse;
   }
   .divTable.minimalistBlack .divTableCell, .divTable.minimalistBlack .divTableHead {
-    
     padding: 5px 0px;
   }
   .divTable.minimalistBlack .divTableBody .divTableCell {
@@ -158,7 +165,8 @@
   .divTable.minimalistBlack .divTableHeading .divTableHead {
     font-size: 15px;
     font-weight: bold;
-    color: #000000;
+    color: rgb(238, 247, 255);
+    background-color:rgb(25, 177, 126);
     text-align: center;
   }
   .minimalistBlack .tableFootStyle {
@@ -175,7 +183,7 @@
   .divTableRow { display: table-row; }
   .divTableHeading { display: table-header-group;}
   .divTableCell, .divTableHead { display: table-cell;}
-  .divTableHeading { display: table-header-group;}
+  .divTableHeading { display: table-header-group; background:rgb(25, 177, 126);} 
   .divTableFoot { display: table-footer-group;}
   .divTableBody { display: table-row-group;}
   
@@ -506,4 +514,6 @@
     font-weight:bolder;
     font-family:italic;
   }
+  
+
 

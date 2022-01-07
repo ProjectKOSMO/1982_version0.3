@@ -28,11 +28,10 @@ public class AdminBoardController {
     }
 
     @RequestMapping({"/saveBoard.do"})
-    public String insertBoard(BoardVO vo) throws IOException {
-        System.out.println(vo);
-        System.out.println(vo.getB_name());
+    public String insertBoard(BoardVO vo, Model m) throws IOException {
         this.boardService.insertBoard(vo);
-        return "redirect:Board.do";
+        m.addAttribute("msg", "글 등록이 완료되었습니다");
+        return "admin/saveOK";
     }
 
     @RequestMapping(
@@ -64,6 +63,7 @@ public class AdminBoardController {
 
     @RequestMapping({"/getBoard.do"})
     public void getBoard(BoardVO vo, Model m) {
+    	this.boardService.updatecount(vo);
         BoardVO result = this.boardService.getBoard(vo);
         m.addAttribute("board", result);
     }

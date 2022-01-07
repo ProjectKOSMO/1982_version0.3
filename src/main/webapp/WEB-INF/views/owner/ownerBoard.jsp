@@ -23,7 +23,33 @@
 		location.href="/project1982/owner/ownerBoard.do?nowPage=${paging.nowPage}&cntPerPage="+sel;
 	}
 </script>
+<style>
+ .divTableHead:first-child {
+  width: 10%;
+}
+.divTableHead:nth-child(2) {
+  width: 30%;
+}
+.divTableHead:nth-child(3) {
+  width: 10%;
+}
+.divTableHead:nth-child(4) {
+  width: 10%;
+}
+.divTableHead:nth-child(5) {
+  width: 10%;
+}
+.divTableHead:nth-child(6) {
+  width: 15%;
+}
+.divTableHead:last-child {
+  width: 15%;
+}
+</style>
 <body>
+<% 
+	String ownerid = (String)session.getAttribute("ownerid");
+%>
         <!--메뉴바  ------------------------------------------------->
         <header class="header" >
             <!-- 로고-->
@@ -139,7 +165,7 @@
     <c:if test="${paging.endPage != paging.lastPage}">
         <a href="/project1982/owner/ownerBoard.do?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}">&gt;</a>
     </c:if>
-    <br> <a class="openboard" href="#" onclick="window.open('insertBoard.do', '새글등록','width=500;, height=500, resizable = no, scrollbars = no'); return false">새글 등록</a>
+    <br> <a class="openboard" href="#" onclick="window.open('/project1982/owner/insertBoard.do', '새글등록','width=500;, height=500, resizable = no, scrollbars = no'); return false">새글 등록</a>
 </div>
 
 

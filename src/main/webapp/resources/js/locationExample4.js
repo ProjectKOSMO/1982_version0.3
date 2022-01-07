@@ -1,6 +1,6 @@
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
 mapOption = { 
-    center: new kakao.maps.LatLng(37.53401162895581, 126.99421849699539), // 지도의 중심좌표
+    center: new kakao.maps.LatLng(37.478991076830845, 126.88110856221225), // 지도의 중심좌표
     level: 5 // 지도의 확대 레벨
 };
 
@@ -22,6 +22,44 @@ var ThisMarker;         //선택했던 마커를 담아놓는 변수
 
 var centerloc_y;
 var centerloc_x;
+
+function foraws(){
+   var lat = 37.478991076830845,  // 위도
+    lon = 126.88110856221225; // 경도
+
+var locPosition = new kakao.maps.LatLng(lat, lon), // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
+    message = '<div style="padding:5px;">이곳을 중심으로 검색합니다.</div>'; // 인포윈도우에 표시될 내용입니다
+
+// 마커와 인포윈도우를 표시합니다
+
+var MyMarker = new kakao.maps.Marker({  
+    map: map, 
+    position: locPosition
+}); 
+
+var iwContent = message, // 인포윈도우에 표시할 내용
+    iwRemoveable = true;
+
+// 인포윈도우를 생성합니다
+var Myinfowindow = new kakao.maps.InfoWindow({
+    content : iwContent,
+    removable : iwRemoveable
+});
+
+// 인포윈도우를 마커위에 표시합니다 
+Myinfowindow.open(map, MyMarker);
+//지도 중심좌표를 접속위치로 변경합니다
+map.setCenter(locPosition); 
+
+//검색 위치 추가하기
+$("#CenterLocation_y").val(lat);
+$("#CenterLocation_x").val(lon);
+
+CenterMarker=MyMarker;
+Centerinfowindow=Myinfowindow;
+
+setTimeout(function(){Test();Test2()},3000);
+};
 
 //내 위치 검색하기
 function MyLocation(){
@@ -64,8 +102,10 @@ function MyLocation(){
            
            CenterMarker=MyMarker;
          Centerinfowindow=Myinfowindow;
+         
+         setTimeout(function(){Test();Test2()},3000);
+         
          });
-       
    } else { // HTML5의 GeoLocation을 사용할 수 없을때 마커 표시 위치와 인포윈도우 내용을 설정합니다    
            message = '현재 위치를 알 수 없습니다..'
    }
@@ -334,14 +374,13 @@ function makeOverListener(map, marker, infowindow) {
 
 // dd를 누를 때 나옴
 
-MyLocation();
+
+   
 
 $(function(){
    //맨처음 화면을 불러올 때 쓸 함수
-setTimeout(function(){
-   Test();
-   Test2();},500
-   );
+    foraws();
+   
    
 //검색 클릭 시
    $("#em").click(function(){

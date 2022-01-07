@@ -100,8 +100,7 @@
                     <div class="right_address">
                         <p>
                             <span>주식회사 1982 |</span>
-                            <a href="admin/admin_login.do">
-
+							<a href="admin/admin_login.do">
                                 <span>대표이사 : 한세호 |</span>
                             </a>
                                 <span>사업자등록번호 : 123-12-12345</span>

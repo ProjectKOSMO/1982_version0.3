@@ -23,7 +23,29 @@
 		location.href="/project1982/admin/Board.do?nowPage=${paging.nowPage}&cntPerPage="+sel;
 	}
 </script>
-
+<style>
+ .divTableHead:first-child {
+  width: 10%;
+}
+.divTableHead:nth-child(2) {
+  width: 30%;
+}
+.divTableHead:nth-child(3) {
+  width: 10%;
+}
+.divTableHead:nth-child(4) {
+  width: 10%;
+}
+.divTableHead:nth-child(5) {
+  width: 10%;
+}
+.divTableHead:nth-child(6) {
+  width: 15%;
+}
+.divTableHead:last-child {
+  width: 15%;
+}
+</style>
 <body>
         <!--메뉴바  ------------------------------------------------->
         <header class="header" >
@@ -115,7 +137,7 @@
 </div>
  <div style="display: block; text-align: center; margin-bottom: 100px; margin-top:20px;">		
     <c:if test="${paging.startPage != 1 }">
-        <a href="/project1982/admin/Board?nowPage=${paging.startPage - 1 }&cntPerPage=${paging.cntPerPage}">&lt;</a>
+        <a href="/project1982/admin/Board.do?nowPage=${paging.startPage - 1 }&cntPerPage=${paging.cntPerPage}">&lt;</a>
     </c:if>
     <c:forEach begin="${paging.startPage }" end="${paging.endPage }" var="p">
         <c:choose>
@@ -181,10 +203,10 @@
                     <div class="right_address">
                         <p>
                             <span>주식회사 1982 |</span>
-                            <a href="#">
+              
 
                                 <span>대표이사 : 한세호 |</span>
-                            </a>
+              
                                 <span>사업자등록번호 : 123-12-12345</span>
                             </p>
                         <p>

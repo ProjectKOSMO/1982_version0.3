@@ -82,7 +82,10 @@ public class UserVO {
 		UUID uuid = UUID.randomUUID();
 		this.userimg1 = String.valueOf(uuid.toString()) + "_" + this.userimg;
 		//File f = new File("C:\\programing\\WorkSpace\\project1982\\project1982\\src\\main\\webapp\\resources\\upload\\" + this.userimg1);
-		File f = new File("/home/temp/tomcat8.5/webapps/project1982/resources/upload/" + this.userimg1);
+//		File f = new File("/home/temp/tomcat8.5/webapps/project1982/resources/upload/" + this.userimg1);
+		
+		File f = new File("C:\\Users\\Kosmo\\Desktop\\git\\project1982\\src\\main\\webapp\\resources\\upload\\" + this.userimg1);
+
 		try {
 		file.transferTo(f);
 		} catch (IllegalStateException e) {

@@ -14,7 +14,6 @@
   	<link type="text/css" href="/project1982/resources/style/board.css" rel="stylesheet"/>
     <link type="text/css" href="/project1982/resources/style/boardheader.css" rel="stylesheet"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome@5.14.0/css/all.min.css">
-    <script type="text/javascript" src="/project1982/resources/js/userview.js"></script>
 	<title>userBoard</title>
 </head>
 
@@ -24,7 +23,29 @@
 		location.href="/project1982/user/userBoard.do?nowPage=${paging.nowPage}&cntPerPage="+sel;
 	}
 </script>
-
+<style>
+ .divTableHead:first-child {
+  width: 10%;
+}
+.divTableHead:nth-child(2) {
+  width: 30%;
+}
+.divTableHead:nth-child(3) {
+  width: 10%;
+}
+.divTableHead:nth-child(4) {
+  width: 10%;
+}
+.divTableHead:nth-child(5) {
+  width: 10%;
+}
+.divTableHead:nth-child(6) {
+  width: 15%;
+}
+.divTableHead:last-child {
+  width: 15%;
+}
+</style>
 <body>
         <!--메뉴바  ------------------------------------------------->
         <header class="header" >
@@ -58,29 +79,28 @@
 <!-- -----------메인---------------- -->
 
 <main>
-<div>
-	<div class="main_title">고객센터</div> 
-	  <div margin-bottom:10px;">
-        <select id="cntPerPage" name="sel" onchange="selChange()">
-            <option value="5"
-                <c:if test="${paging.cntPerPage == 5}">selected</c:if>>5줄 보기</option>
-            <option value="10"
-                <c:if test="${paging.cntPerPage == 10}">selected</c:if>>10줄 보기</option>
-            <option value="15"
-                <c:if test="${paging.cntPerPage == 15}">selected</c:if>>15줄 보기</option>
-            <option value="20"
-                <c:if test="${paging.cntPerPage == 20}">selected</c:if>>20줄 보기</option>
-        </select>
-    </div>
+	<div>
+		<div class="main_title">고객센터</div>
+		
+		  <div style="margin-bottom:10px;">
+	        <select id="cntPerPage" name="sel" onchange="selChange()">
+	            <option value="5"
+	                <c:if test="${paging.cntPerPage == 5}">selected</c:if>>5줄 보기</option>
+	            <option value="10"
+	                <c:if test="${paging.cntPerPage == 10}">selected</c:if>>10줄 보기</option>
+	            <option value="15"
+	                <c:if test="${paging.cntPerPage == 15}">selected</c:if>>15줄 보기</option>
+	            <option value="20"
+	                <c:if test="${paging.cntPerPage == 20}">selected</c:if>>20줄 보기</option>
+	        </select>
+	    </div>
 	</div>
-	<div id="outer">
-   <!-- 게시판 시작 ---------------->
+	
 
 	
-  
-    
-          
-    <div class="divTable minimalistBlack">
+	   <!-- 게시판 시작 ----------------> 
+	<div id="outer">
+    	<div class="divTable minimalistBlack">
             <div class="divTableHeading"><!-- 제목 전체 -->
                 <div class="divTableRow"><!-- 제목 내부 -->
                     <div class="divTableHead">번호</div>
@@ -91,35 +111,34 @@
                     <div class="divTableHead">파일이름</div>
                     <div class="divTableHead">파일용량</div>
 
-              </div><!-- 제목내부 -->
+              	</div><!-- 제목내부 -->
             </div><!-- 제목 전체 -->
             <div class="divTableBody">
-                <c:forEach items="${boardList}" var="board">
-                <div class="divTableRow">   
-                    <div class="divTableCell">${board.b_id }</div>
-                    <div class="divTableCell" algin="left"><a href="#" onclick="window.open('getBoard.do?b_id=${board.b_id}', '상세글보기','width=500;, height=500, resizable = no, scrollbars = no'); return false">
-                        ${board.b_title }</a></div>
-                    <div class="divTableCell">${board.b_name }</div>
-                    <div class="divTableCell">${board.b_date }</div>
-                    <div class="divTableCell">${board.b_count }</div>
-                    <div class="divTableCell">
-                        <c:choose>
-                        <c:when test="${board.b_fsize==0}">첨부파일 없음</c:when>
-                        <c:otherwise>
-                                <img src="resources/images/disk.gif">${board.b_fname}
-                        </c:otherwise>
-                        </c:choose>
-                    </div>
-                    <div class="divTableCell">${board.b_fsize}byte</div>
+            	<c:forEach items="${boardList}" var="board">
+                	<div class="divTableRow">   
+                    	<div class="divTableCell">${board.b_id }</div>
+                    	<div class="divTableCell" align="center"><a href="#" onclick="window.open('getBoard.do?b_id=${board.b_id}', '상세글보기','width=500;, height=500, resizable = no, scrollbars = no'); return false">
+                        	${board.b_title }</a></div>
+                    	<div class="divTableCell">${board.b_name }</div>
+                    	<div class="divTableCell">${board.b_date }</div>
+                    	<div class="divTableCell">${board.b_count }</div>
+                    	<div class="divTableCell">
+                        	<c:choose>
+                        		<c:when test="${board.b_fsize==0}">첨부파일 없음</c:when>
+                        			<c:otherwise>
+                                		<img src="/project1982/resources/images/disk.gif">${board.b_fname}
+                        			</c:otherwise>
+                        	</c:choose>
+                    	</div>
+                    	<div class="divTableCell">${board.b_fsize}byte</div>
            
+            		</div>
+            	</c:forEach>
             </div>
-            </c:forEach>
-            </div>
-            
-          
-</div>
+		</div>
+	</div>	
 </main>
-</div>
+
  <div style="display: block; text-align: center; margin-bottom: 100px; margin-top:20px;">		
     <c:if test="${paging.startPage != 1 }">
         <a href="/project1982/user/userBoard.do?nowPage=${paging.startPage - 1 }&cntPerPage=${paging.cntPerPage}">&lt;</a>
@@ -137,11 +156,9 @@
     <c:if test="${paging.endPage != paging.lastPage}">
         <a href="/project1982/user/userBoard.do?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}">&gt;</a>
     </c:if>
-    <br> <a class="openboard" href="#" onclick="window.open('insertBoard.do', '새글등록','width=500;, height=500, resizable = no, scrollbars = no'); return false">새글 등록</a>
+    <br><a class="openboard" href="#" onclick="window.open('insertBoard.do', '새글등록','width=500;, height=500, resizable = no, scrollbars = no'); return false">새글 등록</a>
 </div>
 
-
-            
 <form action='/project1982/user/userBoard.do' method='get'>
     <select name="searchCondition" id="" >
         <option value="b_title">제목</option>
@@ -150,7 +167,10 @@
      </select>
      <input type='text' name='searchKeyword'>
      <input type='submit' value='검색'>
- </form>
+</form>
+
+            
+
 
 
 		<!-- footer --------------------------------------------------------------------->
@@ -190,7 +210,7 @@
                     <div class="right_address">
                         <p>
                             <span>주식회사 1982 |</span>
-                            <a href="#">
+                       
 
                                 <span>대표이사 : 한세호 |</span>
                             </a>

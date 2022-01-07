@@ -18,8 +18,6 @@
 	String ownerid = (String)session.getAttribute("ownerid");
 	Integer ownernum = (Integer)session.getAttribute("ownernum");
 	
-	out.println(ownerid + " 님 환영합니다.");
-	out.println("번호 : " + ownernum);
 %>
           <!--메뉴바  ------------------------------------------------->
           <header class="header" >
@@ -39,7 +37,7 @@
                     구인공고
                    </a>
                    <!--유저 -->
-                   <a href="/project1982/owner/ownerMypage" id="s2">
+                   <a href="/project1982/owner/ownerMypage.do" id="s2">
                    마이페이지
                    </a>
                    <!--카트  -->

@@ -166,16 +166,15 @@ margin:auto 300px;
   list-style-type: none;
   padding: 0px;
   margin: 0px;
-  width: 15%;
+  width: 13%;
   background: rgb(25, 177, 126);
   box-shadow: 10px 10px 10px 0 rgba(0,0,0, 0.2);
-  height: 55%;
+  height: 50%;
   font-family: 'Gowun Dodum', sans-serif;
   font-size: 22px;
   position: fixed;
   border-radius: 8px;
   margin-left: 35px;
-
 }
 
 .left_nav_text {

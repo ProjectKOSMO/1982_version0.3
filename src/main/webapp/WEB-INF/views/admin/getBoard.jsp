@@ -105,7 +105,7 @@
                 </div>
                 <div class="wrap">
                     <label for="">작성자</label>
-                    <input name="b_title" type="text" value="${board.b_name }" />
+                    <input name="b_name" type="text" value="${board.b_name }" />
                 </div>
                 <div class="wrap">
                     <label for="">내용</label>
@@ -113,11 +113,11 @@
                 </div>
                 <div class="wrap">
                     <label for="">등록일</label>
-                    <input name="b_title" type="text" value="${board.b_date }" />
+                    <input name="b_date" type="text" value="${board.b_date }" />
                 </div>
                 <div class="wrap">
                     <label for="">조회수</label>
-                    <input name="b_title" type="text" value="${board.b_count }" />
+                    <input name="b_count" type="text" value="${board.b_count }" />
                 </div>
                 
 			
@@ -126,29 +126,20 @@
 				<c:if test="${board.b_realfname != null}">
 				<tr>
 					<td colspan="2" align="center">
-					<%-- <img src="resources/upload/${board.b_fname}" width='500' height='400'> --%>
+					<img src="/project1982/resources/upload/${board.b_realfname}" width='500' height='400'>
 					<a download='${board.b_fname}' href='/project1982/resources/upload/${board.b_realfname}'>${board.b_fname}</a>
 					</td>
 				</tr>
 				</c:if>
-				<tr>
-<!-- 				<td bgcolor="orange">비밀번호</td>
-					<td align="left"><input name="b_pwd" type="text"/></td> -->
-					<c:if test="${board.b_name == userId}">
-						<td colspan="2" align="center"><input type="submit" id="update1" value="글 수정" /></td>
-					</c:if>
-				</tr>
 			</table>
 		</form>
 		<hr>
         <div class="wrap_button">
             <div class="button1">
-		        <a href="#" onclick="window.open('insertBoard.do', '새글등록','width=500;, height=500, resizable = no, scrollbars = no'); return false">등록</a>
+		        <a href="#" onclick="window.close()">닫기</a>
             </div>
             <div class="button2">    
-		        <c:if test="${board.b_name == userId}">
 		        <a href="#" id="delete">삭제</a>
-		        </c:if>
             </div>
         </div>
 

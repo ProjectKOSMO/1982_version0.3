@@ -75,26 +75,10 @@
         border: none;
     }
 </style>
-<script>
-	$(document).ready(function(){
-		$('#save1').on("click",function(){
-			var param = $("#boardform").serialize();
-			$.ajax({
-				type : 'post',
-				url : "../user/saveBoard.do",
-				data : param,
-				success : function(){
-				}
-			})
-			alert("새글 등록이 완료되었습니다")
-			self.close();
-		});
-	});
-</script>
 <body>
 		<h1>글쓰기</h1>		
 		<hr>
-		<form method="POST" name="save" id="boardform" enctype="multipart/form-data"> <!--  enctype="multipart/form-data" -->
+		<form action="saveBoard.do" method="POST" name="save" enctype="multipart/form-data"> <!--  enctype="multipart/form-data" -->
 			<table border="1" cellpadding="0" cellspacing="0">
                 <div class="wrap">
                     <label for="">제목</label>
@@ -106,20 +90,20 @@
                 </div>
                 <div class="wrap">
                     <label for="">내용</label>
-                    <textarea name="b_content" cols="40" rows="10">내용을 입력하세요</textarea>
+                    <textarea name="b_content" cols="40" rows="10" placeholder="내용을 입력하세요"></textarea>
                 </div>
                 <div class="wrap">
                     <label for="">이메일</label>
-                    <input type="text" name='b_email'/ placeholder="이메일을 입력하세요">
+                    <input type="text" name='b_email' placeholder="이메일을 입력하세요">
                 </div>
                 <div class="wrap">
                     <label for="">파일추가</label>
-                    <input type="file" name='file' maxlength="60" size="40">
+                    <input type="file" name='file' id="file" maxlength="60" size="40">
                 </div>   
 					<!-- name="file"은 BoardVO 안에 File file 선언한 이름과 동일해야 함  -->
 
 				<div class="button3">
-					<input type="submit" id="save1"	value=" 새글 등록 " />
+					<input type="submit" value=" 새글 등록 " />
                 </div>    
 
 			</table>

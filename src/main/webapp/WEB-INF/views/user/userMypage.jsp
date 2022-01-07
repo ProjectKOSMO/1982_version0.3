@@ -17,6 +17,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>마이 페이지</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome@5.14.0/css/all.min.css">
     <link type="text/css" href="/project1982/resources/css/reset.min.css" rel="stylesheet">
     <link type="text/css" href="/project1982/resources/css/all.min.css" rel="stylesheet">
 	<link type="text/css" href="/project1982/resources/style/useStyle.css" rel="stylesheet"/>
@@ -181,7 +182,7 @@ $(document).ready(function(){
                                     </div>
                                     <div class="divTableCell">${sup.shoppay }</div>
                                     <div class="divTableCell"> ${sup.maching }</div>
-                                    <div class="divTableCell"><button onclick="window.open('http://localhost:5000', '네이버새창', 'width=500, height=500, toolbar=no, menubar=no, scrollbars=no, resizable=yes');">대화하기</button></div> 
+                                    <div class="divTableCell"><button onclick="window.open('http://9150-125-133-93-157.ngrok.io', '채팅', 'width=500, height=500, toolbar=no, menubar=no, scrollbars=no, resizable=yes');">대화하기</button></div> 
                                 </div> <!-- 첫행 -->	
                                </c:forEach>
                                 
@@ -256,7 +257,7 @@ $(document).ready(function(){
                     <div class="right_address">
                         <p>
                             <span>주식회사 1982 |</span>
-                            <a href="#">
+                           
 
                                 <span>대표이사 : 한세호 |</span>
                             </a>

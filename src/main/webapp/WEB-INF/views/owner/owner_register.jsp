@@ -39,7 +39,7 @@
         <h1>1982 사업자 - 회원가입</h1>
         
            <input class="id_input" id="ownerid" name="ownerid" type="text" placeholder="아이디를 입력하세요" />
-           <span id="idCheckResult" style="width:150px;color:red"></span>
+           <span id="idCheckResult" style="width:250px;color:red"></span>
         
            <input name="ownerpass" id="ownerpass" type="password" placeholder="비밀번호를 입력하세요" />
            <input name="ownerpass2" id="ownerpass2" type="password" placeholder="비밀번호 확인" onkeyup="passConfirm()"/>
@@ -53,14 +53,14 @@
            <input type="button" class="mail_check_button" value="인증요청" />
            <input name="phoneid" class="mail_check_input" disabled="disabled" type="text" placeholder="인증번호" />
           
-           
+           <div id="mail_check_input_box_warn">인증을 요청하세요</div> <br/>
 
         
         
            <input type="submit" id="confirm" name="confirm" disabled="disabled" value="가입" />
 
       </form>
-      <div id="mail_check_input_box_warn">인증을 요청하세요</div> 
+     
       </section>
 </body>
 </html>
